@@ -7,6 +7,7 @@ import { Agence } from '../PFFmodel/agence';
   providedIn: 'root'
 })
 export class AgenceService {
+
   private BASE_URL = "http://localhost:9090/agences";  
   constructor(private httpClient:HttpClient) { }
   

@@ -1,1 +1,54 @@
-<p>edit-chauffeur works!</p>
+<div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Modifier un Chauffeur</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="editForm"> 
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Nom</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="chauffeur.nom" formControlName="nom" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Prénom</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="chauffeur.prenom" formControlName="prenom" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Nom d'utilisateur</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="chauffeur.username" formControlName="username" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">N° de Permis</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="chauffeur.numPermis" formControlName="numPermis" />
+                                </div>
+                            </div>
+                              
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <button class="btn btn-secondary btn-round " (click)="updateChauffeur()">Modifier</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--     </div>-->
+                    </form>
+                </div>
+            </div>
+

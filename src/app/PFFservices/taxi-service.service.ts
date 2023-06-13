@@ -7,12 +7,14 @@ import { Taxi } from '../PFFmodel/taxi';
   providedIn: 'root'
 })
 export class TaxiService {
+
   private BASE_URL = "http://localhost:9090/taxis";  
   constructor(private httpClient:HttpClient) { }
   
   public findAll():Observable<any>{ 
     return this.httpClient.get(this.BASE_URL);
   }
+
 
   public save(taxi:Taxi):Observable<any>{
     return this.httpClient.post(this.BASE_URL,taxi);
