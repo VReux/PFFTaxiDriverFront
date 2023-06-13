@@ -1,1 +1,38 @@
-<p>taxi works!</p>
+<div>
+    <h1>Ajouter un taxi</h1>
+    <form (ngSubmit)="saveTaxi()">
+        <table>
+            <tr>
+                <td>Immatriculation</td>
+                <td><input type="text" [(ngModel)]="taxi.immatriculation" name="immatriculation"/></td>
+            </tr>
+            <tr>
+                <td>Marque</td>
+                <td><input type="text" [(ngModel)]="taxi.marque" name="marque"/></td>
+            </tr>
+            <tr>
+                <td>Modele</td>
+                <td><input type="text" [(ngModel)]="taxi.modele" name="modele"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <table>
+        <tr>
+            <td>Immatriculation</td>
+            <td>Marque</td>
+            <td>Modele</td>
+        </tr>
+        <tr *ngFor="let t of taxis">
+            <td>{{t.immatriculation}}</td>
+            <td>{{t.marque}}</td>
+            <td>{{t.modele}}</td>
+            <td><button (click)="deleteTaxi(t.idTaxi)">Delete</button></td>
+            <td><button (click)="editTaxi(t)">Edit</button></td>
+        </tr>
+    </table>
+</div>
