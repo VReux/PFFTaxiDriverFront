@@ -1,1 +1,26 @@
-<p>agence works!</p>
+<div>
+    <h1>Ajouter une agence</h1>
+    <form (ngSubmit)="saveAgence()">
+        <table>
+            <tr>
+                <td>Nom</td>
+                <td><input type="text" [(ngModel)]="agence.nomAgence" name="nomAgence"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <table>
+        <tr>
+            <td>Nom</td>
+        </tr>
+        <tr *ngFor="let a of agences">
+            <td>{{a.nomAgence}}</td>
+            <td><button (click)="deleteAgence(a.idAgence)">Delete</button></td>
+            <td><button (click)="editAgence(a)">Edit</button></td>
+        </tr>
+    </table>
+</div>

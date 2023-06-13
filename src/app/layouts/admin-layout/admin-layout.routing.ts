@@ -9,6 +9,11 @@ import { UtilisateurComponent } from '../../PFFcomposants/utilisateur/utilisateu
 import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-utilisateur.component';
 import { EditChauffeurComponent } from '../../PFFedit/edit-chauffeur/edit-chauffeur.component';
 import { ChauffeurComponent } from '../../PFFcomposants/chauffeur/chauffeur.component';
+import { TaxiComponent } from 'src/app/PFFcomposants/taxi/taxi.component';
+import { AgenceComponent } from 'src/app/PFFcomposants/agence/agence.component';
+import { EditTaxiComponent } from 'src/app/PFFedit/edit-taxi/edit-taxi.component';
+import { EditAgenceComponent } from 'src/app/PFFedit/edit-agence/edit-agence.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -19,5 +24,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'utilisateur', component: UtilisateurComponent},
     { path: 'editUtilisateur/:id',   component:EditUtilisateurComponent},
     { path: 'chauffeur', component: ChauffeurComponent},
-    { path: 'editChauffeur/:id',   component:EditChauffeurComponent}
+    { path: 'editChauffeur/:id',   component:EditChauffeurComponent},
+    { path: 'taxi', component: TaxiComponent},
+    { path: 'editTaxi/:id',   component:EditTaxiComponent},
+    { path: 'agence', component: AgenceComponent},
+    { path: 'editAgence/:id',   component:EditAgenceComponent}
+
 ];
