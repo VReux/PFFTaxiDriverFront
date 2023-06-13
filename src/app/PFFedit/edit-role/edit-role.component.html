@@ -1,1 +1,31 @@
-<p>edit-role works!</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+<div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Modifier un role</h5>
+        </div>
+        <div class="card-body">
+            <!-- ReactiveFormsModule : formGroup + formControlName-->
+          <form [formGroup]="editForm"> 
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Libelle</label>
+                  <input type="text" class="form-control" [(ngModel)]="role.libelleRole" formControlName="libelleRole">
+                </div>
+              </div>
+              
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <button class="btn btn-primary btn-round" (click)="updateRole()">Modifier</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
