@@ -1,1 +1,22 @@
-<p>edit-taxi works!</p>
+<div>
+    <h1>Modifier un taxi</h1>
+        <form [formGroup]="editForm">
+            <table>
+                <tr>
+                    <td>Immatriculation</td>
+                    <td><input type="text" [(ngModel)]="taxi.immatriculation" formControlName="immatriculation"/></td>
+                </tr>
+                <tr>
+                    <td>Marque</td>
+                    <td><input type="text" [(ngModel)]="taxi.marque" formControlName="marque"/></td>
+                </tr>
+                <tr>
+                    <td>Modele</td>
+                    <td><input type="text" [(ngModel)]="taxi.modele" formControlName="modele"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button (click)="updateTaxi()">Modifier</button></td>
+                </tr>
+            </table>
+        </form>
+</div>
