@@ -10,6 +10,7 @@ import { OffreService } from 'src/app/PFFservices/offre-service.service';
 export class OffreComponent implements OnInit {
   offres!:any[];
   offre:Offre=new Offre();
+  router: any;
 
   constructor(private offreService:OffreService) { }
   ngOnInit(): void {
@@ -36,6 +37,11 @@ export class OffreComponent implements OnInit {
           this.findAllOffres();
         }
       )
+    }
+    editAgence(offre:Offre){
+      localStorage.removeItem("editOffreId");
+      localStorage.setItem("editOffreId",offre.idOffre.toString());
+      this.router.navigate(['/editOffre',offre.idOffre]);
     }
 
 }
