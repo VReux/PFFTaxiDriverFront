@@ -10,6 +10,7 @@ import { ReservationService } from 'src/app/PFFservices/reservation-service.serv
 export class ReservationComponent implements OnInit {
   reservations!:any[]; 
   reservation:Reservation=new Reservation();
+  router: any;
   constructor(private reservationService:ReservationService) { }
 
   ngOnInit(): void {
@@ -34,6 +35,11 @@ export class ReservationComponent implements OnInit {
           this.findAllReservation();
         }
       )
+    }
+    editAgence(reservation:Reservation){
+      localStorage.removeItem("editReservationId");
+      localStorage.setItem("editReservationId",reservation.idReservation.toString());
+      this.router.navigate(['/editReservation',reservation.idReservation]);
     }
     
 }

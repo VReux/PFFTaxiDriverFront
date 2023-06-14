@@ -19,8 +19,10 @@ import { EditTaxiComponent } from '../../PFFedit/edit-taxi/edit-taxi.component';
 import { EditAgenceComponent } from '../../PFFedit/edit-agence/edit-agence.component';
 import { ClientComponent } from '../../PFFcomposants/client/client.component';
 import { EditClientComponent } from '../../PFFedit/edit-client/edit-client.component';
-import { OffreComponent } from 'src/app/PFFcomposants/offre/offre.component';
-import { ReservationComponent } from 'src/app/PFFcomposants/reservation/reservation.component';
+import { OffreComponent } from '../../PFFcomposants/offre/offre.component';
+import { ReservationComponent } from '../../PFFcomposants/reservation/reservation.component';
+import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-reservation.component';
+import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -44,6 +46,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reclamation',                      component: ReclamationComponent},
     { path: 'editReclamation/:idReclamation',   component: EditReclamationComponent},
     { path: 'offre',                           component: OffreComponent},
-    { path: 'reservation',                           component: ReservationComponent}
+    { path: 'editOffre/:idOffre',   component: EditOffreComponent},
+    { path: 'reservation',                           component: ReservationComponent},
+    { path: 'editReservation/:idReservation',   component: EditReservationComponent},
 
 ];
