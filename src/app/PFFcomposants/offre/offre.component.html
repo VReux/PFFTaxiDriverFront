@@ -1,1 +1,26 @@
-<p>offre works!</p>
+<div>
+    <h1>Ajouter une offre</h1>
+    <form (ngSubmit)="saveOffre()">
+        <table>
+            <tr>
+                <td>Code promo</td>
+                <td><input type="text" [(ngModel)]="offre.codePromo" name="codePromo"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <h2>Liste des offres</h2>
+    <table>
+        <tr>
+            <td>code promo</td>
+        </tr>
+        <tr *ngFor="let o of offres">
+            <td>{{o.codePromo}}</td>  
+            <td><button (click)="deleteOffre(o.idOffre)">Delete</button></td>
+        </tr>
+    </table>
+</div>

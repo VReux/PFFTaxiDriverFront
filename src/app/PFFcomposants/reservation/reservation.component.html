@@ -1,1 +1,60 @@
-<p>reservation works!</p>
+<div>
+    <h1>Ajouter une reservation</h1>
+    <form (ngSubmit)="saveReservation()">
+        <table>
+            <tr>
+                <td>Heure de Depart:</td>
+                <td><input type="datetime-local" [(ngModel)]="reservation.heureDepart" name="heureDepart"/></td>
+            </tr>
+            <tr>
+                <td>Taux horaire:</td>
+                <td><input type="number" [(ngModel)]="reservation.tauxHoraire" name="tauxHoraire"/></td>
+            </tr>
+            <tr>
+                <td>Validation:</td>
+                <td><input type="checkbox" [(ngModel)]="reservation.validation" name="validation"/></td>
+            </tr>
+            <tr>
+                <td>Adresse de départ:</td>
+                <td>Rue</td>
+                <td><input type="text" [(ngModel)]="reservation.adresseDepart.rue" name="adresseDepart.rue"/></td>
+                <td>Code Postal</td>
+                <td><input type="text" [(ngModel)]="reservation.adresseDepart.codePostal" name="adresseDepart.codePostal"/></td>
+                <td>ville</td>
+                <td><input type="text" [(ngModel)]="reservation.adresseDepart.ville" name="adresseDepart.ville"/></td>
+            </tr>
+            <tr>
+                <td>Adresse d'arrivée:</td>
+                <td>Rue</td>
+                <td><input type="text" [(ngModel)]="reservation.adresseArrivee.rue" name="adresseArrivee.rue"/></td>
+                <td>code postal</td>
+                <td><input type="text" [(ngModel)]="reservation.adresseArrivee.codePostal" name="adresseArrivee.codePostal"/></td>
+                <td>ville</td>
+                <td><input type="text" [(ngModel)]="reservation.adresseArrivee.ville" name="adresseArrivee.ville"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <table>
+        <tr>
+            <td>Heure de départ</td>
+            <td>Taux horaire</td>
+            <td>Validation</td>
+            <td>Adresse de départ</td>
+            <td>Adresse d'arrivée</td>
+        </tr>
+        <tr *ngFor="let r of reservations">
+            <td>{{r.heureDepart}}</td>
+            <td>{{r.tauxHoraire}}</td>
+            <td>{{r.validation ? 'Validée':'Non Validée'}}</td>  
+            <td>{{r.adresseDepart.rue}},{{reservation.adresseDepart.codePostal}},{{reservation.adresseDepart.ville}}</td>
+            <td>{{r.adresseArrivee.rue}},{{reservation.adresseArrivee.codePostal}},{{reservation.adresseArrivee.ville}}</td>   
+            <td><button (click)="deleteReservation(r.idReservation)">Delete</button></td>
+        </tr>
+    </table>
+</div>
+
