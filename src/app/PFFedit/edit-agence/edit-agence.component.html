@@ -1,1 +1,14 @@
-<p>edit-agence works!</p>
+<div>
+    <h1>Modifier une agence</h1>
+        <form [formGroup]="editForm">
+            <table>
+                <tr>
+                    <td>Nom</td>
+                    <td><input type="text" [(ngModel)]="agence.nomAgence" formControlName="nomAgence"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button (click)="updateAgence()">Modifier</button></td>
+                </tr>
+            </table>
+        </form>
+</div>

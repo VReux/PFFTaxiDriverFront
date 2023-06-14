@@ -39,9 +39,12 @@ import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-ut
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     ClipboardModule,
+    ReactiveFormsModule
+
   ],
   declarations: [
     DashboardComponent,
