@@ -16,11 +16,11 @@ export class EditRoleComponent implements OnInit {
   editForm!: FormGroup;
   utilisateur: Role = new Role();
   constructor(private router: Router, private roleService: RoleService, private formBuilder: FormBuilder) { }
-  // Etape 1 : Remplir les champs du formulaire
+
   ngOnInit(): void {
-    let currentUser = localStorage.getItem("editUserId"); // currentUser = string
-    // currentUser == undefined
-    if (!currentUser) { // currentUser == false
+    let currentRole = localStorage.getItem("editUserId");
+
+    if (!currentRole) {
       alert("Invalid Action...");
       this.router.navigate(["/user-profile"]);
       return;
@@ -29,8 +29,22 @@ export class EditRoleComponent implements OnInit {
       idRole: [],
       libelle: ['', Validators.required],
     })
+    this.roleService.findOne(+currentRole).subscribe(data => { this.editForm.patchValue(data); console.log("data" + data); });
+  }
+  updateRole() {
+    var RoleString = JSON.stringify(this.editForm.value);
+    this.roleService.update(RoleString).subscribe(
+      () => {
+        this.router.navigate(["/role"]);
+      }
+    )
   }
 }
+
+
+
+
+
 
 
 

@@ -19,5 +19,13 @@ export class RoleService {
   public delete(id: number): Observable<any> {
     return this.httpClient.delete(this.BASE_URL + "/" + id);
   }
+  public findOne(id:number):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/'+id);
+  }
+
+  public update(role:any):Observable<any>{
+    var roleJSON = JSON.parse(role);
+    return this.httpClient.put(this.BASE_URL+'/'+roleJSON.idRole,roleJSON);
+  }
 
 }

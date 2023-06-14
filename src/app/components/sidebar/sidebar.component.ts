@@ -24,7 +24,8 @@ export const ROUTES: RouteInfo[] = [
   { path: '/taxi', title: 'Taxi',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/agence', title: 'Agence',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/offre', title: 'Offre',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/reservation', title: 'Reservation',  icon:'ni-circle-08 text-pink', class: '' }
+  { path: '/reservation', title: 'Reservation',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/facture', title: 'Facture',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 
 @Component({
