@@ -1,0 +1,22 @@
+<p>pfflogin works!</p>
+
+<div>
+    <h1>Authentification</h1>
+    <form (submit)="login()">
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" [(ngModel)]="credentials.username" name="username"/></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="text" [(ngModel)]="credentials.password" name="password"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button>Se connecter</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

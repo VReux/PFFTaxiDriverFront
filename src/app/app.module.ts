@@ -15,6 +15,7 @@ import { ComponentsModule } from './components/components.module';
 import { FactureComponent } from './PFFcomposants/facture/facture.component';
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -28,8 +29,7 @@ import { FactureComponent } from './PFFcomposants/facture/facture.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent,
-    FactureComponent
+    AuthLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

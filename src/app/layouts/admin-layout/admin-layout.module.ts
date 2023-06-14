@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
+import { Injectable, NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -31,7 +31,23 @@ import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-re
 import { EditRoleComponent } from '../../PFFedit/edit-role/edit-role.component';
 import { EditTaxiComponent } from '../../PFFedit/edit-taxi/edit-taxi.component';
 import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-utilisateur.component';
-// import { ToastrModule } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { UtilisateurService } from '../../PFFservices/utilisateur-service.service';
+import { RoleService } from '../../PFFservices/role-service.service';
+import { AppService } from '../../PFFservices/app.service';
+import { ToastrModule } from 'ngx-toastr';
+import { PFFloginComponent } from '../../PFFcomposants/pfflogin/pfflogin.component';
+import { FactureComponent } from '../../PFFcomposants/facture/facture.component';
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor{
+ intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+   const xhr = req.clone({
+     headers: req.headers.set('X-Requested-With','XMLHttpRequest')
+   });
+   return next.handle(xhr);
+ }
+ }
 
 @NgModule({
   imports: [
@@ -42,7 +58,7 @@ import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-ut
     HttpClientModule,
     NgbModule,
     ClipboardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -68,8 +84,12 @@ import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-ut
     ReservationComponent,
     ReclamationComponent,
     TaxiComponent,
-    CourseComponent
-  ]
+    CourseComponent,
+    FactureComponent,
+    PFFloginComponent
+  ],
+  providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
+  
 })
 
 export class AdminLayoutModule {}
