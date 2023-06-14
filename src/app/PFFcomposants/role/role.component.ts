@@ -10,32 +10,30 @@ import { RoleService } from '../../PFFservices/role-service.service';
   providers: []
 })
 export class RoleComponent implements OnInit {
-// Déclaration d'un tableau d'utilisateurs
-  // ! : le tableau n'est pas initialisé
-  roles!:any[]; // any : n'importe quel type de données
-  role:Role=new Role();
-  // DI : par constructeur  
-  constructor(private roleService:RoleService){
+  roles!: any[];
+  role: Role = new Role();
+
+  constructor(private roleService: RoleService) {
   }
   ngOnInit(): void {
-    // step 6
+
     this.findAllRoles();
   }
-  // step 5
-  findAllRoles(){
-    this.roleService.findAll().subscribe(data => {this.roles = data});
+
+  findAllRoles() {
+    this.roleService.findAll().subscribe(data => { this.roles = data });
   }
-  saveRole(){
+  saveRole() {
     this.roleService.save(this.role).subscribe(
       () => {
-        // MAJ la liste des utilisateurs
+
         this.findAllRoles();
-        // Vider le formulaire
+
         this.role = new Role();
       }
     )
   }
-  deleteRole(id:number){
+  deleteRole(id: number) {
     this.roleService.delete(id).subscribe(
       () => {
         this.findAllRoles();
