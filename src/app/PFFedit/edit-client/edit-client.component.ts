@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Client } from 'src/app/PFFmodel/client';
+import { ClientService } from 'src/app/PFFservices/client-service.service';
 
 @Component({
   selector: 'app-edit-client',
@@ -7,9 +11,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditClientComponent implements OnInit {
 
-  constructor() { }
+  editForm!:FormGroup;
+  client:Client=new Client();
+  
+  constructor(private router:Router, 
+    private clientService:ClientService,
+    private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    let currentClient = localStorage.getItem("editClientId"); 
+  
+    if(!currentClient){ 
+      alert("Invalid Action...");
+      this.router.navigate(["/client"]);
+      return;
+    }
+
+    this.editForm = this.formBuilder.group({
+      idUtilisateur:[],
+      nom:['',Validators.required],
+      prenom:['',Validators.required],
+      username:['',Validators.required],
+      email:['',Validators.required],
+    })
+    this.clientService.findOne(+currentClient).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
+  }
+  updateClient(){
+    var clientString = JSON.stringify(this.editForm.value);
+    this.clientService.update(clientString).subscribe(
+      () =>{
+        this.router.navigate(["/client"]);
+      }
+    )
   }
 
 }

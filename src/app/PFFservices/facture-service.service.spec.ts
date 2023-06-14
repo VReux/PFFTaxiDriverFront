@@ -2,7 +2,8 @@ import { TestBed } from '@angular/core/testing';
 
 import { FactureService } from './facture-service.service';
 
-describe('FactureServiceService', () => {
+describe('FactureService', () => {
+
   let service: FactureService;
 
   beforeEach(() => {

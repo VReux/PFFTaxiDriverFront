@@ -1,2 +1,6 @@
-export class Chauffeur {
+import { Utilisateur } from "./utilisateur";
+
+export class Chauffeur extends Utilisateur{
+numPermis!:string;
+
 }
