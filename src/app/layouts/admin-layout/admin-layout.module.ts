@@ -19,7 +19,6 @@ import { CourseComponent } from '../../PFFcomposants/course/course.component';
 import { OffreComponent } from '../../PFFcomposants/offre/offre.component';
 import { ReclamationComponent } from '../../PFFcomposants/reclamation/reclamation.component';
 import { ReservationComponent } from '../../PFFcomposants/reservation/reservation.component';
-import { RoleComponent } from '../../PFFcomposants/role/role.component';
 import { TaxiComponent } from '../../PFFcomposants/taxi/taxi.component';
 import { UtilisateurComponent } from '../../PFFcomposants/utilisateur/utilisateur.component';
 import { EditAgenceComponent } from '../../PFFedit/edit-agence/edit-agence.component';
@@ -44,7 +43,6 @@ import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-ut
     NgbModule,
     ClipboardModule,
     ReactiveFormsModule
-
   ],
   declarations: [
     DashboardComponent,
@@ -62,7 +60,6 @@ import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-ut
     EditOffreComponent,
     EditReservationComponent,
     EditReclamationComponent,
-    RoleComponent,
     UtilisateurComponent,
     ChauffeurComponent,
     ClientComponent,

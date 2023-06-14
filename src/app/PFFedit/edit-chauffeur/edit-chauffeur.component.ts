@@ -19,9 +19,9 @@ export class EditChauffeurComponent implements OnInit {
     private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
-    let currentUser = localStorage.getItem("editUserId"); 
+    let currentChauffeur = localStorage.getItem("editChauffeurId"); 
   
-    if(!currentUser){ 
+    if(!currentChauffeur){ 
       alert("Invalid Action...");
       this.router.navigate(["/chauffeur"]);
       return;
@@ -34,7 +34,7 @@ export class EditChauffeurComponent implements OnInit {
       username:['',Validators.required],
       numPermis:['',Validators.required],
     })
-    this.chauffeurService.findOne(+currentUser).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
+    this.chauffeurService.findOne(+currentChauffeur).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
   }
   updateChauffeur(){
     var chauffeurString = JSON.stringify(this.editForm.value);

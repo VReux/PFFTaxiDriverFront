@@ -13,10 +13,12 @@ import { EditReclamationComponent } from '../../PFFedit/edit-reclamation/edit-re
 import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-utilisateur.component';
 import { EditChauffeurComponent } from '../../PFFedit/edit-chauffeur/edit-chauffeur.component';
 import { ChauffeurComponent } from '../../PFFcomposants/chauffeur/chauffeur.component';
-import { TaxiComponent } from 'src/app/PFFcomposants/taxi/taxi.component';
-import { AgenceComponent } from 'src/app/PFFcomposants/agence/agence.component';
-import { EditTaxiComponent } from 'src/app/PFFedit/edit-taxi/edit-taxi.component';
-import { EditAgenceComponent } from 'src/app/PFFedit/edit-agence/edit-agence.component';
+import { TaxiComponent } from '../../PFFcomposants/taxi/taxi.component';
+import { AgenceComponent } from '../../PFFcomposants/agence/agence.component';
+import { EditTaxiComponent } from '../../PFFedit/edit-taxi/edit-taxi.component';
+import { EditAgenceComponent } from '../../PFFedit/edit-agence/edit-agence.component';
+import { ClientComponent } from '../../PFFcomposants/client/client.component';
+import { EditClientComponent } from '../../PFFedit/edit-client/edit-client.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -29,6 +31,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editUtilisateur/:id',   component:EditUtilisateurComponent},
     { path: 'chauffeur', component: ChauffeurComponent},
     { path: 'editChauffeur/:id',   component:EditChauffeurComponent},
+    { path: 'client', component: ClientComponent},
+    { path: 'editClient/:id',   component:EditClientComponent},
     { path: 'taxi', component: TaxiComponent},
     { path: 'editTaxi/:id',   component:EditTaxiComponent},
     { path: 'agence', component: AgenceComponent},
