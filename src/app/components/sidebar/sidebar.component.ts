@@ -20,6 +20,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/reclamation', title: 'Reclamation',  icon:'ni ni-bell-55 text-orange', class: '' },
   { path: '/utilisateur', title: 'Les utilisateurs',  icon:'ni-single-02', class: '' },
   { path: '/chauffeur', title: 'Les chauffeurs',  icon:'ni-circle-08', class: '' },
+  { path: '/client', title: 'Les clients',  icon:'ni-circle-08', class: '' },
   { path: '/taxi', title: 'Taxi',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/agence', title: 'Agence',  icon:'ni-circle-08 text-pink', class: '' }
 ];
