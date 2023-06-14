@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reclamation } from '../../PFFmodel/reclamation';
-import { ReclamationService } from '../../PFFservices/reclamation.service';
+import { ReclamationService } from '../../PFFservices/reclamation-service.service';
 import { Router } from '@angular/router';
 
 @Component({

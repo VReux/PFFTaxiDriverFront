@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../PFFmodel/course';
-import { CourseService } from '../../PFFservices/course.service';
+import { CourseService } from '../../PFFservices/course-service.service';
 import { Router } from '@angular/router';
 
 @Component({
