@@ -6,6 +6,8 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { UtilisateurComponent } from '../../PFFcomposants/utilisateur/utilisateur.component';
+import { FactureComponent } from '../../PFFcomposants/facture/facture.component';
+import { RoleComponent } from '../../PFFcomposants/role/role.component';
 import { ReclamationComponent } from '../../PFFcomposants/reclamation/reclamation.component';
 import { CourseComponent } from '../../PFFcomposants/course/course.component';
 import { EditCourseComponent } from '../../PFFedit/edit-course/edit-course.component';
@@ -20,6 +22,11 @@ import { EditAgenceComponent } from '../../PFFedit/edit-agence/edit-agence.compo
 import { ClientComponent } from '../../PFFcomposants/client/client.component';
 import { EditClientComponent } from '../../PFFedit/edit-client/edit-client.component';
 import { PFFloginComponent } from '../../PFFcomposants/pfflogin/pfflogin.component';
+import { OffreComponent } from '../../PFFcomposants/offre/offre.component';
+import { ReservationComponent } from '../../PFFcomposants/reservation/reservation.component';
+import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-reservation.component';
+import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -28,6 +35,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
+    { path: 'facture',        component: FactureComponent},
+    { path: 'role',           component: RoleComponent},
     { path: 'utilisateur', component: UtilisateurComponent},
     { path: 'editUtilisateur/:id',   component:EditUtilisateurComponent},
     { path: 'chauffeur', component: ChauffeurComponent},
@@ -42,6 +51,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editCourse/:idCourse',             component: EditCourseComponent},
     { path: 'reclamation',                      component: ReclamationComponent},
     { path: 'editReclamation/:idReclamation',   component: EditReclamationComponent},
-    { path: 'login',   component: PFFloginComponent}
+    { path: 'login',   component: PFFloginComponent},
+    { path: 'offre',                           component: OffreComponent},
+    { path: 'editOffre/:idOffre',   component: EditOffreComponent},
+    { path: 'reservation',                           component: ReservationComponent},
+    { path: 'editReservation/:idReservation',   component: EditReservationComponent},
 
 ];

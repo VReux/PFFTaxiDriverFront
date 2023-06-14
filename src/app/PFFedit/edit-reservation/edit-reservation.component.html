@@ -1,1 +1,64 @@
-<p>edit-reservation works!</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+<div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Modifier une reservation</h5>
+        </div>
+        <div class="card-body">
+
+          <form [formGroup]="editForm"> 
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Heure de Depart</label>
+                  <input type="datetime-local" class="form-control" [(ngModel)]="reservation.heureDepart" formControlName="heureDepart">
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Taux horaire</label>
+                  <input type="number" class="form-control" [(ngModel)]="reservation.tauxHoraire" formControlName="tauxHoraire">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Validation</label>
+                  <input type="checkbox" class="form-control" [(ngModel)]="reservation.validation" formControlName="username">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>Adresse de Depart</label>
+                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.rue" formControlName="adresseDepart.rue">
+                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.codePostal" formControlName="adresseDepart.codePostal">
+                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.ville" formControlName="adresseDepart.ville">
+                  </div>
+                </div>
+                </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Adresse d'arrivée</label>
+                  <input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.rue" formControlName="adresseArrivee.rue">
+                  <input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.codePostal" formControlName="adresseArrivee.codePostal">
+                  <input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.ville" formControlName="adresseArrivee.ville">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pl-1">
+                <button class="btn btn-primary btn-round" (click)="updateReservation()">Modifier</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,1 +1,103 @@
-<p>edit-course works!</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+   <div class="row">
+       <div class="col-md-8">
+       <div class="card">
+               <div class="card-header">
+                   <h5 class="title">Modifier une course</h5>
+               </div>
+               <div class="card-body">
+               <!-- ReactiveFormsModule : formGroup + formControlName-->
+                    <form [formGroup]="editForm">
+                    <h3 class="title">Adresse de départ :</h3>
+                    <!--Adresse de Depart-->
+                    <div class="row">
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Rue</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.adresseDepart.rue" name="rueDepart">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Code Postal</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.adresseDepart.codePostal" name="codePostalDepart">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.adresseDepart.ville" name="villeDepart">
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="title">Adresse d'arrivée :</h3>
+                    <!--Adresse d'Arrivee-->
+                    <div class="row">
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Rue</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.adresseArrivee.rue" name="rueArrivee">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Code Postal</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.adresseArrivee.codePostal" name="codePostalArrivee">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Ville</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.adresseArrivee.ville" name="villeArrivee">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--tempsCourse!:number & prixReel!:number-->
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Temps de la course</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.tempsCourse" name="tempsCourse">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Prix total de la course</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.prixReel" name="prixReel">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--avisCourse!:string & noteCourse!:number & noteChauffeur!:number;-->
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Avis sur la course</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.avisCourse" name="avisCourse">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Note sur la course</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.noteCourse" name="noteCourse">
+                            </div>
+                        </div>
+                        <div class="col-md-4 pr-1">
+                            <div class="form-group">
+                                <label>Note sur le chauffeur</label>
+                                <input type="text" class="form-control" [(ngModel)]="course.noteChauffeur" name="noteChauffeur">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 pl-1">
+                            <button class="btn btn-danger btn-round" (click)="updateCourse()">Modifier</button>
+                        </div>
+                    </div>
+                    </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>

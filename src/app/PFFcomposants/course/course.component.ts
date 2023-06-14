@@ -36,11 +36,11 @@ export class CourseComponent implements OnInit {
        this.findAllCourses();
      }
    )
- /*editCourse(course:Course){
+  }
+  editCourse(course:Course){
    localStorage.removeItem("editCourseId");
    localStorage.setItem("editCourseId",course.idCourse.toString());
    this.router.navigate(['/editCourse',course.idCourse]);
- }*/
  }
-
 }
+
