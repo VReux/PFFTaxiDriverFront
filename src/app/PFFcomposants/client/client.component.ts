@@ -9,17 +9,26 @@ import { ClientService } from '../../PFFservices/client-service.service';
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit {
- 
+
   clients!:any[]; 
   client:Client=new Client();
- 
+  element = false;
   constructor(private clientService:ClientService, private router:Router){
   }
   ngOnInit(): void {
     this.findAllClients();
   }
+
+  //test fonction div
+  showData() {
+    return (this.element = true);
+  }
+  hideData() {
+    return (this.element = false);
+  }
+
+
   findAllClients(){
-    
     this.clientService.findAll().subscribe(data => {this.clients = data});
   }
   saveClient(){
