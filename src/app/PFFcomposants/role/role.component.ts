@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Role } from 'src/app/PFFmodel/role';
-import { RoleService } from '../services/role.service';
+import { Role } from '../../PFFmodel/role';
+import { RoleService } from '../../PFFservices/role-service.service';
+
 
 @Component({
   selector: 'app-role',
@@ -14,7 +15,7 @@ export class RoleComponent implements OnInit {
   roles!:any[]; // any : n'importe quel type de données
   role:Role=new Role();
   // DI : par constructeur  
-  constructor(private roleService:RoleService,/*step4*/private roleService:RoleService){
+  constructor(private roleService:RoleService){
   }
   ngOnInit(): void {
     // step 6
@@ -22,7 +23,7 @@ export class RoleComponent implements OnInit {
   }
   // step 5
   findAllRoles(){
-    this.roleService.findAll().subscribe(data => {this.roless = data});
+    this.roleService.findAll().subscribe(data => {this.roles = data});
   }
   saveRole(){
     this.roleService.save(this.role).subscribe(
