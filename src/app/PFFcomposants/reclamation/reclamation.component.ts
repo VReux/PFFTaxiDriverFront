@@ -36,12 +36,11 @@ export class ReclamationComponent implements OnInit {
        this.findAllReclamations();
      }
    )
- /*editReclamation(reclamation:Reclamation){
+ }
+ editReclamation(reclamation:Reclamation){
    localStorage.removeItem("editReclamationId");
    localStorage.setItem("editReclamationId",reclamation.idReclamation.toString());
    this.router.navigate(['/editReclamation',reclamation.idReclamation]);
- }*/
+ }
  }
 
-
-}
