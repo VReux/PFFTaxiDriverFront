@@ -6,6 +6,10 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { UtilisateurComponent } from '../../PFFcomposants/utilisateur/utilisateur.component';
+import { ReclamationComponent } from '../../PFFcomposants/reclamation/reclamation.component';
+import { CourseComponent } from '../../PFFcomposants/course/course.component';
+import { EditCourseComponent } from '../../PFFedit/edit-course/edit-course.component';
+import { EditReclamationComponent } from '../../PFFedit/edit-reclamation/edit-reclamation.component';
 import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-utilisateur.component';
 import { EditChauffeurComponent } from '../../PFFedit/edit-chauffeur/edit-chauffeur.component';
 import { ChauffeurComponent } from '../../PFFcomposants/chauffeur/chauffeur.component';
@@ -28,6 +32,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'taxi', component: TaxiComponent},
     { path: 'editTaxi/:id',   component:EditTaxiComponent},
     { path: 'agence', component: AgenceComponent},
-    { path: 'editAgence/:id',   component:EditAgenceComponent}
+    { path: 'editAgence/:id',   component:EditAgenceComponent},
+    { path: 'course',                           component: CourseComponent},
+    { path: 'editCourse/:idCourse',             component: EditCourseComponent},
+    { path: 'reclamation',                      component: ReclamationComponent},
+    { path: 'editReclamation/:idReclamation',   component: EditReclamationComponent}
 
 ];

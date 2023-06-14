@@ -44,6 +44,7 @@ import { EditUtilisateurComponent } from '../../PFFedit/edit-utilisateur/edit-ut
     NgbModule,
     ClipboardModule,
     ReactiveFormsModule
+
   ],
   declarations: [
     DashboardComponent,
