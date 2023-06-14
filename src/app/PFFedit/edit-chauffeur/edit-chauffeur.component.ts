@@ -32,6 +32,7 @@ export class EditChauffeurComponent implements OnInit {
       nom:['',Validators.required],
       prenom:['',Validators.required],
       username:['',Validators.required],
+      password:['',Validators.required],
       numPermis:['',Validators.required],
     })
     this.chauffeurService.findOne(+currentChauffeur).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});

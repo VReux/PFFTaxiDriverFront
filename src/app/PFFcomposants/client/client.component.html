@@ -7,94 +7,80 @@
 
 <div class="container-fluid mt--7">
     <div class="row">
-        <div class="col-xl-8 order-xl-1">
+        <div class="col-xl-10 order-xl-1">
             <div class="card shadow">
                 <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter un
                     client</button>
                 <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
                     formulaire</button>
-                
-                    <div *ngIf="element == true">
-                        <div class="card bg-secondary shadow">
-                            <div class="card-header bg-white border-0">
-                                <div class="row align-items-center">
-                                    <div class="col-8">
-                                        <h3 class="mb-0">Ajouter un client</h3>
-                                    </div>
+
+                <div *ngIf="element == true">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">Ajouter un client</h3>
                                 </div>
                             </div>
-                            <div class="card-body" id="testid">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Nom</label>
-                                                <input type="text" class="form-control form-control-alternative"
-                                                    [(ngModel)]="client.nom" name="nom" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Prénom</label>
-                                                <input type="text" class="form-control form-control-alternative"
-                                                    [(ngModel)]="client.prenom" name="prenom" />
-                                            </div>
+                        </div>
+                        <div class="card-body" id="testid">
+                            <form (ngSubmit)="saveClient()">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Nom</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="client.nom" name="nom" />
                                         </div>
                                     </div>
-        
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Nom d'utilisateur</label>
-                                                <input type="text" class="form-control form-control-alternative"
-                                                    [(ngModel)]="client.username" name="username" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label">Email</label>
-                                                <input type="text" class="form-control form-control-alternative"
-                                                    [(ngModel)]="client.email" name="email" />
-                                            </div>
-                                        </div>
-        
-                                        <div class="row">
-                                            <div class="col-md-6 pr-1">
-                                                <button class="btn btn-secondary btn-round ">Ajouter</button>
-                                            </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Prénom</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="client.prenom" name="prenom" />
                                         </div>
                                     </div>
-                                    <!--     </div>-->
-                                </form>
-                            </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Nom d'utilisateur</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="client.username" name="username" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Mot de passe</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="client.password" name="password" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Email</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="client.email" name="email" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 pr-1">
+                                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+                                    </div>
+                                </div>
+
+                                <!--     </div>-->
+                            </form>
                         </div>
                     </div>
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-                    <div class="card-header border-0">
+                </div>
+
+                <div class="card-header border-0">
                     <h3 class="mb-0">Liste des clients</h3>
                 </div>
 
@@ -104,20 +90,21 @@
                             <tr>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Prénom</th>
+                                <th scope="col">Nom d'utilisateur</th>
                                 <th scope="col">Email</th>
-                                <th scope="col"></th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let c of clients">
                                 <td>{{c.nom}}</td>
                                 <td>{{c.prenom}}</td>
+                                <td>{{c.username}}</td>
                                 <td>{{c.email}}</td>
                                 <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                                        (click)="deleteClient(c.idUtilisateur)"><i
-                                            class="now-ui-icons ui-1_simple-remove"></i> </button>
+                                        (click)="deleteClient(c.idUtilisateur)">Supprimer </button>
                                     <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
-                                        (click)="editClient(c)"><i class="now-ui-icons ui-2_settings-90"></i></button>
+                                        (click)="editClient(c)">Modifier</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -125,8 +112,6 @@
                 </div>
             </div>
 
-
-            
-
-            
         </div>
+    </div>
+</div>

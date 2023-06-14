@@ -32,4 +32,9 @@ export class UtilisateurService {
     var utilisateurJSON = JSON.parse(utilisateur);
     return this.httpClient.put(this.BASE_URL+'/'+utilisateurJSON.idUtilisateur,utilisateurJSON);
     }
+
+    // Etape 5 : (recherche)
+  public findByNom(nom:string):Observable<any>{
+      return this.httpClient.get(this.BASE_URL+'/test/'+nom);
+    }
 }
