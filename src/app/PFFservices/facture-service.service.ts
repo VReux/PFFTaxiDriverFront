@@ -20,4 +20,12 @@ export class FactureService {
   public delete(id: number): Observable<any> {
     return this.httpClient.delete(this.BASE_URL + "/" + id);
   }
+  public findOne(id:number):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/'+id);
+  }
+
+  public update(facture:any):Observable<any>{
+    var factureJSON = JSON.parse(facture);
+    return this.httpClient.put(this.BASE_URL+'/'+factureJSON.idFacture,factureJSON);
+  }
 }

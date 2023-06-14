@@ -56,5 +56,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editOffre/:idOffre',   component: EditOffreComponent},
     { path: 'reservation',                           component: ReservationComponent},
     { path: 'editReservation/:idReservation',   component: EditReservationComponent},
-
+    { path: 'facture',                           component: FactureComponent}
 ];

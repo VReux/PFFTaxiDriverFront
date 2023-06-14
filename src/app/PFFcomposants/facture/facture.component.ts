@@ -12,6 +12,7 @@ export class FactureComponent implements OnInit {
   factures!: any[]
   facture: Facture = new Facture();
   date!: Date;
+  router: any;
   constructor(private factureService: FactureService) {
 
   }
@@ -36,6 +37,7 @@ export class FactureComponent implements OnInit {
     this.factureService.save(this.facture).subscribe(
       () => {
         this.findByDateFacture();
+        this.findAllFactures();
         this.facture = new Facture();
       }
     )
@@ -43,8 +45,13 @@ export class FactureComponent implements OnInit {
   deleteFacture(id: number) {
     this.factureService.delete(id).subscribe(
       () => {
+        this.findAllFactures();
       }
     )
   }
-
+  editReclamation(facture:Facture){
+    localStorage.removeItem("editFactureId");
+    localStorage.setItem("editFactureId",facture.idFacture.toString());
+    this.router.navigate(['/editFacture',facture.idFacture]);
+  }
 }
