@@ -9,10 +9,10 @@ export class Course {
 	noteChauffeur!:number;
 	tempsCourse!:number;
 	prixReel!:number;
-	adresseDepart!:Adresse;
-	//adresseDepart:Adresse=new Adresse();
-	adresseArrivee!:Adresse;
-	//adresseArrivee:Adresse=new Adresse();
+	//adresseDepart!:Adresse;
+	adresseDepart:Adresse=new Adresse();
+	//adresseArrivee!:Adresse;
+	adresseArrivee:Adresse=new Adresse();
 	//facture!:Facture;
 	//reservation!:Reservation;
 }
