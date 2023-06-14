@@ -32,6 +32,7 @@ export class EditClientComponent implements OnInit {
       nom:['',Validators.required],
       prenom:['',Validators.required],
       username:['',Validators.required],
+      password:['',Validators.required],
       email:['',Validators.required],
     })
     this.clientService.findOne(+currentClient).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});

@@ -13,12 +13,23 @@ export class ChauffeurComponent implements OnInit {
  
   chauffeurs!:any[]; 
   chauffeur:Chauffeur=new Chauffeur();
- 
+  element = false;
   constructor(private chauffeurService:ChauffeurService, private router:Router){
   }
   ngOnInit(): void {
     this.findAllChauffeurs();
   }
+
+
+  showData() {
+    return (this.element = true);
+  }
+  hideData() {
+    return (this.element = false);
+  }
+
+
+
   findAllChauffeurs(){
     
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
