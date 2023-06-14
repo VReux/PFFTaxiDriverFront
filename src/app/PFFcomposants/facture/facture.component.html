@@ -1,1 +1,70 @@
-<p>facture works!</p>
+<div>
+    <h1>Ajouter une facture</h1>
+    <form (ngSubmit)="saveFacture()">
+        <table>
+            <tr>
+                <td>Temps de course</td>
+                <td><input type="number" [(ngModel)]="facture.tempsCourse" name="tempsCourse" /></td>
+            </tr>
+            <tr>
+                <td>Prix réel HT</td>
+                <td><input type="number" [(ngModel)]="facture.prixReelHT" name="prixReelHT" /></td>
+            </tr>
+            <tr>
+                <td>Prix réel TTC</td>
+                <td><input type="number" [(ngModel)]="facture.prixReelTTC" name="prixReelTTC" /></td>
+            </tr>
+            <tr>
+                <td>TVA</td>
+                <td><input type="number" [(ngModel)]="facture.tva" name="tva" /></td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td><input type="date" [(ngModel)]="facture.date" name="date" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button>Ajouter</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <form (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <td>
+                    Date
+                </td>
+                <td>
+                    <input type="date" [(ngModel)]="date" name="date" />
+                </td>
+            </tr>
+            <td colspan="2">
+                <button type="submit">Recherche</button>
+            </td>
+            <tr>
+
+            </tr>
+        </table>
+    </form>
+</div>
+<div>
+    <table>
+        <tr>
+            <td>Temps de course</td>
+            <td>Prix réel HT</td>
+            <td>Prix réel TTC</td>
+            <td>TVA</td>
+            <td>Date</td>
+            <td>Action</td>
+        </tr>
+        <tr *ngFor="let u of factures">
+            <td>{{u.tempsCourse}}</td>
+            <td>{{u.prixReelHT}}</td>
+            <td>{{u.prixReelTTC}}</td>
+            <td>{{u.tva}}</td>
+            <td>{{u.date}}</td>
+            <td><button (click)="deleteFacture(u.idFacture)">Delete</button></td>
+        </tr>
+    </table>
+</div>
