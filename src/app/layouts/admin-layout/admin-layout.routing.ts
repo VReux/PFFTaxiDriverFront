@@ -26,6 +26,8 @@ import { OffreComponent } from '../../PFFcomposants/offre/offre.component';
 import { ReservationComponent } from '../../PFFcomposants/reservation/reservation.component';
 import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-reservation.component';
 import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.component';
+import { LoginComponent } from 'src/app/pages/login/login.component';
+import { RegisterComponent } from 'src/app/pages/register/register.component';
 
 
 
@@ -52,6 +54,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reclamation',                      component: ReclamationComponent},
     { path: 'editReclamation/:idReclamation',   component: EditReclamationComponent},
     { path: 'login',   component: PFFloginComponent},
+    //{ path: 'login',          component: LoginComponent },
+    { path: 'register',          component: RegisterComponent },
     { path: 'offre',                           component: OffreComponent},
     { path: 'editOffre/:idOffre',   component: EditOffreComponent},
     { path: 'reservation',                           component: ReservationComponent},

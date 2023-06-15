@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class AppService {
   isRespAgence = false;
   isClient = false;
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient, private router:Router) { }
 
   authenticate(credentials:any,callback:any){
     const headersTaxiDriver= new HttpHeaders(
@@ -50,6 +52,17 @@ export class AppService {
       }
       return callback && callback();
     })
+  }
+
+  logout(){
+    this.authenticated=false;
+    this.isAdmin=false;
+    this.isChauffeur=false;
+    this.isClient=false;
+    this.isRespAgence=false;
+    this.responseAll={};
+    this.httpClient.get("http://localhost:9090/logout");
+    this.router.navigate(["/login"]);
   }
   
 }
