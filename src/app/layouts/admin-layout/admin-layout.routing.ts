@@ -26,7 +26,8 @@ import { OffreComponent } from '../../PFFcomposants/offre/offre.component';
 import { ReservationComponent } from '../../PFFcomposants/reservation/reservation.component';
 import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-reservation.component';
 import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.component';
-
+import { ChauffCoursesComponent } from '../../PFFcomposants/chauff-courses/chauff-courses.component';
+import { ChauffValCoursesComponent } from '../../PFFcomposants/chauff-val-courses/chauff-val-courses.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -56,5 +57,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editOffre/:idOffre',   component: EditOffreComponent},
     { path: 'reservation',                           component: ReservationComponent},
     { path: 'editReservation/:idReservation',   component: EditReservationComponent},
-    { path: 'facture',                           component: FactureComponent}
+    { path: 'facture',                           component: FactureComponent},
+    { path: 'chauffCourses', component:ChauffCoursesComponent},
+    { path: 'chauffValCourses', component:ChauffValCoursesComponent}
 ];

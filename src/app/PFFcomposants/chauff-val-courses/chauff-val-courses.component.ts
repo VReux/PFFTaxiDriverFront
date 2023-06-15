@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from '../../PFFmodel/course';
-import { CourseService } from '../../PFFservices/course-service.service';
 import { Router } from '@angular/router';
+import { Course } from 'src/app/PFFmodel/course';
+import { CourseService } from 'src/app/PFFservices/course-service.service';
 
 @Component({
-  selector: 'app-course',
-  templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  selector: 'app-chauff-val-courses',
+  templateUrl: './chauff-val-courses.component.html',
+  styleUrls: ['./chauff-val-courses.component.scss']
 })
-export class CourseComponent implements OnInit {
+export class ChauffValCoursesComponent implements OnInit {
 
+  //valCourses:Course[];
   courses!:any[];
   course:Course = new Course();
   element = false;
@@ -18,6 +19,7 @@ export class CourseComponent implements OnInit {
 
  ngOnInit(): void {
  this.findAllCourses();
+ //this.valCourses = this.courseService.findAll();
  }
 
 showData() {
@@ -51,4 +53,3 @@ hideData() {
    this.router.navigate(['/editCourse',course.idCourse]);
  }
 }
-

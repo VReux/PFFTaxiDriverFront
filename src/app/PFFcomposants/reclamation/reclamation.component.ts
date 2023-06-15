@@ -12,12 +12,20 @@ export class ReclamationComponent implements OnInit {
 
   reclamations!:any[];
   reclamation:Reclamation = new Reclamation();
+  element = false;
 
  constructor(private reclamationService:ReclamationService, private router:Router){ }
 
   ngOnInit(): void {
   this.findAllReclamations();
  }
+
+showData() {
+  return (this.element = true);
+}
+hideData() {
+  return (this.element = false);
+}
 
  findAllReclamations(){
    this.reclamationService.findAll().subscribe(data => {this.reclamations = data});
