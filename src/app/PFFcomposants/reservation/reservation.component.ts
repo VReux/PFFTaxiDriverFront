@@ -36,7 +36,7 @@ export class ReservationComponent implements OnInit {
         }
       )
     }
-    editAgence(reservation:Reservation){
+    editReservation(reservation:Reservation){
       localStorage.removeItem("editReservationId");
       localStorage.setItem("editReservationId",reservation.idReservation.toString());
       this.router.navigate(['/editReservation',reservation.idReservation]);
