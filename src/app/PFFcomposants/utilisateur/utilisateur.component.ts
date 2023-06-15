@@ -22,7 +22,7 @@ export class UtilisateurComponent implements OnInit {
   elemChauff = false;
   elemResp = false;
   elemCli = false;
-
+  elemRech = false;
  // Etape 6 : (recherche)
  nom!:string;
 
@@ -56,6 +56,13 @@ export class UtilisateurComponent implements OnInit {
   }
 
 
+  //affichage de la recherche
+  showRech() {
+    return (this.elemRech = true);
+  }
+  hideRech() {
+    return (this.elemRech = false);
+  }
 
   //affichage des formulaires
   showData() {
