@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chauffeur } from '../../PFFmodel/chauffeur';
 import { ChauffeurService } from '../../PFFservices/chauffeur-service.service';
+import { TaxiService } from '../../PFFservices/taxi-service.service';
+
 
 @Component({
   selector: 'app-chauffeur',
@@ -10,14 +12,15 @@ import { ChauffeurService } from '../../PFFservices/chauffeur-service.service';
 })
 export class ChauffeurComponent implements OnInit {
 
- 
+  taxis!:any[]; 
   chauffeurs!:any[]; 
   chauffeur:Chauffeur=new Chauffeur();
   element = false;
-  constructor(private chauffeurService:ChauffeurService, private router:Router){
+  constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService){
   }
   ngOnInit(): void {
     this.findAllChauffeurs();
+    this.findAllTaxis();
   }
 
 
@@ -29,9 +32,11 @@ export class ChauffeurComponent implements OnInit {
   }
 
 
+  findAllTaxis(){
+    this.taxiService.findAll().subscribe(data => {this.taxis = data});
+  }
 
   findAllChauffeurs(){
-    
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
   }
   saveChauffeur(){
@@ -52,7 +57,6 @@ export class ChauffeurComponent implements OnInit {
 
   editChauffeur(chauffeur:Chauffeur){
     localStorage.removeItem("editChauffeurId");
-    
     localStorage.setItem("editChauffeurId",chauffeur.idUtilisateur.toString());
     this.router.navigate(['/editChauffeur',chauffeur.idUtilisateur]); 
  }

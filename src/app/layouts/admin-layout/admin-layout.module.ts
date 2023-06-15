@@ -39,6 +39,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { PFFloginComponent } from '../../PFFcomposants/pfflogin/pfflogin.component';
 import { FactureComponent } from '../../PFFcomposants/facture/facture.component';
 import { RoleComponent } from 'src/app/PFFcomposants/role/role.component';
+import { GestionChauffeurTaxiComponent } from 'src/app/PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 
 @Injectable()
 export class XhrInterceptor implements HttpInterceptor{
@@ -88,7 +89,8 @@ export class XhrInterceptor implements HttpInterceptor{
     CourseComponent,
     RoleComponent,
     FactureComponent,
-    PFFloginComponent
+    PFFloginComponent,
+    GestionChauffeurTaxiComponent
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
   

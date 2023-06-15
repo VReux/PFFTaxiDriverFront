@@ -26,6 +26,7 @@ import { OffreComponent } from '../../PFFcomposants/offre/offre.component';
 import { ReservationComponent } from '../../PFFcomposants/reservation/reservation.component';
 import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-reservation.component';
 import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.component';
+import { GestionChauffeurTaxiComponent } from 'src/app/PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 
 
 
@@ -56,5 +57,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editOffre/:idOffre',   component: EditOffreComponent},
     { path: 'reservation',                           component: ReservationComponent},
     { path: 'editReservation/:idReservation',   component: EditReservationComponent},
-    { path: 'facture',                           component: FactureComponent}
+    { path: 'facture',                           component: FactureComponent},
+    { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent}
+    
 ];

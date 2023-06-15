@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { FactureComponent } from './PFFcomposants/facture/facture.component';
+import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 
 
 

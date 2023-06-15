@@ -71,9 +71,9 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Taxi</label>
                                             <div>
-                                                <select [(ngModel)]="chauffeur.taxi" name="taxi">
-                                                    <option *ngFor="let t of taxis" [ngValue]="t" required>
-                                                        {{t.immatriculation}}
+                                                <select name="taxi" class="form-control" [(ngModel)]="chauffeur.t">
+                                                    <option *ngFor="let t of taxis" [ngValue]="t">
+                                                        {{t.immatriculation}} ({{t.modele}})
                                                     </option>
                                                 </select>
                                             </div>
@@ -112,7 +112,7 @@
                                 <td>{{c.prenom}}</td>
                                 <td>{{c.username}}</td>
                                 <td>{{c.numPermis}}</td>
-                              <!--  <td>{{c.taxi.idTaxi}}</td>-->
+                                <!--  <td>{{c.taxi.idTaxi}}</td>-->
                                 <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
                                         (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
                                     <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
@@ -124,4 +124,46 @@
                 </div>
             </div>
 
+
+            <div class="row">
+                <div class="col-xl-10 mb-5 mb-xl-0">
+                    <div class="card-header border-0">
+
+                        <h3 class="mb-0">Liste des taxis</h3>
+                    </div>
+
+
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Immatriculation</th>
+                                    <th scope="col">Marque</th>
+                                    <th scope="col">Modèle</th>
+                                    <th scope="col">Agence</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let t of taxis">
+                                    <td>{{t.immatriculation}}</td>
+                                    <td>{{t.marque}}</td>
+                                    <td>{{t.modele}}</td>
+                                    <td>{{t.agence.nom}}</td>
+                                    <!--<td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
+                                <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="editChau(u)">Modifier</button>
+                                <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="testMethode(u)">Test
+                                    de bouton</button>
+                            </td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
