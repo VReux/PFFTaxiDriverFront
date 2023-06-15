@@ -21,6 +21,7 @@
         <tr *ngFor="let o of offres">
             <td>{{o.codePromo}}</td>  
             <td><button (click)="deleteOffre(o.idOffre)">Delete</button></td>
+            <td><button (click)="editOffre(o)">Editer</button></td>
         </tr>
     </table>
 </div>

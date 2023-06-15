@@ -5,7 +5,7 @@ export class Reservation {
     heureDepart!:Date;
     tauxHoraire!:number;
     validation!:boolean;
-    adresseDepart!:Adresse;
-    adresseArrivee!:Adresse;
+    adresseDepart: Adresse = new Adresse(); 
+    adresseArrivee: Adresse = new Adresse();
 
 }

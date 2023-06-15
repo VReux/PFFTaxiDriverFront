@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Reservation } from 'src/app/PFFmodel/reservation';
-import { ReservationService } from 'src/app/PFFservices/reservation-service.service';
+import { Reservation } from '../../PFFmodel/reservation';
+import { ReservationService } from '../../PFFservices/reservation-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -10,8 +11,7 @@ import { ReservationService } from 'src/app/PFFservices/reservation-service.serv
 export class ReservationComponent implements OnInit {
   reservations!:any[]; 
   reservation:Reservation=new Reservation();
-  router: any;
-  constructor(private reservationService:ReservationService) { }
+  constructor(private reservationService:ReservationService,private router:Router) { }
 
   ngOnInit(): void {
   }

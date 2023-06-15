@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Offre } from 'src/app/PFFmodel/offre';
-import { OffreService } from 'src/app/PFFservices/offre-service.service';
+import { Router } from '@angular/router';
+import { Offre } from '../../PFFmodel/offre';
+import { OffreService } from '../../PFFservices/offre-service.service';
 
 @Component({
   selector: 'app-offre',
@@ -10,9 +11,9 @@ import { OffreService } from 'src/app/PFFservices/offre-service.service';
 export class OffreComponent implements OnInit {
   offres!:any[];
   offre:Offre=new Offre();
-  router: any;
+  
 
-  constructor(private offreService:OffreService) { }
+  constructor(private offreService:OffreService,private router:Router) { }
   ngOnInit(): void {
     this.findAllOffres();
   }
