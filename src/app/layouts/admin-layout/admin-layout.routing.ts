@@ -27,7 +27,10 @@ import { ReservationComponent } from '../../PFFcomposants/reservation/reservatio
 import { EditReservationComponent } from '../../PFFedit/edit-reservation/edit-reservation.component';
 import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.component';
 import { GestionChauffeurTaxiComponent } from 'src/app/PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
-
+import { ChauffCoursesComponent } from '../../PFFcomposants/chauff-courses/chauff-courses.component';
+import { ChauffValCoursesComponent } from '../../PFFcomposants/chauff-val-courses/chauff-val-courses.component';
+import { LoginComponent } from 'src/app/pages/login/login.component';
+import { RegisterComponent } from 'src/app/pages/register/register.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -53,11 +56,14 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reclamation',                      component: ReclamationComponent},
     { path: 'editReclamation/:idReclamation',   component: EditReclamationComponent},
     { path: 'login',   component: PFFloginComponent},
+    //{ path: 'login',          component: LoginComponent },
+    { path: 'register',          component: RegisterComponent },
     { path: 'offre',                           component: OffreComponent},
     { path: 'editOffre/:idOffre',   component: EditOffreComponent},
     { path: 'reservation',                           component: ReservationComponent},
     { path: 'editReservation/:idReservation',   component: EditReservationComponent},
     { path: 'facture',                           component: FactureComponent},
-    { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent}
-    
+    { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent},
+    { path: 'chauffCourses', component:ChauffCoursesComponent},
+    { path: 'chauffValCourses', component:ChauffValCoursesComponent}
 ];

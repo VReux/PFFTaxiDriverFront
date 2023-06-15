@@ -16,7 +16,6 @@ import { FactureComponent } from './PFFcomposants/facture/facture.component';
 import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -30,7 +29,7 @@ import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

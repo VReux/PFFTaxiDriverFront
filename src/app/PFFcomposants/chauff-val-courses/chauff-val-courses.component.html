@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title"> Liste des courses</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <button (click)="findAllCourses()"></button>
+                    <table class="table">
+                    <thead class=" text-primary">
+                            <th>
+                                Adresse de départ
+                            </th>
+                            <th>
+                                Adresse d'arrivée
+                            </th>
+                            <th>
+                                Temps total
+                            </th>
+                            <th>
+                                Prix
+                            </th>
+                            <th>
+                                Avis sur la course
+                            </th>
+                            <th>
+                                Note sur la course
+                            </th>
+                            <th>
+                                Note sur le chauffeur
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </thead>
+                    <tbody>
+                        <tr *ngFor="let c of courses">
+                            <td>{{c.adresseDepart.rue}}, {{c.adresseDepart.codePostal}}, {{c.adresseDepart.ville}}</td>
+                            <td>{{c.adresseArrivee.rue}}, {{c.adresseArrivee.codePostal}}, {{c.adresseArrivee.ville}}</td>
+                            <td>{{c.tempsCourse}}</td>
+                            <td>{{c.prixReel}}</td>
+                            <td>{{c.avisCourse}}</td>
+                            <td>{{c.noteCourse}}</td>
+                            <td>{{c.noteChauffeur}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

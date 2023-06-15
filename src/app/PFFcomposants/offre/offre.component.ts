@@ -39,7 +39,7 @@ export class OffreComponent implements OnInit {
         }
       )
     }
-    editAgence(offre:Offre){
+    editOffre(offre:Offre){
       localStorage.removeItem("editOffreId");
       localStorage.setItem("editOffreId",offre.idOffre.toString());
       this.router.navigate(['/editOffre',offre.idOffre]);
