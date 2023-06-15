@@ -14,6 +14,7 @@ export class ReservationComponent implements OnInit {
   constructor(private reservationService:ReservationService,private router:Router) { }
 
   ngOnInit(): void {
+    this.findAllReservation();
   }
   findAllReservation(){
     this.reservationService.findAll().subscribe(data =>{this.reservations = data});

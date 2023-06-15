@@ -12,8 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { FactureComponent } from './PFFcomposants/facture/facture.component';
-
 
 
 @NgModule({
@@ -29,7 +27,7 @@ import { FactureComponent } from './PFFcomposants/facture/facture.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
