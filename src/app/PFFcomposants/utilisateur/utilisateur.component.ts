@@ -145,10 +145,16 @@ saveChauffeur(){
 
 
 
- //test methode -non concluant
- //testMethode(utilisateur:any){
- //   console.log(utilisateur instanceof Chauffeur);  // return false meme lorsque client.
- //}
+
+  testMethode(utilisateur:any){
+   if(utilisateur.email!=null){
+    this.router.navigate(['/editClient',utilisateur.idUtilisateur]);} 
+  else if(utilisateur.numPermis!=null){
+    this.router.navigate(['/editChauffeur',utilisateur.idUtilisateur])}
+    if(utilisateur.email==null){
+      console.log("je suis un responsable!!!")
+    }
+ }
 
  authenticated(){
   return this.appService.authenticated; 
