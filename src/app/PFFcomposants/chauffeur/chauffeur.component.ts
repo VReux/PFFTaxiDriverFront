@@ -14,7 +14,7 @@ export class ChauffeurComponent implements OnInit {
 
   taxis!:any[]; 
   chauffeurs!:any[]; 
-  chauffeur:Chauffeur=new Chauffeur();
+  chauff:Chauffeur=new Chauffeur();
   element = false;
   constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService){
   }
@@ -40,10 +40,10 @@ export class ChauffeurComponent implements OnInit {
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
   }
   saveChauffeur(){
-    this.chauffeurService.save(this.chauffeur).subscribe(
+    this.chauffeurService.save(this.chauff).subscribe(
       () => {
         this.findAllChauffeurs();
-        this.chauffeur = new Chauffeur();
+        this.chauff = new Chauffeur();
       }
     )
   }

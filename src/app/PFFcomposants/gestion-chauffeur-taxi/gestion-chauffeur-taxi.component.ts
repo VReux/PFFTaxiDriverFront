@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chauffeur } from 'src/app/PFFmodel/chauffeur';
-import { Taxi } from 'src/app/PFFmodel/taxi';
 import { ChauffeurService } from 'src/app/PFFservices/chauffeur-service.service';
 import { TaxiService } from 'src/app/PFFservices/taxi-service.service';
 
@@ -12,26 +11,17 @@ import { TaxiService } from 'src/app/PFFservices/taxi-service.service';
 })
 export class GestionChauffeurTaxiComponent implements OnInit {
 
-  taxis!:any[];
-  taxi:Taxi = new Taxi();
+  taxis!:any[]; 
   chauffeurs!:any[]; 
-  chauffeur:Chauffeur=new Chauffeur();
+  chauff:Chauffeur=new Chauffeur();
   element = false;
-
-  constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService) { }
-
+  constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService){
+  }
   ngOnInit(): void {
     this.findAllChauffeurs();
-    this.findAllTaxi();
+    this.findAllTaxis();
   }
 
-  findAllChauffeurs(){
-    this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
-  }
-
-  findAllTaxi(){
-    this.taxiService.findAll().subscribe(data => {this.taxis = data});
-  }
 
   showData() {
     return (this.element = true);
@@ -39,4 +29,36 @@ export class GestionChauffeurTaxiComponent implements OnInit {
   hideData() {
     return (this.element = false);
   }
+
+
+  findAllTaxis(){
+    this.taxiService.findAll().subscribe(data => {this.taxis = data});
+  }
+
+  findAllChauffeurs(){
+    this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
+  }
+  saveChauffeur(){
+    this.chauffeurService.save(this.chauff).subscribe(
+      () => {
+        this.findAllChauffeurs();
+        this.chauff = new Chauffeur();
+      }
+    )
+  }
+  deleteChauffeur(id:number){
+    this.chauffeurService.delete(id).subscribe(
+      () => {
+        this.findAllChauffeurs();
+      }
+    )
+  }
+
+  editChauffeur(chauffeur:Chauffeur){
+    localStorage.removeItem("editChauffeurId");
+    localStorage.setItem("editChauffeurId",chauffeur.idUtilisateur.toString());
+    this.router.navigate(['/editChauffeur',chauffeur.idUtilisateur]); 
+ }
+
+
 }

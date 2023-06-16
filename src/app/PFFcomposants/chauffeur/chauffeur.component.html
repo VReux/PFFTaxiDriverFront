@@ -29,14 +29,14 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Nom</label>
                                             <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.nom" name="nom" />
+                                                [(ngModel)]="chauff.nom" name="nom" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label">Prénom</label>
                                             <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.prenom" name="prenom" />
+                                                [(ngModel)]="chauff.prenom" name="prenom" />
                                         </div>
                                     </div>
                                 </div>
@@ -46,14 +46,14 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Nom d'utilisateur</label>
                                             <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.username" name="username" />
+                                                [(ngModel)]="chauff.username" name="username" />
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label">Mot de passe</label>
                                             <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.password" name="password" />
+                                                [(ngModel)]="chauff.password" name="password" />
                                         </div>
                                     </div>
                                 </div>
@@ -62,21 +62,21 @@
                                         <div class="form-group">
                                             <label class="form-control-label">N° de Permis</label>
                                             <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.numPermis" name="numPermis" />
+                                                [(ngModel)]="chauff.numPermis" name="numPermis" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label">Taxi</label>
-                                            <div>
-                                                <select [(ngModel)]="chauffeur.taxi" name="taxi">
-                                                    <option *ngFor="let t of taxis" [ngValue]="t" required>
-                                                        {{t.immatriculation}}
-                                                    </option>
-                                                </select>
-                                            </div>
+                                            <label>Selectionner un taxi</label>
+                                            <br>
+                                            <select [(ngModel)]="chauff.taxi" name="utilisateur">
+                                                <option *ngFor="let ta of taxis" [ngValue]="ta" required>
+                                                    {{ta.immatriculation}}
+                                                </option>
+                                            </select>
+
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                 <td>{{c.prenom}}</td>
                                 <td>{{c.username}}</td>
                                 <td>{{c.numPermis}}</td>
-                              <!--  <td>{{c.taxi.idTaxi}}</td>-->
+                                <!--  <td>{{c.taxi.idTaxi}}</td>-->
                                 <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
                                         (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
                                     <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"

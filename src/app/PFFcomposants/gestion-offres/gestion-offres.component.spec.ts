@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PFFregisterComponent } from './pffregister.component';
+import { GestionOffresComponent } from './gestion-offres.component';
 
-describe('PFFregisterComponent', () => {
-  let component: PFFregisterComponent;
-  let fixture: ComponentFixture<PFFregisterComponent>;
+describe('GestionOffresComponent', () => {
+  let component: GestionOffresComponent;
+  let fixture: ComponentFixture<GestionOffresComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PFFregisterComponent ]
+      declarations: [ GestionOffresComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PFFregisterComponent);
+    fixture = TestBed.createComponent(GestionOffresComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
