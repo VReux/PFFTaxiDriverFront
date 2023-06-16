@@ -38,9 +38,13 @@ import { AppService } from '../../PFFservices/app.service';
 import { ToastrModule } from 'ngx-toastr';
 import { PFFloginComponent } from '../../PFFcomposants/pfflogin/pfflogin.component';
 import { FactureComponent } from '../../PFFcomposants/facture/facture.component';
-import { RoleComponent } from 'src/app/PFFcomposants/role/role.component';
-import { GestionChauffeurTaxiComponent } from 'src/app/PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
+import { RoleComponent } from '../../PFFcomposants/role/role.component';
+import { GestionChauffeurTaxiComponent } from '../../PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 import { ChauffCoursesComponent } from '../../PFFcomposants/chauff-courses/chauff-courses.component';
+import { GestionOffresComponent } from '../../PFFcomposants/gestion-offres/gestion-offres.component';
+import { GestionReservationsComponent } from '../../PFFcomposants/gestion-reservations/gestion-reservations.component';
+import { GestionFacturesComponent } from '../../PFFcomposants/gestion-factures/gestion-factures.component';
+import { GestionReclamationsComponent } from '../../PFFcomposants/gestion-reclamations/gestion-reclamations.component';
 
 
 @Injectable()
@@ -93,8 +97,11 @@ export class XhrInterceptor implements HttpInterceptor{
     FactureComponent,
     PFFloginComponent,
     GestionChauffeurTaxiComponent,
-    ChauffCoursesComponent
-
+    ChauffCoursesComponent,
+    GestionOffresComponent,
+    GestionReservationsComponent,
+    GestionFacturesComponent,
+    GestionReclamationsComponent
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
   

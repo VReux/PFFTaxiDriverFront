@@ -33,5 +33,6 @@ export class ChauffeurService {
   public update(chauffeur:any):Observable<any>{
     var chauffeurJSON = JSON.parse(chauffeur);
     return this.httpClient.put(this.BASE_URL+'/'+chauffeurJSON.idUtilisateur,chauffeurJSON);
+ //return this.httpClient.put(this.BASE_URL,chauffeurJSON);
     }
 }

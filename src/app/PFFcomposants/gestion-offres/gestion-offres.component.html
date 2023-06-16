@@ -1,0 +1,47 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+
+
+        <div class="col-xl-4 col-lg-8" *ngFor="let o of offres">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xl-9">
+                  <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
+                  <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                </div>
+                <div class="col-xl-2">
+
+                  <button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                    (click)="editOffre(o.idOffre)">
+                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                      <i class="ni ni-settings-gear-65"></i>
+                    </div>
+                  </button>
+                </div>
+                <div class="icon icon-shape bg-danger bg-medium text-white rounded-circle shadow">
+                  <i class="ni ni-fat-remove"></i>
+                </div>
+              </div>
+              <!--
+><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="deleteChauffeur(c.idUtilisateur)">Supprimer 
+                                <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="editChau(u)">Modifier</button>
+
+
+
+
+-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

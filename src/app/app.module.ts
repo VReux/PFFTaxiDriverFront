@@ -14,6 +14,10 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import { FactureComponent } from './PFFcomposants/facture/facture.component';
 import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
+import { GestionOffresComponent } from './PFFcomposants/gestion-offres/gestion-offres.component';
+import { GestionReservationsComponent } from './PFFcomposants/gestion-reservations/gestion-reservations.component';
+import { GestionFacturesComponent } from './PFFcomposants/gestion-factures/gestion-factures.component';
+import { GestionReclamationsComponent } from './PFFcomposants/gestion-reclamations/gestion-reclamations.component';
 
 
 @NgModule({
@@ -29,7 +33,7 @@ import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent,
+    AuthLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
