@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Agence } from 'src/app/PFFmodel/agence';
 import { AgenceService } from 'src/app/PFFservices/agence-service.service';
+import { AppService } from 'src/app/PFFservices/app.service';
 
 @Component({
   selector: 'app-agence',
@@ -13,7 +14,7 @@ export class AgenceComponent implements OnInit {
   agences!:any[];
   agence:Agence = new Agence();
 
-  constructor(private agenceService:AgenceService, private router:Router) { }
+  constructor(private agenceService:AgenceService, private router:Router, private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllAgence();
@@ -44,4 +45,19 @@ export class AgenceComponent implements OnInit {
     this.router.navigate(['/editAgence',agence.idAgence]);
   }
 
+  authenticated(){
+    return this.appService.authenticated;
+  }
+
+  authorities3(){
+    if(this.appService.isChauffeur ==true){
+      return false; 
+    } else return true;
+  }
+
+  authorities4(){
+    if(this.appService.isClient ==true){
+      return false; 
+    } else return true;
+  }
 }

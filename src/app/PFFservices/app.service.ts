@@ -60,8 +60,6 @@ export class AppService {
     this.isChauffeur=false;
     this.isClient=false;
     this.isRespAgence=false;
-    this.responseAll={};
-    this.httpClient.get("http://localhost:9090/logout");
     this.router.navigate(["/login"]);
   }
   
