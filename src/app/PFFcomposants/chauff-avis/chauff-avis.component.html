@@ -1,0 +1,40 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title"> Liste des avis</h4>
+            </div>            
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                    <thead class=" text-primary">
+                            <th>
+                                Course n°
+                            </th>
+                            <th>
+                                Avis sur la course
+                            </th>
+                            <th>
+                                Note sur la course
+                            </th>
+                            <th>
+                                Note sur le chauffeur
+                            </th>
+                        </thead>
+                    <tbody>
+                        <tr *ngFor="let c of courses">
+                            <td>{{c.idCourse}}</td>
+                            <td>{{c.avisCourse}}</td>
+                            <td>{{c.noteCourse}}</td>
+                            <td>{{c.noteChauffeur}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

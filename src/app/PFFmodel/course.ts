@@ -15,4 +15,5 @@ export class Course {
 	adresseArrivee:Adresse=new Adresse();
 	//facture!:Facture;
 	//reservation!:Reservation;
+	varValider!:boolean;
 }

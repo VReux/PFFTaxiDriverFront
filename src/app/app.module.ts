@@ -19,7 +19,6 @@ import { GestionReservationsComponent } from './PFFcomposants/gestion-reservatio
 import { GestionFacturesComponent } from './PFFcomposants/gestion-factures/gestion-factures.component';
 import { GestionReclamationsComponent } from './PFFcomposants/gestion-reclamations/gestion-reclamations.component';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,

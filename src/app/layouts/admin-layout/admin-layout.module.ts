@@ -41,6 +41,9 @@ import { FactureComponent } from '../../PFFcomposants/facture/facture.component'
 import { RoleComponent } from '../../PFFcomposants/role/role.component';
 import { GestionChauffeurTaxiComponent } from '../../PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 import { ChauffCoursesComponent } from '../../PFFcomposants/chauff-courses/chauff-courses.component';
+import { ChauffValCoursesComponent } from 'src/app/PFFcomposants/chauff-val-courses/chauff-val-courses.component';
+import { ChauffAvisComponent } from 'src/app/PFFcomposants/chauff-avis/chauff-avis.component';
+import { EditValCourseComponent } from '../../PFFedit/edit-val-course/edit-val-course.component';
 import { GestionOffresComponent } from '../../PFFcomposants/gestion-offres/gestion-offres.component';
 import { GestionReservationsComponent } from '../../PFFcomposants/gestion-reservations/gestion-reservations.component';
 import { GestionFacturesComponent } from '../../PFFcomposants/gestion-factures/gestion-factures.component';
@@ -98,6 +101,9 @@ export class XhrInterceptor implements HttpInterceptor{
     PFFloginComponent,
     GestionChauffeurTaxiComponent,
     ChauffCoursesComponent,
+    ChauffValCoursesComponent,
+    ChauffAvisComponent,
+    EditValCourseComponent,
     GestionOffresComponent,
     GestionReservationsComponent,
     GestionFacturesComponent,

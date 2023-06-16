@@ -29,9 +29,10 @@ import { EditOffreComponent } from '../../PFFedit/edit-offre/edit-offre.componen
 import { GestionChauffeurTaxiComponent } from 'src/app/PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 import { ChauffCoursesComponent } from '../../PFFcomposants/chauff-courses/chauff-courses.component';
 import { ChauffValCoursesComponent } from '../../PFFcomposants/chauff-val-courses/chauff-val-courses.component';
-
-
-
+import { ChauffAvisComponent } from '../../PFFcomposants/chauff-avis/chauff-avis.component';
+import { LoginComponent } from 'src/app/pages/login/login.component';
+import { RegisterComponent } from 'src/app/pages/register/register.component';
+import { EditValCourseComponent } from '../../PFFedit/edit-val-course/edit-val-course.component';
 import { LoginComponent } from 'src/app/pages/login/login.component';
 import { RegisterComponent } from 'src/app/pages/register/register.component';
 import { GestionReclamationsComponent } from 'src/app/PFFcomposants/gestion-reclamations/gestion-reclamations.component';
@@ -73,9 +74,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent},
     { path: 'chauffCourses', component:ChauffCoursesComponent},
     { path: 'chauffValCourses', component:ChauffValCoursesComponent},
+    { path: 'chauffAvis', component:ChauffAvisComponent},
+    { path: 'editValCourse/:idCourse',             component: EditValCourseComponent},
     { path: 'gestionOffres', component:GestionOffresComponent},
     { path: 'gestionReservations', component:GestionReservationsComponent},
     { path: 'gestionFactures', component:GestionFacturesComponent},
     { path: 'gestionReclamations', component:GestionReclamationsComponent}
-
 ];

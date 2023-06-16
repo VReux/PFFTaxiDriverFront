@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ValCoursesChauffComponent } from './chauff-val-courses.component';
+import { ChauffValCoursesComponent } from './chauff-val-courses.component';
 
-describe('ValCoursesChauffComponent', () => {
-  let component: ValCoursesChauffComponent;
-  let fixture: ComponentFixture<ValCoursesChauffComponent>;
+describe('ChauffValCoursesComponent', () => {
+  let component: ChauffValCoursesComponent;
+  let fixture: ComponentFixture<ChauffValCoursesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ValCoursesChauffComponent ]
+      declarations: [ ChauffValCoursesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ValCoursesChauffComponent);
+    fixture = TestBed.createComponent(ChauffValCoursesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

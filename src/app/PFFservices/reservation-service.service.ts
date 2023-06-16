@@ -18,15 +18,20 @@ export class ReservationService {
     return this.httpClient.post(this.BASE_URL,reservation);
   }
 
-  public delete(id:number):Observable<any>{
-    return this.httpClient.delete(this.BASE_URL+"/"+id);
+  public delete(idReservation:number):Observable<any>{
+    return this.httpClient.delete(this.BASE_URL+"/"+idReservation);
   }
-  public findOne(id:number):Observable<any>{
-    return this.httpClient.get(this.BASE_URL+'/'+id);
+  public findOne(idReservation:number):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/'+idReservation);
   }
 
   public update(reservation:any):Observable<any>{
     var reservationJSON = JSON.parse(reservation);
     return this.httpClient.put(this.BASE_URL+'/'+reservationJSON.idReservation,reservationJSON);
   }
+
+  public findByHeureDepart(heureDepart:Date):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/search/'+heureDepart);
+  }
+ 
 }

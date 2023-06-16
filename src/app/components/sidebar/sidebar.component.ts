@@ -32,8 +32,9 @@ export const ROUTES: RouteInfo[] = [
   { path: '/offre', title: 'Offre',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/reservation', title: 'Reservation',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/facture', title: 'Facture',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffCourses', title: 'Mes courses',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/chauffCourses', title: 'Planning des courses',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/chauffValCourses', title: 'Validation des courses',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/chauffAvis', title: 'Mes avis',  icon:'ni-circle-08 text-pink', class: '' }
 
 
 
