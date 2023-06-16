@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppService } from 'src/app/PFFservices/app.service';
 
 declare interface RouteInfo {
     path: string;
@@ -38,13 +39,25 @@ export const ROUTES: RouteInfo[] = [
 
 ];
 
+//path Admin
+export const ROUTES1: RouteInfo[] = [
+  { path: '/utilisateur', title: 'Les utilisateurs',  icon:'ni-single-02', class: '' }
+];
 
+//path RespAgence
+export const ROUTES2: RouteInfo[] = [
+  { path: '/agence', title: 'Agence',  icon:'ni-circle-08 text-pink', class: '' },
+];
 
+//path Chauffeur
+export const ROUTES3: RouteInfo[] = [
+  { path: '/chauffeur', title: 'Les chauffeurs',  icon:'ni-circle-08', class: '' }
+];
 
-
-
-
-
+//path Client
+export const ROUTES4: RouteInfo[] = [
+  { path: '/client', title: 'Les clients',  icon:'ni-circle-08', class: '' }
+];
 
 @Component({
   selector: 'app-sidebar',
@@ -52,16 +65,55 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
+  admin="authorities1";
+  respAgence="authorities2";
+  chauffeur="false";
+  client="authorities4";
   public menuItems: any[];
+  public menuItems1: any[];
+  public menuItems2: any[];
+  public menuItems3: any[];
+  public menuItems4: any[];
   public isCollapsed = true;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private appService:AppService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuItems1 = ROUTES1.filter(menuItem => menuItem);
+    this.menuItems2 = ROUTES2.filter(menuItem => menuItem);
+    this.menuItems3 = ROUTES3.filter(menuItem => menuItem);
+    this.menuItems4 = ROUTES4.filter(menuItem => menuItem);
     this.router.events.subscribe((event) => {
       this.isCollapsed = true;
    });
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+
+  authorities1(){
+    if(this.appService.isAdmin ==true){
+      return false; 
+    } else return true;
+  }
+
+  authorities2(){
+    if(this.appService.isRespAgence ==true){
+      return false; 
+    } else return true;
+  }
+
+  authorities3(){
+    if(this.appService.isChauffeur ==true){
+      return false; 
+    } else return true;
+  }
+
+  authorities4(){
+    if(this.appService.isClient ==true){
+      return false; 
+    } else return true;
   }
 }

@@ -77,4 +77,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gestionReservations', component:GestionReservationsComponent},
     { path: 'gestionFactures', component:GestionFacturesComponent},
     { path: 'gestionReclamations', component:GestionReclamationsComponent}
+
 ];
