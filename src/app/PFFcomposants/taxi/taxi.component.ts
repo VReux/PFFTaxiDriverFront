@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Taxi } from 'src/app/PFFmodel/taxi';
+import { AgenceService } from 'src/app/PFFservices/agence-service.service';
 import { TaxiService } from 'src/app/PFFservices/taxi-service.service';
 
 @Component({
@@ -11,22 +12,25 @@ import { TaxiService } from 'src/app/PFFservices/taxi-service.service';
 export class TaxiComponent implements OnInit {
 
   taxis!:any[];
-  taxi:Taxi = new Taxi();
-
-  constructor(private taxiService:TaxiService, private router:Router) { }
+  tax:Taxi = new Taxi();
+  agences!:any[];
+  constructor(private taxiService:TaxiService, private agenceService:AgenceService, private router:Router) { }
 
   ngOnInit(): void {
     this.findAllTaxi();
+    this.findAllAgence();
   }
-
+  findAllAgence(){
+    this.agenceService.findAll().subscribe(data => {this.agences = data});
+  }
   findAllTaxi(){
     this.taxiService.findAll().subscribe(data => {this.taxis = data});
   }
   saveTaxi(){
-    this.taxiService.save(this.taxi).subscribe(
+    this.taxiService.save(this.tax).subscribe(
       () => {
         this.findAllTaxi();
-        this.taxi = new Taxi();
+        this.tax = new Taxi();
       }
     )
   }

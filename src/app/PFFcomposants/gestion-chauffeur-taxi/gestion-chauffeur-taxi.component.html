@@ -6,13 +6,13 @@
 
 <div class="container-fluid mt--7">
     <div class="row">
-        <div class="col-xl-10 order-xl-1">
+        <div class="col-xl-11 order-xl-1">
             <div class="card shadow">
                 <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter un
                     chauffeur</button>
                 <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
                     formulaire</button>
-
+                <!--formulaire d'ajout du chauffeur-->
                 <div *ngIf="element == true">
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
@@ -89,9 +89,22 @@
                         </div>
                     </div>
                 </div>
+                <!--fin formulaire d'ajout du chauffeur-->
 
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--Liste chauffeurs-->
                 <div class="card-header border-0">
-
                     <h3 class="mb-0">Liste des chauffeurs</h3>
                 </div>
                 <div class="table-responsive">
@@ -112,7 +125,7 @@
                                 <td>{{c.prenom}}</td>
                                 <td>{{c.username}}</td>
                                 <td>{{c.numPermis}}</td>
-                                <!--  <td>{{c.taxi.idTaxi}}</td>-->
+                                <td>{{c.taxi.immatriculation}}</td>
                                 <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
                                         (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
                                     <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
@@ -122,35 +135,34 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+                <!--Fin Liste chauffeurs-->
 
 
-            <div class="row">
-                <div class="col-xl-10 mb-5 mb-xl-0">
-                    <div class="card-header border-0">
+                <!--Liste taxis-->
 
-                        <h3 class="mb-0">Liste des taxis</h3>
-                    </div>
-
-
-                    <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th scope="col">Immatriculation</th>
-                                    <th scope="col">Marque</th>
-                                    <th scope="col">Modèle</th>
-                                    <th scope="col">Agence</th>
-                                    <th scope="col">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let t of taxis">
-                                    <td>{{t.immatriculation}}</td>
-                                    <td>{{t.marque}}</td>
-                                    <td>{{t.modele}}</td>
-                                    <td>{{t.agence.nom}}</td>
-                                    <!--<td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                <div class="row">
+                    <div class="col-xl-10 mb-5 mb-xl-0">
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">Liste des taxis</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Immatriculation</th>
+                                        <th scope="col">Marque</th>
+                                        <th scope="col">Modèle</th>
+                                        <th scope="col">Agence</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let t of taxis">
+                                        <td>{{t.immatriculation}}</td>
+                                        <td>{{t.marque}}</td>
+                                        <td>{{t.modele}}</td>
+                                        <td>{{t.agence.nom}}</td>
+                                        <!--<td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
                                     (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
                                 <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
                                     (click)="editChau(u)">Modifier</button>
@@ -158,11 +170,14 @@
                                     (click)="testMethode(u)">Test
                                     de bouton</button>
                             </td>-->
-                                </tr>
-                            </tbody>
-                        </table>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
+                <!--Fin liste taxis-->
             </div>
         </div>
     </div>

@@ -1,3 +1,8 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
+
 <div>
     <h1>Ajouter une offre</h1>
     <form (ngSubmit)="saveOffre()">
@@ -5,6 +10,8 @@
             <tr>
                 <td>Code promo</td>
                 <td><input type="text" [(ngModel)]="offre.codePromo" name="codePromo"/></td>
+                <td>descriptionOffre </td>
+                <td><input type="text" [(ngModel)]="offre.descriptionOffre" name="codePromo"/></td>
             </tr>
             <tr>
                 <td colspan="2"><button>Ajouter</button></td>
@@ -17,9 +24,11 @@
     <table>
         <tr>
             <td>code promo</td>
+            <td>description</td>
         </tr>
         <tr *ngFor="let o of offres">
             <td>{{o.codePromo}}</td>  
+            <td>{{o.descriptionOffre}}</td>  
             <td><button (click)="deleteOffre(o.idOffre)">Delete</button></td>
             <td><button (click)="editOffre(o)">Editer</button></td>
         </tr>

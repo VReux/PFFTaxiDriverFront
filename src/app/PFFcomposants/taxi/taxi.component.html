@@ -1,8 +1,8 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
     </div>
-  </div>
-  
+</div>
+
 
 <div>
     <h1>Ajouter un taxi</h1>
@@ -10,20 +10,28 @@
         <table>
             <tr>
                 <td>Immatriculation</td>
-                <td><input type="text" [(ngModel)]="taxi.immatriculation" name="immatriculation"/></td>
+                <td><input type="text" [(ngModel)]="tax.immatriculation" name="immatriculation" /></td>
             </tr>
             <tr>
                 <td>Marque</td>
-                <td><input type="text" [(ngModel)]="taxi.marque" name="marque"/></td>
+                <td><input type="text" [(ngModel)]="tax.marque" name="marque" /></td>
             </tr>
             <tr>
                 <td>Modele</td>
-                <td><input type="text" [(ngModel)]="taxi.modele" name="modele"/></td>
+                <td><input type="text" [(ngModel)]="tax.modele" name="modele" /></td>
             </tr>
+            <label>Selectionner une agence</label>
+            <br>
+            <select [(ngModel)]="tax.agence" name="agence">
+                <option *ngFor="let a of agences" [ngValue]="a" required>
+                    {{a.nomAgence}}
+                </option>
+            </select>
             <tr>
                 <td colspan="2"><button>Ajouter</button></td>
             </tr>
         </table>
+
     </form>
 </div>
 <div>
@@ -32,11 +40,13 @@
             <td>Immatriculation</td>
             <td>Marque</td>
             <td>Modele</td>
+            <td>Agence</td>
         </tr>
         <tr *ngFor="let t of taxis">
             <td>{{t.immatriculation}}</td>
             <td>{{t.marque}}</td>
             <td>{{t.modele}}</td>
+            <td>{{t.agence}}</td>
             <td><button (click)="deleteTaxi(t.idTaxi)">Delete</button></td>
             <td><button (click)="editTaxi(t)">Edit</button></td>
         </tr>
