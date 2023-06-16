@@ -12,9 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-import { FactureComponent } from './PFFcomposants/facture/facture.component';
-import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
-
 
 @NgModule({
   imports: [
@@ -29,7 +26,7 @@ import { GestionChauffeurTaxiComponent } from './PFFcomposants/gestion-chauffeur
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent,
+    AuthLayoutComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

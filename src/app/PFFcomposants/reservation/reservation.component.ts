@@ -11,13 +11,20 @@ import { Router } from '@angular/router';
 export class ReservationComponent implements OnInit {
   reservations!:any[]; 
   reservation:Reservation=new Reservation();
+  heureDepart!:Date;
   constructor(private reservationService:ReservationService,private router:Router) { }
 
   ngOnInit(): void {
     this.findAllReservation();
+    //this.heureDepart=???;
+    this.findByHeureDepart();
   }
   findAllReservation(){
     this.reservationService.findAll().subscribe(data =>{this.reservations = data});
+  }
+
+  findByHeureDepart(){
+    this.reservationService.findByHeureDepart(this.heureDepart).subscribe(data=>{this.reservations = data});
   }
 
   saveReservation(){

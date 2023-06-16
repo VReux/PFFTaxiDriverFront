@@ -10,10 +10,12 @@ import { CourseService } from 'src/app/PFFservices/course-service.service';
 })
 export class ChauffValCoursesComponent implements OnInit {
 
+  //isCourseValid = false;
   //valCourses:Course[];
   courses!:any[];
   course:Course = new Course();
   element = false;
+  valider = false;
 
  constructor(private courseService:CourseService, private router:Router){ }
 
@@ -32,7 +34,26 @@ hideData() {
  findAllCourses(){
    this.courseService.findAll().subscribe(data => {this.courses = data});
  }
- saveCourse(){
+
+ validerCourse(){
+  return (this.course.varValider = true);
+ }
+
+ /*validerCourse() {
+  if (this.course.varValider==false) {
+    this.course.varValider=true;
+  } 
+}*/
+
+ /*testValider(course:any){
+  if(course.varValider=false){
+   this.router.navigate(['/editClient',utilisateur.idUtilisateur]);} 
+  else if(utilisateur.numPermis!=null){
+   this.router.navigate(['/editChauffeur',utilisateur.idUtilisateur])}
+}*/
+
+
+ /*saveCourse(){
    this.courseService.save(this.course).subscribe(
      () => {
        this.findAllCourses();
@@ -46,10 +67,10 @@ hideData() {
        this.findAllCourses();
      }
    )
-  }
-  editCourse(course:Course){
-   localStorage.removeItem("editCourseId");
-   localStorage.setItem("editCourseId",course.idCourse.toString());
-   this.router.navigate(['/editCourse',course.idCourse]);
+  }*/
+  editValCourse(course:Course){
+   localStorage.removeItem("editValCourseId");
+   localStorage.setItem("editValCourseId",course.idCourse.toString());
+   this.router.navigate(['/editValCourse',course.idCourse]);
  }
 }

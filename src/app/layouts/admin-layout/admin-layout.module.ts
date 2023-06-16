@@ -41,6 +41,9 @@ import { FactureComponent } from '../../PFFcomposants/facture/facture.component'
 import { RoleComponent } from 'src/app/PFFcomposants/role/role.component';
 import { GestionChauffeurTaxiComponent } from 'src/app/PFFcomposants/gestion-chauffeur-taxi/gestion-chauffeur-taxi.component';
 import { ChauffCoursesComponent } from '../../PFFcomposants/chauff-courses/chauff-courses.component';
+import { ChauffValCoursesComponent } from 'src/app/PFFcomposants/chauff-val-courses/chauff-val-courses.component';
+import { ChauffAvisComponent } from 'src/app/PFFcomposants/chauff-avis/chauff-avis.component';
+import { EditValCourseComponent } from '../../PFFedit/edit-val-course/edit-val-course.component';
 
 
 @Injectable()
@@ -93,7 +96,10 @@ export class XhrInterceptor implements HttpInterceptor{
     FactureComponent,
     PFFloginComponent,
     GestionChauffeurTaxiComponent,
-    ChauffCoursesComponent
+    ChauffCoursesComponent,
+    ChauffValCoursesComponent,
+    ChauffAvisComponent,
+    EditValCourseComponent,
 
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
