@@ -66,4 +66,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent},
     { path: 'chauffCourses', component:ChauffCoursesComponent},
     { path: 'chauffValCourses', component:ChauffValCoursesComponent}
+
 ];

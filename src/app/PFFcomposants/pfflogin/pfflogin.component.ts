@@ -15,7 +15,7 @@ export class PFFloginComponent {
  
   }
   login(){
-   this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/utilisateur")});
+   this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/agence")});
   }
 
 }
