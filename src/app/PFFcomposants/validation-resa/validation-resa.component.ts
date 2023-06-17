@@ -5,19 +5,22 @@ import { Reservation } from 'src/app/PFFmodel/reservation';
 import { ReservationService } from 'src/app/PFFservices/reservation-service.service';
 
 @Component({
-  selector: 'app-edit-reservation',
-  templateUrl: './edit-reservation.component.html',
-  styleUrls: ['./edit-reservation.component.scss']
+  selector: 'app-validation-resa',
+  templateUrl: './validation-resa.component.html',
+  styleUrls: ['./validation-resa.component.scss']
 })
-export class EditReservationComponent implements OnInit {
+export class ValidationResaComponent implements OnInit {
+  
   editForm!:FormGroup;
+
   reservation:Reservation=new Reservation();
+  
   constructor(private router:Router, 
     private reservationService:ReservationService,
     private formBuilder:FormBuilder){ }
 
   ngOnInit(): void {
-    let currentReservation = localStorage.getItem("editReservationId"); 
+    let currentReservation = localStorage.getItem("validerReservationId"); 
     if(!currentReservation){ 
       alert("Invalid Action...");
       this.router.navigate(["/reservation"]);
@@ -42,5 +45,4 @@ export class EditReservationComponent implements OnInit {
       }
     )
   }
-
 }

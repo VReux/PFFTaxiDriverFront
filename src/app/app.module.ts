@@ -26,6 +26,8 @@ import { ClientCoursesComponent } from './PFFcomposants/client-courses/client-co
 import { AdminGestionComptesComponent } from './PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
 import { AdminStatsComponent } from './PFFcomposants/admin-stats/admin-stats.component';
 import { AdminReclaComponent } from './PFFcomposants/admin-recla/admin-recla.component';
+import { ValidationResaComponent } from './PFFcomposants/validation-resa/validation-resa.component';
+import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence/statistiques-agence.component';
 
 @NgModule({
   imports: [
