@@ -15,33 +15,66 @@
                 </div>
                 <div class="col-xl-2">
 
-                  <button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                    (click)="editOffre(o.idOffre)">
-                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                      <i class="ni ni-settings-gear-65"></i>
-                    </div>
+                  <button class="icon icon-shape bg-danger text-white rounded-circle shadowl" (click)="editOffre(o)">
+                    <i class="ni ni-settings-gear-65"></i>
+                  </button>
+                  <button class="icon icon-shape bg-danger text-white rounded-circle shadowl"
+                    (click)="deleteOffre(o.idOffre)">
+                    <i class="ni ni-fat-remove"></i>
                   </button>
                 </div>
-                <div class="icon icon-shape bg-danger bg-medium text-white rounded-circle shadow">
-                  <i class="ni ni-fat-remove"></i>
-                </div>
               </div>
-              <!--
-><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                                    (click)="deleteChauffeur(c.idUtilisateur)">Supprimer 
-                                <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
-                                    (click)="editChau(u)">Modifier</button>
 
-
-
-
--->
             </div>
           </div>
         </div>
       </div>
 
 
+
+      <br>
+
+      <div class="col-xl-8 col-lg-12">
+        <div class="card">
+
+          <form (ngSubmit)="saveOffre()">
+
+            <div class="card-header">
+              <h5 class="title">Enregistrer une nouvelle offre"</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3 pr-1">
+                </div>
+                <div class="col-md-8 pr-1">
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="form-group">
+                        <label class="form-control-label">Code Promo</label>
+                        <input type="text" class="form-control form-control-alternative" [(ngModel)]="offre.codePromo"
+                          name="codePromo" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group">
+                      <label class="form-control-label">Description</label>
+                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="offre.descriptionOffre"
+                        name="codePromo" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pl-1">
+                  <button class="btn btn-secondary btn-round ">Ajouter</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
     </div>
   </div>
-</div>

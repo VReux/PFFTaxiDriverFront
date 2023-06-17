@@ -26,25 +26,25 @@ ngOnInit(): void {
 let currentOffre = localStorage.getItem("editOffreId"); 
 if(!currentOffre){ 
   alert("Invalid Action...");
-  this.router.navigate(["/offre"]);
+  this.router.navigate(["/gestionOffres"]);
   return;
 }
 this.editForm = this.formBuilder.group({
   idOffre:[],
   codePromo:['',Validators.required],
+  descriptionOffre:['',Validators.required],
 })
 this.offreService.findOne(+currentOffre).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
+
 }
 updateOffre(){
 var offreString = JSON.stringify(this.editForm.value);
 this.offreService.update(offreString).subscribe(
   () =>{
-    this.router.navigate(["/offre"]);
+    this.router.navigate(["/gestionOffres"]);
   }
 )
 }
-
-
 
 findAllOffres() {
 this.offreService.findAll().subscribe(data => { this.offres = data });

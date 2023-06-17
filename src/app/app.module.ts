@@ -18,6 +18,7 @@ import { GestionOffresComponent } from './PFFcomposants/gestion-offres/gestion-o
 import { GestionReservationsComponent } from './PFFcomposants/gestion-reservations/gestion-reservations.component';
 import { GestionFacturesComponent } from './PFFcomposants/gestion-factures/gestion-factures.component';
 import { GestionReclamationsComponent } from './PFFcomposants/gestion-reclamations/gestion-reclamations.component';
+import { GestionVehiculesComponent } from './PFFcomposants/gestion-vehicules/gestion-vehicules.component';
 
 @NgModule({
   imports: [
