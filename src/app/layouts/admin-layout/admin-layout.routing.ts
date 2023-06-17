@@ -38,6 +38,8 @@ import { GestionReservationsComponent } from 'src/app/PFFcomposants/gestion-rese
 import { GestionFacturesComponent } from 'src/app/PFFcomposants/gestion-factures/gestion-factures.component';
 import { GestionOffresComponent } from 'src/app/PFFcomposants/gestion-offres/gestion-offres.component';
 import { GestionVehiculesComponent } from 'src/app/PFFcomposants/gestion-vehicules/gestion-vehicules.component';
+import { ValidationResaComponent } from 'src/app/PFFcomposants/validation-resa/validation-resa.component';
+import { StatistiquesAgenceComponent } from 'src/app/PFFcomposants/statistiques-agence/statistiques-agence.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -79,6 +81,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gestionReservations', component:GestionReservationsComponent},
     { path: 'gestionFactures', component:GestionFacturesComponent},
     { path: 'gestionReclamations', component:GestionReclamationsComponent},
-    { path: 'gestionVehicules', component:GestionVehiculesComponent}
-
+    { path: 'gestionVehicules', component:GestionVehiculesComponent},
+    { path: 'validationReservation/:idReservation',   component: ValidationResaComponent},
+    { path: 'statistiquesAgence',   component: StatistiquesAgenceComponent}
+    
 ];

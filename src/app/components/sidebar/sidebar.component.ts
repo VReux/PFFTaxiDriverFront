@@ -25,6 +25,10 @@ export const ROUTES: RouteInfo[] = [
   { path: '/gestionReclamations', title: 'Gestion reclamations',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/gestionFactures', title: 'gestion Factures',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/gestionReservations', title: 'gestion Reservations',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/statistiquesAgence', title: 'Statistiques',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/chauffCourses', title: 'Planning des courses',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/chauffValCourses', title: 'Validation des courses',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/chauffAvis', title: 'Mes avis',  icon:'ni-circle-08 text-pink', class: '' },
 
   { path: '/utilisateur', title: 'Les utilisateurs',  icon:'ni-single-02', class: '' },
   { path: '/chauffeur', title: 'Les chauffeurs',  icon:'ni-circle-08', class: '' },
@@ -33,10 +37,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/agence', title: 'Agence',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/offre', title: 'Offre',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/reservation', title: 'Reservation',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/facture', title: 'Facture',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffCourses', title: 'Planning des courses',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffValCourses', title: 'Validation des courses',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffAvis', title: 'Mes avis',  icon:'ni-circle-08 text-pink', class: '' }
+  { path: '/facture', title: 'Facture',  icon:'ni-circle-08 text-pink', class: '' }
 
 
 

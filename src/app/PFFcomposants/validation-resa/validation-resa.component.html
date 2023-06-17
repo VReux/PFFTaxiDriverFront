@@ -1,3 +1,10 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
+
+
 <div class="panel-header panel-header-sm">
 </div>
 <div class="main-content">
@@ -9,7 +16,7 @@
         </div>
         <div class="card-body">
 
-          <form [formGroup]="editForm"> 
+          <form [formGroup]="editForm">
             <div class="row">
               <div class="col-md-6 pr-1">
                 <div class="form-group">
@@ -35,7 +42,7 @@
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label>Adresse de Depart</label>
-                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.rue" formControlName="adresseDepart_rue">
+                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.rue" formControlName="adresseDepart.adresseDepart_rue">
                     <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.codePostal" formControlName="adresseDepart.codePostal">
                     <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.ville" formControlName="adresseDepart.ville">
                   </div>

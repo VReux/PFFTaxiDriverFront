@@ -49,6 +49,8 @@ import { GestionReservationsComponent } from '../../PFFcomposants/gestion-reserv
 import { GestionFacturesComponent } from '../../PFFcomposants/gestion-factures/gestion-factures.component';
 import { GestionReclamationsComponent } from '../../PFFcomposants/gestion-reclamations/gestion-reclamations.component';
 import { GestionVehiculesComponent } from 'src/app/PFFcomposants/gestion-vehicules/gestion-vehicules.component';
+import { ValidationResaComponent } from 'src/app/PFFcomposants/validation-resa/validation-resa.component';
+import { StatistiquesAgenceComponent } from 'src/app/PFFcomposants/statistiques-agence/statistiques-agence.component';
 
 
 @Injectable()
@@ -109,7 +111,9 @@ export class XhrInterceptor implements HttpInterceptor{
     GestionReservationsComponent,
     GestionFacturesComponent,
     GestionReclamationsComponent,
-    GestionVehiculesComponent
+    GestionVehiculesComponent,
+    ValidationResaComponent,
+    StatistiquesAgenceComponent
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
   
