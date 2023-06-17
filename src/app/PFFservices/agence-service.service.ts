@@ -31,4 +31,8 @@ export class AgenceService {
   public findOne(id:number):Observable<any>{
     return this.httpClient.get(this.BASE_URL+'/'+id);
   }
+
+  public findByNomAgence(nomAgence:string):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/search/'+nomAgence);
+  }
 }

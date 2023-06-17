@@ -10,8 +10,10 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-xl-9">
-                  <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
-                  <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                  <div class="text-center">
+                    <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
+                    <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                  </div>
                 </div>
                 <div class="col-xl-2">
 
@@ -40,7 +42,7 @@
           <form (ngSubmit)="saveOffre()">
 
             <div class="card-header">
-              <h5 class="title">Enregistrer une nouvelle offre"</h5>
+              <h5 class="title">Enregistrer une nouvelle offre</h5>
             </div>
             <div class="card-body">
               <div class="row">
@@ -60,8 +62,8 @@
                   <div class="row">
                     <div class="form-group">
                       <label class="form-control-label">Description</label>
-                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="offre.descriptionOffre"
-                        name="codePromo" />
+                      <input type="text" class="form-control form-control-alternative"
+                        [(ngModel)]="offre.descriptionOffre" name="codePromo" />
                     </div>
                   </div>
                 </div>
