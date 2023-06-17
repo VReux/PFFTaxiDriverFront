@@ -59,13 +59,16 @@
             <td>Date</td>
             <td>Action</td>
         </tr>
-        <tr *ngFor="let u of factures">
-            <td>{{u.tempsCourse}}</td>
-            <td>{{u.prixReelHT}}</td>
-            <td>{{u.prixReelTTC}}</td>
-            <td>{{u.tva}}</td>
-            <td>{{u.date}}</td>
-            <td><button (click)="deleteFacture(u.idFacture)">Delete</button></td>
+        <tr *ngFor="let f of factures">
+            <td>{{f.tempsCourse}}</td>
+            <td>{{f.prixReelHT}}</td>
+            <td>{{f.prixReelTTC}}</td>
+            <td>{{f.tva}}</td>
+            <td>{{f.date}}</td>
+            <td>
+                <button (click)="deleteFacture(f.idFacture)">Delete</button>
+                <button class="btn btn-outline-primary" (click)="generatePDF(f)">PDF</button>
+            </td>
         </tr>
     </table>
 </div>

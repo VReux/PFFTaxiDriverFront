@@ -1,62 +1,68 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Course } from 'src/app/PFFmodel/course';
 import { Facture } from 'src/app/PFFmodel/facture';
+import { CourseService } from 'src/app/PFFservices/course-service.service';
 import { FactureService } from 'src/app/PFFservices/facture-service.service';
-import * as pdfMake from '../../../../node_modules/pdfmake/build/pdfmake';
-import * as pdfFonts from '../../../../node_modules/pdfmake/build/vfs_fonts';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
-  selector: 'app-facture',
-  templateUrl: './facture.component.html',
-  styleUrls: ['./facture.component.scss'],
-  providers: []
+  selector: 'app-val-course',
+  templateUrl: './val-course.component.html',
+  styleUrls: ['./val-course.component.scss']
 })
-export class FactureComponent implements OnInit {
-  factures!: any[]
-  facture: Facture = new Facture();
-  date!: Date;
-  router: any;
-  constructor(private factureService: FactureService) {
+export class ValCourseComponent implements OnInit {
 
-  }
+  editForm!:FormGroup;
+  course:Course=new Course();
+  factures!:any[];
+  facture:Facture = new Facture();
 
- ngOnInit(): void {
+  constructor(private router:Router,private courseService:CourseService,private factureService:FactureService,private formBuilder:FormBuilder) { }
+
+  ngOnInit(): void {
+    let currentCourse = localStorage.getItem("valCourseId");
+    if(!currentCourse){
+      alert("Invalid Action...");
+      this.router.navigate(["/course"]);
+      return;
+    }
+    this.editForm = this.formBuilder.group({
+      idCourse:[],
+	    avisCourse:['',Validators.required],
+	    noteCourse:['',Validators.required],
+	    noteChauffeur:['',Validators.required],
+	    tempsCourse:['',Validators.required],
+	    prixReel:['',Validators.required],
+	    adresseDepart:['',Validators.required],
+    	adresseArrivee:['',Validators.required],
+    })
+    this.courseService.findOne(+currentCourse).subscribe(data =>{this.editForm.patchValue(data)});
     this.findAllFactures();
-  //this.date = '';
-   // this.findByDateFacture();
   }
-  findByDateFacture() {
-  /*this.factureService.findByDateFacture(this.date).subscribe(data => {
-      this.factures = data;
-    })*/
+  updateValCourse(){
+    var courseString = JSON.stringify(this.editForm.value);
+    this.courseService.update(courseString).subscribe(
+      () =>{
+        this.router.navigate(["/chauffValCourses"]);
+      }
+    )
   }
-  onSubmit() {
-    this.findByDateFacture();
-  }
-  findAllFactures() {
-    this.factureService.findAll().subscribe(data => { this.factures = data });
+  findAllFactures(){
+    this.factureService.findAll().subscribe(data => {this.factures = data});
   }
   saveFacture() {
     this.factureService.save(this.facture).subscribe(
       () => {
-        this.findByDateFacture();
         this.findAllFactures();
         this.facture = new Facture();
+        this.router.navigate(["/chauffValCourses"]);
       }
     )
-  }
-  deleteFacture(id: number) {
-    this.factureService.delete(id).subscribe(
-      () => {
-        this.findAllFactures();
-      }
-    )
-  }
-  editReclamation(facture:Facture){
-    localStorage.removeItem("editFactureId");
-    localStorage.setItem("editFactureId",facture.idFacture.toString());
-    this.router.navigate(['/editFacture',facture.idFacture]);
   }
   generatePDF(facture: Facture) {
     const documentDefinition = {
@@ -158,4 +164,5 @@ export class FactureComponent implements OnInit {
     };
     pdfMake.createPdf(documentDefinition).open();
   }
+
 }

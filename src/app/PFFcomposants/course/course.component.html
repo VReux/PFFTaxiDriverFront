@@ -22,47 +22,41 @@
                         </div>
                         <div class="card-body">
                             <form (ngSubmit)="saveCourse()"> 
-                                <h3 class="title">Adresse de départ :</h3>
                                 <!--Adresse de Depart-->
                                 <div class="row">
                                     <div class="col-md-4 pr-1">
                                         <div class="form-group">
-                                            <label>Rue</label>
-                                            <input type="text" class="form-control" [(ngModel)]="course.adresseDepart.rue" name="adresseDepart.adresseDepart_rue">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 pr-1">
-                                        <div class="form-group">
-                                            <label>Code Postal</label>
-                                            <input type="text" class="form-control" [(ngModel)]="course.adresseDepart.codePostal" name="adresseDepart.adresseDepart_codePostal">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 pr-1">
-                                        <div class="form-group">
-                                            <label>Ville</label>
-                                            <input type="text" class="form-control" [(ngModel)]="course.adresseDepart.ville" name="adresseDepart.adresseDepart_ville">
+                                            <label class="form-control-label" for="input-departure">Adresse de départ</label>
+                                            <input type="text" ngx-google-places-autocomplete
+                                                [(ngModel)]="course.depart" name="depart"
+                                                class="form-control form-control-alternative" placeholder="depart"    
+                                                (onAddressChange)="handleAddressChange($event)"
+                                                [innerHTML]="course.depart">
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class="title">Adresse d'arrivée :</h3>
                                 <!--Adresse d'Arrivee-->
                                 <div class="row">
                                     <div class="col-md-4 pr-1">
-                                       <div class="form-group">
-                                            <label>Rue</label>
-                                            <input type="text" class="form-control" [(ngModel)]="course.adresseArrivee.rue" name="adresseArrivee.adresseArrivee_rue">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-destination">Adresse d'arrivée</label>
+                                            <input type="text" ngx-google-places-autocomplete
+                                                [(ngModel)]="course.arrivee" name="arrivee"
+                                                class="form-control form-control-alternative" placeholder="arrivee"
+                                                (onAddressChange)="handleAddressChange2($event)">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 pr-1">
-                                        <div class="form-group">
-                                            <label>Code Postal</label>
-                                            <input type="text" class="form-control" [(ngModel)]="course.adresseArrivee.codePostal" name="adresseArrivee.adresseArrivee_codePostal">
-                                        </div>
+                                </div>
+                                <div class="row">
+                                    <div>
+                                        <button class="btn btn-outline-danger" (click)="calculDistance()">Click to evaluate the distance</button>
                                     </div>
-                                    <div class="col-md-4 pr-1">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>Ville</label>
-                                            <input type="text" class="form-control" [(ngModel)]="course.adresseArrivee.ville" name="adresseArrivee.adresseArrivee_ville">
+                                            <label class="form-control-label" for="input-distance-km">Distance (km)</label>
+                                            <input type="number" [(ngModel)]="course.distanceEnKm" name="distanceEnKm"
+                                                id="input-distance-km" class="form-control form-control-alternative"
+                                                placeholder="Distance (km)" disabled="">
                                         </div>
                                     </div>
                                 </div>
@@ -103,11 +97,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group">
-                                        <input type="checkbox" [(ngModel)]="course.varValider" name="varValider"/>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6 pl-1" style="padding-top: 15px;">
                                         <button class="btn btn-danger btn-round">Ajouter</button>
                                     </div>
@@ -117,6 +106,56 @@
                     </div>
                 </div>
             </div>
+            <!--###############################################################-->
+            <!--<div class="card-body">
+                <form>
+                    <h6 class="heading-small text-muted mb-4">Service information</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-departure">Adresse de départ</label>
+                                    <input type="text" ngx-google-places-autocomplete
+                                        [(ngModel)]="course.depart" name="depart"
+                                        class="form-control form-control-alternative" placeholder="Departure"
+                                        
+                                        (onAddressChange)="handleAddressChange($event)"
+                                        [innerHTML]="course.depart">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-destination">Adresse d'arrivée</label>
+                                    <input type="text" ngx-google-places-autocomplete
+                                        [(ngModel)]="course.arrivee" name="arrivee"
+                                        class="form-control form-control-alternative" placeholder="Destination"
+                                        
+                                        (onAddressChange)="handleAddressChange2($event)">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-danger" (click)="calculDistance()">Click to evaluate the
+                                distance</button>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-distance-km">Distance (km)</label>
+                                    <input type="number" [(ngModel)]="course.distanceEnKm" name="distanceEnKm"
+                                        id="input-distance-km" class="form-control form-control-alternative"
+                                        placeholder="Distance (km)" disabled="">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-danger" (click)="saveCourse()">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>-->
+            <!--###############################################################-->
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -149,22 +188,18 @@
                                             Note sur le chauffeur
                                         </th>
                                         <th>
-                                            Validation
-                                        </th>
-                                        <th>
                                             Action
                                         </th>
                                     </thead>
                                 <tbody>
                                     <tr *ngFor="let c of courses">
-                                        <td>{{c.adresseDepart.rue}}, {{c.adresseDepart.codePostal}}, {{c.adresseDepart.ville}}</td>
-                                        <td>{{c.adresseArrivee.rue}}, {{c.adresseArrivee.codePostal}}, {{c.adresseArrivee.ville}}</td>
+                                        <td>{{c.depart}}</td>
+                                        <td>{{c.arrivee}}</td>
                                         <td>{{c.tempsCourse}}</td>
                                         <td>{{c.prixReel}}</td>
                                         <td>{{c.avisCourse}}</td>
                                         <td>{{c.noteCourse}}</td>
                                         <td>{{c.noteChauffeur}}</td>
-                                        <td>{{c.varValider ? 'Validée':'Non Validée'}}</td>
                                         <td>
                                             <button (click)="deleteCourse(c.idCourse)" class="btn btn-danger btn-round">Delete</button>
                                             <button (click)="editCourse(c)" class="btn btn-secondary btn-round">Editer</button>
@@ -179,4 +214,3 @@
         </div>
     </div>
 </div>
-
