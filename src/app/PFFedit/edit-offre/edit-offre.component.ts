@@ -10,30 +10,43 @@ import { OffreService } from 'src/app/PFFservices/offre-service.service';
   styleUrls: ['./edit-offre.component.scss']
 })
 export class EditOffreComponent implements OnInit {
-  editForm!:FormGroup;
-  offre:Offre=new Offre();
-  constructor(private router:Router,private offreService:OffreService,private formBuilder:FormBuilder) { }
+ 
 
-  ngOnInit(): void {
-  let currentOffre = localStorage.getItem("editOffreId"); 
-  if(!currentOffre){ 
-    alert("Invalid Action...");
-    this.router.navigate(["/offre"]);
-    return;
-  }
-  this.editForm = this.formBuilder.group({
-    idOffre:[],
-    codePromo:['',Validators.required],
-  })
-  this.offreService.findOne(+currentOffre).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
+editForm!:FormGroup;
+offre:Offre=new Offre();
+offres!: any[];
+
+
+constructor(private router:Router,private offreService:OffreService,private formBuilder:FormBuilder) { }
+
+ngOnInit(): void {
+  this.findAllOffres();
+
+
+let currentOffre = localStorage.getItem("editOffreId"); 
+if(!currentOffre){ 
+  alert("Invalid Action...");
+  this.router.navigate(["/gestionOffres"]);
+  return;
+}
+this.editForm = this.formBuilder.group({
+  idOffre:[],
+  codePromo:['',Validators.required],
+  descriptionOffre:['',Validators.required],
+})
+this.offreService.findOne(+currentOffre).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
+
 }
 updateOffre(){
-  var offreString = JSON.stringify(this.editForm.value);
-  this.offreService.update(offreString).subscribe(
-    () =>{
-      this.router.navigate(["/offre"]);
-    }
-  )
+var offreString = JSON.stringify(this.editForm.value);
+this.offreService.update(offreString).subscribe(
+  () =>{
+    this.router.navigate(["/gestionOffres"]);
+  }
+)
 }
 
+findAllOffres() {
+this.offreService.findAll().subscribe(data => { this.offres = data });
+}
 }

@@ -13,7 +13,7 @@ export class GestionChauffeurTaxiComponent implements OnInit {
 
   taxis!:any[]; 
   chauffeurs!:any[]; 
-  chauff:Chauffeur=new Chauffeur();
+  chauffeur:Chauffeur=new Chauffeur();
   element = false;
   constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService){
   }
@@ -39,10 +39,10 @@ export class GestionChauffeurTaxiComponent implements OnInit {
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
   }
   saveChauffeur(){
-    this.chauffeurService.save(this.chauff).subscribe(
+    this.chauffeurService.save(this.chauffeur).subscribe(
       () => {
         this.findAllChauffeurs();
-        this.chauff = new Chauffeur();
+        this.chauffeur = new Chauffeur();
       }
     )
   }

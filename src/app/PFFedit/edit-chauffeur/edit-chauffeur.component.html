@@ -8,6 +8,7 @@
     <div class="row">
         <div class="col-xl-11 order-xl-1">
             <div class="card shadow">
+                <button class="btn btn-secondary btn-round " (click)="returnListeChauffeur()">Revenir à la liste des chauffeurs</button>
                 <button class="btn btn-secondary btn-round ">Modifier un Chauffeur</button>
                 <div class="card-body">
                     <form [formGroup]="editForm">
@@ -59,8 +60,8 @@
                                 <div class="form-group">
                                     <label>Selectionner un taxi</label>
                                     <br>
-                                    <select [(ngModel)]="chauffeur.taxi" name="taxi">
-                                        <option *ngFor="let ta of taxis" [ngValue]="ta" required>
+                                    <select [(ngModel)]="chauffeur.taxi" name="taxi" >
+                                        <option *ngFor="let ta of taxis" [ngValue]="ta" required >
                                             {{ta.immatriculation}}
                                         </option>
                                     </select>

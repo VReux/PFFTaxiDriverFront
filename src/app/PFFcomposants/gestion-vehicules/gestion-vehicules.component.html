@@ -1,0 +1,122 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
+
+
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-11 order-xl-1">
+            <div class="card shadow">
+                <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter un
+                    taxi</button>
+                <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
+                    formulaire</button>
+
+                    <!--formulaire d'ajout du taxi-->
+                <div *ngIf="element == true">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">Ajouter un taxi</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" id="testid">
+                            <form (ngSubmit)="saveTaxi()">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Immatriculation</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="tax.immatriculation" name="nom" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Marque</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="tax.marque" name="prenom" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Modele</label>
+                                            <input type="text" class="form-control form-control-alternative"
+                                                [(ngModel)]="tax.modele" name="username" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Agence</label>
+                                            <div>
+                                                <select name="agence" class="form-control" [(ngModel)]="tax.agence">
+                                                    <option *ngFor="let a of agences" [ngValue]="a">
+                                                        {{a.nomAgence}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 pr-1">
+                                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--fin formulaire d'ajout du taxi-->
+
+                <!--Liste taxis-->
+
+                <div class="row">
+                    <div class="col-xl-10 mb-5 mb-xl-0">
+                        <div class="card-header border-0">
+                            <h3 class="mb-0">Liste des taxis</h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Immatriculation</th>
+                                        <th scope="col">Marque</th>
+                                        <th scope="col">Modèle</th>
+                                        <th scope="col">Agence</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let t of taxis">
+                                        <td>{{t.immatriculation}}</td>
+                                        <td>{{t.marque}}</td>
+                                        <td>{{t.modele}}</td>
+                                        <td>{{t.agence.nomAgence}}</td>
+                                <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="deleteTaxi(t.idTaxi)">Supprimer </button>
+                                <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="editTaxi(t)">Modifier</button>
+                               <!-- <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                                    (click)="testMethode(u)">Test
+                                    de bouton</button>-->
+                            </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Fin liste taxis-->
+            </div>
+        </div>
+    </div>
+</div>

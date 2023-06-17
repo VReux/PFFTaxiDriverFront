@@ -59,4 +59,9 @@ export class EditChauffeurComponent implements OnInit {
   findAllChauffeurs() {
     this.chauffeurService.findAll().subscribe(data => { this.chauffeurs = data });
   }
+
+
+  returnListeChauffeur(){
+    this.router.navigate(["/gestionChauffeurTaxi"]);
+  }
 }

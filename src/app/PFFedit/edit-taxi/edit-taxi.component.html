@@ -1,22 +1,98 @@
-<div>
-    <h1>Modifier un taxi</h1>
-        <form [formGroup]="editForm">
-            <table>
-                <tr>
-                    <td>Immatriculation</td>
-                    <td><input type="text" [(ngModel)]="taxi.immatriculation" formControlName="immatriculation"/></td>
-                </tr>
-                <tr>
-                    <td>Marque</td>
-                    <td><input type="text" [(ngModel)]="taxi.marque" formControlName="marque"/></td>
-                </tr>
-                <tr>
-                    <td>Modele</td>
-                    <td><input type="text" [(ngModel)]="taxi.modele" formControlName="modele"/></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button (click)="updateTaxi()">Modifier</button></td>
-                </tr>
-            </table>
-        </form>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
 </div>
+
+
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div class="col-xl-11 order-xl-1">
+            <div class="card shadow">
+                <button class="btn btn-secondary btn-round " (click)="returnListeTaxi()">Revenir à la liste des taxis</button>
+                <button class="btn btn-secondary btn-round ">Modifier un Taxi</button>
+                <div class="card-body">
+                    <form [formGroup]="editForm">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Immatriculation</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="taxi.immatriculation" formControlName="immatriculation" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Marque</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="taxi.marque" formControlName="marque" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Modèle</label>
+                                    <input type="text" class="form-control form-control-alternative"
+                                        [(ngModel)]="taxi.modele" formControlName="modele" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Selectionner une agence</label>
+                                    <br>
+                                    <select [(ngModel)]="taxi.agence" name="taxi" >
+                                        <option *ngFor="let a of agences" [ngValue]="a" required >
+                                            {{a.nomAgence}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <button class="btn btn-secondary btn-round "
+                                        (click)="updateTaxi()">Modifier</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </form>
+                </div>
+
+
+                 <!--Liste chauffeurs-->
+                 <div class="card-header border-0">
+                    <h3 class="mb-0">Liste des taxis</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Immatriculation</th>
+                                <th scope="col">Marque</th>
+                                <th scope="col">Modèle</th>
+                                <th scope="col">Agence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let t of taxis">
+                                <td>{{t.immatriculation}}</td>
+                                <td>{{t.marque}}</td>
+                                <td>{{t.modele}}</td>
+                                <td>{{t.agence.nomAgence}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--fin liste taxis-->
+            </div>
+        </div>
+    </div>
+</div>
+

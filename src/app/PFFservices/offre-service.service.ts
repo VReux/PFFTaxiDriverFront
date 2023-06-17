@@ -27,6 +27,6 @@ public findOne(id:number):Observable<any>{
 }
 public update(offre:any):Observable<any>{
   var offreJSON = JSON.parse(offre);
-  return this.httpClient.put(this.BASE_URL+'/'+offreJSON.idUtilisateur,offreJSON);
+  return this.httpClient.put(this.BASE_URL+'/'+offreJSON.idOffre,offreJSON);
 }
 }
