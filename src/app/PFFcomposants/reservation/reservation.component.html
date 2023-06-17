@@ -22,21 +22,11 @@
             </tr>
             <tr>
                 <td>Adresse de départ:</td>
-                <td>Rue</td>
-                <td><input type="text" [(ngModel)]="reservation.adresseDepart.rue" name="adresseDepart.adresse_depart_rue"/></td>
-                <td>Code Postal</td>
-                <td><input type="text" [(ngModel)]="reservation.adresseDepart.codePostal" name="adresseDepart.codePostal"/></td>
-                <td>ville</td>
-                <td><input type="text" [(ngModel)]="reservation.adresseDepart.ville" name="adresseDepart.ville"/></td>
+                <td><input type="text" [(ngModel)]="reservation.depart" name="depart"/></td>
             </tr>
             <tr>
                 <td>Adresse d'arrivée:</td>
-                <td>Rue</td>
-                <td><input type="text" [(ngModel)]="reservation.adresseArrivee.rue" name="adresseArrivee.adresse_arrivee_rue"/></td>
-                <td>code postal</td>
-                <td><input type="text" [(ngModel)]="reservation.adresseArrivee.codePostal" name="adresseArrivee.codePostal"/></td>
-                <td>ville</td>
-                <td><input type="text" [(ngModel)]="reservation.adresseArrivee.ville" name="adresseArrivee.ville"/></td>
+                <td><input type="text" [(ngModel)]="reservation.arrivee" name="arrivee"/></td>
             </tr>
             <tr>
                 <td colspan="2"><button>Ajouter</button></td>
@@ -58,8 +48,8 @@
             <td>{{r.heureDepart}}</td>
             <td>{{r.tauxHoraire}}</td>
             <td>{{r.validation ? 'Validée':'Non Validée'}}</td>  
-            <td>{{r.adresseDepart.rue}},{{r.adresseDepart.codePostal}},{{r.adresseDepart.ville}}</td>
-            <td>{{r.adresseArrivee.rue}},{{r.adresseArrivee.codePostal}},{{r.adresseArrivee.ville}}</td>   
+            <td>{{r.depart}}</td>
+            <td>{{r.arrivee}}</td>   
             <td><button (click)="deleteReservation(r.idReservation)">Delete</button></td>
             <td><button (click)="editReservation(r)">Editer</button></td>
         </tr>

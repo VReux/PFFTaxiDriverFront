@@ -3,7 +3,6 @@
     </div>
 </div>
 
-
 <div class="container-fluid mt--7">
     <div class="row">
         <div class="col-xl-10 order-xl-1">
@@ -11,7 +10,7 @@
                 <!--<button class="btn btn-secondary btn-round " *ngIf="valider == false" (click)="showData()">Ajouter un chauffeur</button>
                 <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le formulaire</button>-->
 
-                <div *ngIf="course.varValider==false">
+                <!--<div *ngIf="course.varValider==false">-->
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
                             <div class="row align-items-center">
@@ -49,8 +48,8 @@
                                             </thead>
                                             <tbody>
                                                 <tr *ngFor="let c of courses">
-                                                    <td>{{c.adresseDepart.rue}}, {{c.adresseDepart.codePostal}}, {{c.adresseDepart.ville}}</td>
-                                                    <td>{{c.adresseArrivee.rue}}, {{c.adresseArrivee.codePostal}}, {{c.adresseArrivee.ville}}</td>
+                                                    <td>{{c.depart}}</td>
+                                                    <td>{{c.arrivee}}</td>
                                                     <td>{{c.tempsCourse}}</td>
                                                     <td>{{c.prixReel}}</td>
                                                     <td>{{c.avisCourse}}</td>
@@ -58,7 +57,8 @@
                                                     <td>{{c.noteChauffeur}}</td>
                                                     <td>
                                                         <button (click)="editValCourse(c)" class="btn btn-secondary btn-round">Editer</button>
-                                                        <button (click)="validerCourse(c.idCourse)" class="btn btn-danger btn-round">Valider</button>
+                                                        <button (click)="valCourse(c)" class="btn btn-danger btn-round">valider</button>
+                                                        <!--<button (click)="validerCourse(c.idCourse)" class="btn btn-danger btn-round">Valider</button>-->
                                                         <!--<button class="btn btn-secondary btn-round " *ngIf="varValider == false" (click)="validerCourse()">Valider</button>-->
                                                     </td>
                                                 </tr>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!--</div>-->
             </div>
         </div>
     </div>

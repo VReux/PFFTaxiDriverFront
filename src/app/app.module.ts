@@ -19,6 +19,13 @@ import { GestionReservationsComponent } from './PFFcomposants/gestion-reservatio
 import { GestionFacturesComponent } from './PFFcomposants/gestion-factures/gestion-factures.component';
 import { GestionReclamationsComponent } from './PFFcomposants/gestion-reclamations/gestion-reclamations.component';
 import { GestionVehiculesComponent } from './PFFcomposants/gestion-vehicules/gestion-vehicules.component';
+import { ClientReservationComponent } from './PFFcomposants/client-reservation/client-reservation.component';
+import { ClientAgenceEtChauffComponent } from './PFFcomposants/client-agence-et-chauff/client-agence-et-chauff.component';
+import { ClientOffresComponent } from './PFFcomposants/client-offres/client-offres.component';
+import { ClientCoursesComponent } from './PFFcomposants/client-courses/client-courses.component';
+import { AdminGestionComptesComponent } from './PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
+import { AdminStatsComponent } from './PFFcomposants/admin-stats/admin-stats.component';
+import { AdminReclaComponent } from './PFFcomposants/admin-recla/admin-recla.component';
 import { ValidationResaComponent } from './PFFcomposants/validation-resa/validation-resa.component';
 import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence/statistiques-agence.component';
 
@@ -35,7 +42,14 @@ import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ClientReservationComponent,
+    ClientAgenceEtChauffComponent,
+    ClientOffresComponent,
+    ClientCoursesComponent,
+    AdminGestionComptesComponent,
+    AdminStatsComponent,
+    AdminReclaComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

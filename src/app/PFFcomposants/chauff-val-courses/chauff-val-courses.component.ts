@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/PFFmodel/course';
+import { Facture } from 'src/app/PFFmodel/facture';
 import { CourseService } from 'src/app/PFFservices/course-service.service';
+import { FactureService } from 'src/app/PFFservices/facture-service.service';
 
 @Component({
   selector: 'app-chauff-val-courses',
@@ -16,11 +18,14 @@ export class ChauffValCoursesComponent implements OnInit {
   course:Course = new Course();
   element = false;
   valider = false;
+  factures!:any[];
+  facture:Facture = new Facture();
 
- constructor(private courseService:CourseService, private router:Router){ }
+ constructor(private courseService:CourseService, private factureService:FactureService, private router:Router){ }
 
  ngOnInit(): void {
  this.findAllCourses();
+ this.findAllFactures();
  //this.valCourses = this.courseService.findAll();
  }
 
@@ -35,11 +40,15 @@ hideData() {
    this.courseService.findAll().subscribe(data => {this.courses = data});
  }
 
- validerCourse(){
+ findAllFactures(){
+  this.factureService.findAll().subscribe(data => {this.factures = data});
+}
+
+ /*validerCourse(){
   return (this.course.varValider = true);
  }
 
- /*validerCourse() {
+ validerCourse() {
   if (this.course.varValider==false) {
     this.course.varValider=true;
   } 
@@ -68,9 +77,23 @@ hideData() {
      }
    )
   }*/
+  valCourse(course:Course){
+    localStorage.removeItem("valCourseId");
+    localStorage.setItem("valCourseId",course.idCourse.toString());
+    this.router.navigate(['/valCourse',course.idCourse]);
+  }
+
   editValCourse(course:Course){
    localStorage.removeItem("editValCourseId");
    localStorage.setItem("editValCourseId",course.idCourse.toString());
    this.router.navigate(['/editValCourse',course.idCourse]);
  }
+ saveFacture() {
+  this.factureService.save(this.facture).subscribe(
+    () => {
+      this.findAllFactures();
+      this.facture = new Facture();
+    }
+  )
+}
 }

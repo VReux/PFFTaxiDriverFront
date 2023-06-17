@@ -52,5 +52,37 @@ export class MapsComponent implements OnInit {
         infowindow.open(map, marker);
     });
   }
+  
+  calcul() {
+    const requestParams = {
+      origins: ['44.818883', '-0.594357',],
+      destinations: ['44.821536', '-0.516550',],
+      mode: 'driving',
+      language: 'fr',
+      region: 'FR'
+    };
 
+    // Utilisez la méthode distanceMatrix() pour calculer la distance entre les adresses
+    var distanceMatrix = new google.maps.distanceMatrix(requestParams);
+
+    // Affichez le résultat
+    console.log(distanceMatrix);
+    document.getElementById('distance1').innerHTML = distanceMatrix.rows[0].elements[0].distance.text;
+  }
+
+  /*Calcul distance
+  calculDistance() {
+    var distanceMatrix = new google.maps.DistanceMatrixService();
+    distanceMatrix.getDistanceMatrix(
+      {
+        origins: [this.prestation.depart],
+        destinations: [this.prestation.destination],
+        travelMode: 'DRIVING',
+      },
+      (response, status) => {
+        this.prestation.distanceEnKm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
+      })
+  }*/
+
+ 
 }
