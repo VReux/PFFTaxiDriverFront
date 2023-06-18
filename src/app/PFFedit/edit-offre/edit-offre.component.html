@@ -18,7 +18,8 @@
               <div class="row">
                 <div class="col-xl-9">
                   <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
-                  <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                  <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span><br>
+                  <span class="h2 font-weight-bold mb-0">{{o.remiseOffre}}%</span>
                 </div>
                 <div class="col-xl-2">
 
@@ -58,14 +59,18 @@
                     <input type="text" class="form-control" [(ngModel)]="offre.codePromo" formControlName="codePromo">
                   </div>
                 </div>
-
-
-
                 <div class="row">
                   <div class="form-group">
                     <label>Description</label>
                     <input type="text" class="form-control" [(ngModel)]="offre.descriptionOffre"
                       formControlName="descriptionOffre">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label>Remise (en %)</label>
+                    <input type="text" class="form-control" [(ngModel)]="offre.remiseOffre"
+                      formControlName="remiseOffre">
                   </div>
                 </div>
               </div>

@@ -1,3 +1,312 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+  </div>
+  
+  
+  <div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col-xl-10 order-xl-1">
+        <div class="card shadow">
+          <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter un
+            utilisateur</button>
+          <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
+            formulaire</button>
+  
+          <!-- test recherche-->
+          <div class="col-xl-10 order-xl-1">
+          <div class="card-header border-0">
+            <button class="btn btn-secondary btn-round " *ngIf="elemRech == false" (click)="showRech()">Rechercher un
+              utilisateur</button>
+            <button class="btn btn-secondary btn-round " *ngIf="elemRech == true" (click)="hideRech()">Cacher la
+              recherche</button>
+            <div *ngIf="elemRech == true">
+  
+              <form (ngSubmit)="onSubmit()">
+  
+  
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group row">
+                      <label class="form-control-label">Nom</label>
+  
+                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="nom" name="nom" />
+                      <button type="submit" class="btn btn-secondary btn-round ">Recherche</button>
+                    </div>
+                  </div>
+  
+                </div>
+              </form>
+            </div>
+          </div>
+          </div>
+          <!-- fin test recherche-->
+  
+  
+  
+  
+          <!--bouton d'ajout des differents utilisateurs / formulaires-->
+          <div *ngIf="element == true">
+  
+  
+            <div class="row">
+              <div class="col-lg-4">
+                <button class="btn btn-secondary btn-round " *ngIf="elemChauff== false" (click)="showChauff()">Ajouter un
+                  Chauffeur</button>
+                <button class="btn btn-secondary btn-round " *ngIf="elemChauff == true" (click)="hideChauff()">Cacher le
+                  formulaire chauffeur</button>
+              </div>
+              <div class="col-lg-4">
+                <button class="btn btn-secondary btn-round " *ngIf="elemResp == false" (click)="showResp()">Ajouter un
+                  responsable</button>
+                <button class="btn btn-secondary btn-round " *ngIf="elemResp == true" (click)="hideResp()">Cacher le
+                  formulaire responsable</button>
+              </div>
+              <div class="col-lg-4">
+                <button class="btn btn-secondary btn-round " *ngIf="elemCli == false" (click)="showClient()">Ajouter un
+                  client</button>
+                <button class="btn btn-secondary btn-round " *ngIf="elemCli == true" (click)="hideClient()">Cacher le
+                  formulaire client</button>
+              </div>
+            </div>
+  
+            <!--Formulaire Client-->
+            <div *ngIf="elemCli == true">
+              <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Ajouter un client</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body" id="testid">
+                  <form (ngSubmit)="saveClient()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Nom</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="client.nom"
+                            name="nom" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Prénom</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="client.prenom"
+                            name="prenom" />
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Nom d'utilisateur</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="client.username"
+                            name="username" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Mot de passe</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="client.password"
+                            name="password" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Email</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="client.email"
+                            name="email" />
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-6 pr-1">
+                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--Fin du Formulaire Client-->
+  
+  
+            <!--Formulaire Chauffeur-->
+            <div *ngIf="elemChauff == true">
+              <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Ajouter un chauffeur</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body" id="testid">
+                  <form (ngSubmit)="saveChauffeur()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Nom</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="chauffeur.nom"
+                            name="nom" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Prénom</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="chauffeur.prenom"
+                            name="prenom" />
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Nom d'utilisateur</label>
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="chauffeur.username" name="username" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Mot de passe</label>
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="chauffeur.password" name="password" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Numero de Permis</label>
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="chauffeur.numPermis" name="numPermis" />
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-6 pr-1">
+                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--Fin du Formulaire Chauffeur-->
+  
+            <!--Formulaire Responsable-->
+            <div *ngIf="elemResp == true">
+              <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                  <div class="row align-items-center">
+                    <div class="col-8">
+                      <h3 class="mb-0">Ajouter un responsable</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body" id="testid">
+                  <form (ngSubmit)="saveUtilisateur()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Nom</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="utilisateur.nom"
+                            name="nom" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Prénom</label>
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="utilisateur.prenom" name="prenom" />
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Nom d'utilisateur</label>
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="utilisateur.username" name="username" />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Mot de passe</label>
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="utilisateur.password" name="password" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 pr-1">
+                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!--Fin du Formulaire Responsable-->
+  
+  
+          </div>
+  
+        </div>
+  
+        <div class="card-header border-0">
+  
+          <h3 class="mb-0">Liste des utilisateurs</h3>
+        </div>
+  
+  
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom d'utilisateur</th>
+                <th scope="col">Type</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of utilisateurs">
+                <td>{{u.nom}}</td>
+                <td>{{u.prenom}}</td>
+                <td>{{u.username}}</td>
+                <!--    <td>{{u.email}}</td>
+                <td>{{u.numPermis}}</td>-->
+                <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                    (click)="deleteUtilisateur(u.idUtilisateur)">Supprimer </button>
+                  <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                    (click)="editUtilisateur(u)">Modifier</button>
+                  <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" (click)="testMethode(u)">Test
+                    de bouton</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+    </div>
+
+
+
+
+
 <div [hidden]="authorities1()">
     <h1>Bonjour cher admin, ceci est la page admin-gestion-comptes</h1>
 </div>
