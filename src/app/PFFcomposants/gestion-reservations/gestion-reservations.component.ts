@@ -12,21 +12,21 @@ export class GestionReservationsComponent implements OnInit {
 
   reservations!:any[]; 
   reservation:Reservation=new Reservation();
-  heureDepart!:Date;
+  //heureDepart!:Date;
   constructor(private reservationService:ReservationService,private router:Router) { }
 
   ngOnInit(): void {
     this.findAllReservation();
     //this.heureDepart=???;
-    this.findByHeureDepart();
+    //this.findByHeureDepart();
   }
   findAllReservation(){
     this.reservationService.findAll().subscribe(data =>{this.reservations = data});
   }
 
-  findByHeureDepart(){
+  /*findByHeureDepart(){
     this.reservationService.findByHeureDepart(this.heureDepart).subscribe(data=>{this.reservations = data});
-  }
+  }*/
 
   saveReservation(){
     this.reservationService.save(this.reservation).subscribe(

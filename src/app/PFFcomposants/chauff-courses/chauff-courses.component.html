@@ -32,19 +32,16 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
-                                <th>Heure de départ</th>
-                                <th>Taux horaire</th>
-                                <th>Validation</th>
                                 <th>Adresse de départ</th>
                                 <th>Adresse d'arrivée</th>
+                                <th>Heure de départ</th>
+                                
                            </thead>
                            <tbody>
                                 <tr *ngFor="let r of reservations">
-                                    <td>{{r.heureDepart}}</td>
-                                    <td>{{r.tauxHoraire}}</td>
-                                    <td>{{r.validation ? 'Validée':'Non Validée'}}</td>
                                     <td>{{r.depart}}</td>
-                                    <td>{{r.arrivee}}</td>   
+                                    <td>{{r.arrivee}}</td> 
+                                    <td>{{r.heureDepart}}</td> 
                                 </tr>
                             </tbody>
                         </table>

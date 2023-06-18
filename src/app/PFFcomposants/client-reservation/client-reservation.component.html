@@ -1,10 +1,120 @@
 <div [hidden]="authorities4()">
+    <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+        </div>
+    </div>
     <h1>Bonjour cher client, ceci est la page client-reservation</h1>
 </div>
 <div [hidden]="authenticated()">
+    <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+        </div>
+    </div>
     <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
 </div>
 <div [hidden]="!authenticated()">
     <div [hidden]="!authorities4()">
-    <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
+        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+            <div class="container-fluid">
+            </div>
+        </div>
+        <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
     </div>
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-10 order-xl-1">
+                <div class="card shadow">
+                    <!--<button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter une reservation</button>
+                    <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le formulaire</button>
+
+                    <div *ngIf="element == true">-->
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">Ajouter une reservation</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!--Adresse de Depart-->
+                                <div class="row">
+                                    <div class="col-md-4 pr-1">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-departure">Adresse de départ</label>
+                                            <input type="text" ngx-google-places-autocomplete
+                                                [(ngModel)]="reservation.depart" name="depart"
+                                                class="form-control form-control-alternative" placeholder="depart"
+                                                [options]='googlePlacesOptions' #placesRef="ngx-places"
+                                                (onAddressChange)="handleAddressChange($event)"
+                                                [innerHTML]="reservation.depart">
+                                        </div>
+                                    </div>
+                                    <!--Adresse d'Arrivee-->
+                                    <div class="col-md-4 pr-1">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-destination">Adresse d'arrivée</label>
+                                            <input type="text" ngx-google-places-autocomplete
+                                                [(ngModel)]="reservation.arrivee" name="arrivee"
+                                                class="form-control form-control-alternative" placeholder="arrivee"
+                                                (onAddressChange)="handleAddressChange2($event)"
+                                                [options]='googlePlacesOptions' #placesRef="ngx-places">
+                                        </div>
+                                    </div>
+                                    <!--Date et Heure-->
+                                    <div class="col-md-4 pr-1">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Date et Heure</label>
+                                            <div class="row">
+                                                <input type="datetime-local"  class="custom-date-input" [(ngModel)]="reservation.heureDepart" name="heureDepart">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div style="margin-left: 12px; margin-top: -5px;">
+                                        <button class="btn btn-outline-danger" (click)="calculDistance()">Estimer son trajet</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-distance-km">Distance (km)</label>
+                                            <input type="number" [(ngModel)]="reservation.distancekm" name="distancekm"
+                                                id="input-distance-km" class="form-control form-control-alternative"
+                                                placeholder="Distance (km)" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Temps de la course (min)</label>
+                                            <input type="number" [(ngModel)]="reservation.tempsCourse" name="tempsCourse"
+                                                class="form-control form-control-alternative"
+                                                placeholder="Temps (min)" disabled="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Prix de la course (€)</label>
+                                            <input type="number" [(ngModel)]="reservation.prixEstime" name="prixEstime"
+                                                class="form-control form-control-alternative"
+                                                placeholder="Prix (€)" disabled="">
+                                            <p><i>Le taux horaire d'une course est de 100€/h</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form (ngSubmit)="saveReservation()">
+                                    <div class="row">
+                                        <div style="margin-left: 12px">
+                                            <button class="btn btn-danger btn-round">Valider la reservation</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,8 @@ export class Reservation {
     validation!:boolean;
     depart!:string;
 	arrivee!:string;
-    distanceEnKm: number;
+    distancekm: number;
+    tempsCourse:number;
+    prixEstime:number;
 
 }

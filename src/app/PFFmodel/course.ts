@@ -12,6 +12,6 @@ export class Course {
 	arrivee!:string;
 	//facture!:Facture;
 	//reservation!:Reservation;
-	varValider!:boolean;
-  	distanceEnKm: number;
+	validation!:boolean;
+  	distancekm: number;
 }

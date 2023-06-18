@@ -59,6 +59,7 @@ import { ClientCoursesComponent } from 'src/app/PFFcomposants/client-courses/cli
 import { AdminGestionComptesComponent } from 'src/app/PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
 import { AdminStatsComponent } from 'src/app/PFFcomposants/admin-stats/admin-stats.component';
 import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-recla.component';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { RedirectionComponent } from 'src/app/PFFcomposants/redirection/redirection.component';
 import { PFFprofilComponent } from 'src/app/PFFcomposants/pffprofil/pffprofil.component';
 import { PFFlogoutComponent } from 'src/app/PFFcomposants/pfflogout/pfflogout.component';
@@ -84,6 +85,7 @@ export class XhrInterceptor implements HttpInterceptor{
     NgbModule,
     ClipboardModule,
     ReactiveFormsModule,
+    GooglePlaceModule
   ],
   declarations: [
     DashboardComponent,

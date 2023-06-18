@@ -31,4 +31,9 @@ export class CourseService {
     var courseJSON = JSON.parse(course);
     return this.httpClient.put(this.BASE_URL+'/'+courseJSON.idCourse,courseJSON);
   }
+  // GET BY VALIDATION
+  public findByValidation(validation:boolean):Observable<any>{
+    return this.httpClient.get(this.BASE_URL+'/validation/'+validation);
+  }
+ 
 }
