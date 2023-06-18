@@ -29,6 +29,8 @@ import { AdminReclaComponent } from './PFFcomposants/admin-recla/admin-recla.com
 import { ValidationResaComponent } from './PFFcomposants/validation-resa/validation-resa.component';
 import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence/statistiques-agence.component';
 import { RedirectionComponent } from './PFFcomposants/redirection/redirection.component';
+import { PFFprofilComponent } from './PFFcomposants/pffprofil/pffprofil.component';
+import { PFFlogoutComponent } from './PFFcomposants/pfflogout/pfflogout.component';
 
 @NgModule({
   imports: [
@@ -44,6 +46,7 @@ import { RedirectionComponent } from './PFFcomposants/redirection/redirection.co
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+
    
   ],
   providers: [],
