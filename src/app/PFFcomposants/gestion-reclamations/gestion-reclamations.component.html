@@ -1,3 +1,51 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
+
+
+
+
+
+<!--Liste reclamation-->
+<div class="card-header border-0">
+    <h3 class="mb-0">Liste des reclamations</h3>
+</div>
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Utilisateur</th>
+                <th scope="col">Réclamation</th>
+                <th scope="col">Répondre par email</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of reclamations">
+                <td>{{r.client.nom}} {{r.client.prenom}}</td>
+                <td>{{r.texte}}</td>
+                <td><a [href]="'mailto:' + r.client.email">{{r.client.email}}</a></td>
+                <!--<td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                        (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
+                    <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                        (click)="editChauffeur(c)">Modifier</button>
+                </td>-->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
 <div [hidden]="authorities2()">
     <h1>Bonjour cher responsable d'agence, ceci est la page gestion-reclamations</h1>
 </div>

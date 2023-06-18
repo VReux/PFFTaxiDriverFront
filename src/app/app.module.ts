@@ -28,6 +28,9 @@ import { AdminStatsComponent } from './PFFcomposants/admin-stats/admin-stats.com
 import { AdminReclaComponent } from './PFFcomposants/admin-recla/admin-recla.component';
 import { ValidationResaComponent } from './PFFcomposants/validation-resa/validation-resa.component';
 import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence/statistiques-agence.component';
+import { RedirectionComponent } from './PFFcomposants/redirection/redirection.component';
+import { PFFprofilComponent } from './PFFcomposants/pffprofil/pffprofil.component';
+import { PFFlogoutComponent } from './PFFcomposants/pfflogout/pfflogout.component';
 
 @NgModule({
   imports: [
@@ -43,6 +46,7 @@ import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+
    
   ],
   providers: [],

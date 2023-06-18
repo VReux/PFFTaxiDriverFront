@@ -1,10 +1,55 @@
-<div [hidden]="authorities4()">
-    <h1>Bonjour cher client, ceci est la page client-offres</h1>
-</div>
-<div [hidden]="authenticated()">
-    <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
-</div>
-<div [hidden]="!authenticated()">
-    <div [hidden]="!authorities4()">
-    <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="header-body">
+            <!-- Card stats -->
+            <div class="row">
+
+
+                <div class="col-xl-4 col-lg-8" *ngFor="let o of offres">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-xl-9">
+                                    <div class="text-center">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
+                                        <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                                        <br>
+                                        <span class="h2 font-weight-bold mb-0">{{o.remiseOffre}}%</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-2">
+                                    <button type="button"
+                                        class="icon icon-shape bg-danger text-white rounded-circle shadowl" ngxClipboard
+                                        [cbContent]="o.codePromo"
+                                        ngbTooltip="{{copy === 'Copié!' ? 'Copié!':'Copier dans le presse papier'}}"
+                                        (cbOnSuccess)="copy = 'Copié!'">
+                                        Copier
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+
+        </div>
     </div>
+
+
+
+
+    <div [hidden]="authorities4()">
+        <h1>Bonjour cher client, ceci est la page client-offres</h1>
+    </div>
+    <div [hidden]="authenticated()">
+        <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
+    </div>
+    <div [hidden]="!authenticated()">
+        <div [hidden]="!authorities4()">
+            <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
+        </div>
