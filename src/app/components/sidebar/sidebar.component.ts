@@ -139,4 +139,5 @@ export class SidebarComponent implements OnInit {
       return "Client";
     } else return "Inconnu";    
 }
+
 }

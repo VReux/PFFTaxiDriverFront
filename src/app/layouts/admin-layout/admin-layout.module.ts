@@ -59,6 +59,7 @@ import { ClientCoursesComponent } from 'src/app/PFFcomposants/client-courses/cli
 import { AdminGestionComptesComponent } from 'src/app/PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
 import { AdminStatsComponent } from 'src/app/PFFcomposants/admin-stats/admin-stats.component';
 import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-recla.component';
+import { RedirectionComponent } from 'src/app/PFFcomposants/redirection/redirection.component';
 
 
 @Injectable()
@@ -130,6 +131,7 @@ export class XhrInterceptor implements HttpInterceptor{
     AdminGestionComptesComponent,
     AdminStatsComponent,
     AdminReclaComponent,
+    RedirectionComponent,
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
   

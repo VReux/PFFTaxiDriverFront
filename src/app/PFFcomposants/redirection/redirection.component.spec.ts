@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminReclaComponent } from './admin-recla.component';
+import { RedirectionComponent } from './redirection.component';
 
-describe('AdminReclaComponent', () => {
-  let component: AdminReclaComponent;
-  let fixture: ComponentFixture<AdminReclaComponent>;
+describe('RedirectionComponent', () => {
+  let component: RedirectionComponent;
+  let fixture: ComponentFixture<RedirectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminReclaComponent ]
+      declarations: [ RedirectionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminReclaComponent);
+    fixture = TestBed.createComponent(RedirectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

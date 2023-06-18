@@ -19,7 +19,7 @@ export class PFFloginComponent implements OnInit{
   }
 
   login(){
-   this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/agence")});
+   this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/redirection")});
   }
 
 }
