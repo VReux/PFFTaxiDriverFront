@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/PFFmodel/course';
 import { Facture } from 'src/app/PFFmodel/facture';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { CourseService } from 'src/app/PFFservices/course-service.service';
 import { FactureService } from 'src/app/PFFservices/facture-service.service';
 
@@ -21,7 +22,7 @@ export class ChauffValCoursesComponent implements OnInit {
   factures!:any[];
   facture:Facture = new Facture();
 
- constructor(private courseService:CourseService, private factureService:FactureService, private router:Router){ }
+ constructor(private courseService:CourseService, private factureService:FactureService, private router:Router, private appService:AppService){ }
 
  ngOnInit(): void {
  this.findAllCourses();
@@ -95,5 +96,14 @@ hideData() {
       this.facture = new Facture();
     }
   )
+}
+authenticated(){
+  return this.appService.authenticated;
+}
+
+authorities3(){
+  if(this.appService.isChauffeur ==true){
+    return false; 
+  } else return true;
 }
 }

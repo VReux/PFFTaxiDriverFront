@@ -38,3 +38,13 @@
         </div>
     </div>
 </div>
+<div [hidden]="authorities3()">
+    <h1>Bonjour cher chauffeur, ceci est la page chauff-avis</h1>
+</div>
+<div [hidden]="authenticated()">
+    <h1>Connectez-vous en tant que chauffeur pour accéder à cette page</h1>
+</div>
+<div [hidden]="!authenticated()">
+    <div [hidden]="!authorities3()">
+    <h1>Vous êtes connecté, mais seuls les chauffeurs ont accès à cette page</h1>
+    </div>

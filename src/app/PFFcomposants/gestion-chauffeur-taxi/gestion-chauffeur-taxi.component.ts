@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chauffeur } from 'src/app/PFFmodel/chauffeur';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { ChauffeurService } from 'src/app/PFFservices/chauffeur-service.service';
 import { TaxiService } from 'src/app/PFFservices/taxi-service.service';
 
@@ -15,7 +16,7 @@ export class GestionChauffeurTaxiComponent implements OnInit {
   chauffeurs!:any[]; 
   chauffeur:Chauffeur=new Chauffeur();
   element = false;
-  constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService){
+  constructor(private chauffeurService:ChauffeurService, private router:Router, private taxiService:TaxiService, private appService:AppService){
   }
   ngOnInit(): void {
     this.findAllChauffeurs();
@@ -60,5 +61,14 @@ export class GestionChauffeurTaxiComponent implements OnInit {
     this.router.navigate(['/editChauffeur',chauffeur.idUtilisateur]); 
  }
 
+ authenticated(){
+  return this.appService.authenticated;
+}
+
+authorities2(){
+  if(this.appService.isRespAgence ==true){
+    return false; 
+  } else return true;
+}
 
 }

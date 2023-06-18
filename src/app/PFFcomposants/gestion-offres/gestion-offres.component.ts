@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Offre } from 'src/app/PFFmodel/offre';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { OffreService } from 'src/app/PFFservices/offre-service.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class GestionOffresComponent implements OnInit {
   offre: Offre = new Offre();
 
 
-  constructor(private offreService: OffreService, private router: Router) { }
+  constructor(private offreService: OffreService, private router: Router, private appService:AppService) { }
   ngOnInit(): void {
     this.findAllOffres();
   }
@@ -45,5 +46,15 @@ export class GestionOffresComponent implements OnInit {
     localStorage.removeItem("editOffreId");
     localStorage.setItem("editOffreId", offre.idOffre.toString());
     this.router.navigate(['/editOffre', offre.idOffre]);
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  
+  authorities2(){
+    if(this.appService.isRespAgence ==true){
+      return false; 
+    } else return true;
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Reservation } from 'src/app/PFFmodel/reservation';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { ReservationService } from 'src/app/PFFservices/reservation-service.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class ValidationResaComponent implements OnInit {
   
   constructor(private router:Router, 
     private reservationService:ReservationService,
-    private formBuilder:FormBuilder){ }
+    private formBuilder:FormBuilder, private appService:AppService){ }
 
   ngOnInit(): void {
     let currentReservation = localStorage.getItem("validerReservationId"); 
@@ -44,5 +45,15 @@ export class ValidationResaComponent implements OnInit {
         this.router.navigate(["/reservation"]);
       }
     )
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  
+  authorities2(){
+    if(this.appService.isRespAgence ==true){
+      return false; 
+    } else return true;
   }
 }

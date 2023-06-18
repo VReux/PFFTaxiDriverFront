@@ -8,12 +8,16 @@ import { AppService } from 'src/app/PFFservices/app.service';
   templateUrl: './pfflogin.component.html',
   styleUrls: ['./pfflogin.component.scss']
 })
-export class PFFloginComponent {
+export class PFFloginComponent implements OnInit{
 
   credentials = {username : '',password : ''};
   constructor(private appService:AppService,private httpClient:HttpClient,private router:Router){
  
   }
+
+  ngOnInit() {
+  }
+
   login(){
    this.appService.authenticate(this.credentials,()=>{this.router.navigateByUrl("/agence")});
   }

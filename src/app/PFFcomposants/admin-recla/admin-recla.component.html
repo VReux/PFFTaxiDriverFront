@@ -1,1 +1,10 @@
-<p>admin-recla works!</p>
+<div [hidden]="authorities1()">
+    <h1>Bonjour cher admin, ceci est la page admin-recla</h1>
+</div>
+<div [hidden]="authenticated()">
+    <h1>Connectez-vous en tant que admin pour accéder à cette page</h1>
+</div>
+<div [hidden]="!authenticated()">
+    <div [hidden]="!authorities1()">
+    <h1>Vous êtes connecté, mais seuls les admins ont accès à cette page</h1>
+    </div>

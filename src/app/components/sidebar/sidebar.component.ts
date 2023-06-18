@@ -26,10 +26,6 @@ export const ROUTES: RouteInfo[] = [
   { path: '/gestionFactures', title: 'gestion Factures',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/gestionReservations', title: 'gestion Reservations',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/statistiquesAgence', title: 'Statistiques',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffCourses', title: 'Planning des courses',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffValCourses', title: 'Validation des courses',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/chauffAvis', title: 'Mes avis',  icon:'ni-circle-08 text-pink', class: '' },
-
   { path: '/utilisateur', title: 'Les utilisateurs',  icon:'ni-single-02', class: '' },
   { path: '/chauffeur', title: 'Les chauffeurs',  icon:'ni-circle-08', class: '' },
   { path: '/client', title: 'Les clients',  icon:'ni-circle-08', class: '' },
@@ -37,7 +33,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/agence', title: 'Agence',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/offre', title: 'Offre',  icon:'ni-circle-08 text-pink', class: '' },
   { path: '/reservation', title: 'Reservation',  icon:'ni-circle-08 text-pink', class: '' },
-  { path: '/facture', title: 'Facture',  icon:'ni-circle-08 text-pink', class: '' }
+  { path: '/facture', title: 'Facture',  icon:'ni-circle-08 text-pink', class: '' },
 
 
 
@@ -45,22 +41,33 @@ export const ROUTES: RouteInfo[] = [
 
 //path Admin
 export const ROUTES1: RouteInfo[] = [
-  { path: '/utilisateur', title: 'Les utilisateurs',  icon:'ni-single-02', class: '' }
+  { path: '/adminGestionComptes', title: 'Gestion des comptes',  icon:'ni-circle-08 text-blue', class: '' },
+  { path: '/adminStats', title: 'Les statistiques',  icon:'ni-circle-08 text-blue', class: '' },
+  { path: '/adminRecla', title: 'Les réclamations',  icon:'ni-circle-08 text-blue', class: '' },
 ];
 
 //path RespAgence
 export const ROUTES2: RouteInfo[] = [
-  { path: '/agence', title: 'Agence',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/gestionChauffeurTaxi', title: 'Gestion chauffeur + taxi',  icon:'ni-circle-08 text-orange', class: '' },
+  { path: '/gestionOffres', title: 'Gestion des offres',  icon:'ni-circle-08 text-orange', class: '' },
+  { path: '/validationReservation/:idReservation', title: 'Validation des reservations',  icon:'ni-circle-08 text-orange', class: '' },
+  { path: '/gestionFactures', title: 'Les factures',  icon:'ni-circle-08 text-orange', class: '' },
+  { path: '/gestionReclamations', title: 'Les réclamations',  icon:'ni-circle-08 text-orange', class: '' },
 ];
 
 //path Chauffeur
 export const ROUTES3: RouteInfo[] = [
-  { path: '/chauffeur', title: 'Les chauffeurs',  icon:'ni-circle-08', class: '' }
+  { path: '/chauffCourses', title: 'Planning des courses',  icon:'ni-circle-08 text-yellow', class: '' },
+  { path: '/chauffValCourses', title: 'Validation des courses',  icon:'ni-circle-08 text-yellow', class: '' },
+  { path: '/chauffAvis', title: 'Mes avis',  icon:'ni-circle-08 text-yellow', class: '' },
 ];
 
 //path Client
 export const ROUTES4: RouteInfo[] = [
-  { path: '/client', title: 'Les clients',  icon:'ni-circle-08', class: '' }
+  { path: '/clientReservation', title: 'Reservation',  icon:'ni-circle-08 text-black', class: '' },
+  { path: '/clientAgenceEtChauff', title: 'Les agences + chauffeurs',  icon:'ni-circle-08 text-black', class: '' },
+  { path: '/clientOffres', title: 'Les offres',  icon:'ni-circle-08 text-black', class: '' },
+  { path: '/clientCourses', title: 'Mon historique de courses',  icon:'ni-circle-08 text-black', class: '' },
 ];
 
 @Component({
@@ -120,4 +127,16 @@ export class SidebarComponent implements OnInit {
       return false; 
     } else return true;
   }
+
+  testAuthorities(){
+    if(this.appService.isAdmin ==true){
+      return "Admin"; 
+    } else if(this.appService.isRespAgence ==true){
+      return "RespAgence";
+    }else if (this.appService.isChauffeur ==true){
+      return "Chauffeur";
+    }else if (this.appService.isClient == true){
+      return "Client";
+    } else return "Inconnu";    
+}
 }
