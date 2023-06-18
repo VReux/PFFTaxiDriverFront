@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col-xl-10 order-xl-1">
             <div class="card shadow">
-                <!--<button class="btn btn-secondary btn-round " *ngIf="valider == false" (click)="showData()">Ajouter un chauffeur</button>
-                <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le formulaire</button>-->
+                <!--<button class="btn btn-secondary btn-round " *ngIf="valider == false" (click)="showData()">Courses à valider</button>
+                <button class="btn btn-secondary btn-round " *ngIf="valider == true" (click)="hideData()">Cacher les courses à valider</button>-->
 
-                <!--<div *ngIf="course.varValider==false">-->
+                <div *ngIf="this.course.validation==false">
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
                             <div class="row align-items-center">
@@ -57,9 +57,7 @@
                                                     <td>{{c.noteChauffeur}}</td>
                                                     <td>
                                                         <button (click)="editValCourse(c)" class="btn btn-secondary btn-round">Editer</button>
-                                                        <button (click)="valCourse(c)" class="btn btn-danger btn-round">valider</button>
-                                                        <!--<button (click)="validerCourse(c.idCourse)" class="btn btn-danger btn-round">Valider</button>-->
-                                                        <!--<button class="btn btn-secondary btn-round " *ngIf="varValider == false" (click)="validerCourse()">Valider</button>-->
+                                                        <button (click)="valCourse(c)" class="btn btn-danger btn-round">Valider</button>
                                                     </td>
                                                 </tr>
                                             </tbody>

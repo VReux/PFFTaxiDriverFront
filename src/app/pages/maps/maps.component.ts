@@ -80,7 +80,7 @@ export class MapsComponent implements OnInit {
         travelMode: 'DRIVING',
       },
       (response, status) => {
-        this.prestation.distanceEnKm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
+        this.prestation.distancekm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
       })
   }*/
 

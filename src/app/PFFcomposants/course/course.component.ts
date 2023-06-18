@@ -65,7 +65,7 @@ hideData() {
       travelMode: 'DRIVING',
     },
     (response, status) => {
-      this.course.distanceEnKm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
+      this.course.distancekm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
     })
 }
 formattedAddress: string;

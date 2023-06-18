@@ -24,21 +24,29 @@ export class ChauffValCoursesComponent implements OnInit {
 
  constructor(private courseService:CourseService, private factureService:FactureService, private router:Router, private appService:AppService){ }
 
+
  ngOnInit(): void {
  this.findAllCourses();
  this.findAllFactures();
- //this.valCourses = this.courseService.findAll();
+ this.course.validation=false;
+ this.findByValidation();
  }
 
-showData() {
-  return (this.element = true);
+/*showToValider() {
+  return (this.course.validation = false);
 }
-hideData() {
-  return (this.element = false);
-}
+hideToValider() {
+  return (this.course.validation = true);
+}*/
 
  findAllCourses(){
    this.courseService.findAll().subscribe(data => {this.courses = data});
+ }
+
+ findByValidation(){
+  this.courseService.findByValidation(this.course.validation).subscribe(data =>{
+    this.courses = data;
+  })
  }
 
  findAllFactures(){
@@ -46,17 +54,17 @@ hideData() {
 }
 
  /*validerCourse(){
-  return (this.course.varValider = true);
+  return (this.course.validation = true);
  }
 
  validerCourse() {
-  if (this.course.varValider==false) {
-    this.course.varValider=true;
+  if (this.course.validation==false) {
+    this.course.validation=true;
   } 
 }*/
 
  /*testValider(course:any){
-  if(course.varValider=false){
+  if(course.validation=false){
    this.router.navigate(['/editClient',utilisateur.idUtilisateur]);} 
   else if(utilisateur.numPermis!=null){
    this.router.navigate(['/editChauffeur',utilisateur.idUtilisateur])}
@@ -82,6 +90,7 @@ hideData() {
     localStorage.removeItem("valCourseId");
     localStorage.setItem("valCourseId",course.idCourse.toString());
     this.router.navigate(['/valCourse',course.idCourse]);
+    this.course.validation==true;
   }
 
   editValCourse(course:Course){
