@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/PFFservices/app.service';
+import { ReclamationService } from 'src/app/PFFservices/reclamation-service.service';
 
 @Component({
   selector: 'app-gestion-reclamations',
@@ -8,10 +9,18 @@ import { AppService } from 'src/app/PFFservices/app.service';
 })
 export class GestionReclamationsComponent implements OnInit {
 
-  constructor(private appService:AppService) { }
+  constructor(private reclamationService:ReclamationService, private appService:AppService) { }
+
+  reclamations!:any[];
 
   ngOnInit(): void {
-  }
+    this.findAllReclamations();
+   }
+  
+
+   findAllReclamations(){
+     this.reclamationService.findAll().subscribe(data => {this.reclamations = data});
+   }
 
   authenticated(){
     return this.appService.authenticated;

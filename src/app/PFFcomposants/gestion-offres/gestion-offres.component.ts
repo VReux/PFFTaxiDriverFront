@@ -13,7 +13,7 @@ export class GestionOffresComponent implements OnInit {
 
   offres!: any[];
   offre: Offre = new Offre();
-
+  public copy: string;
 
   constructor(private offreService: OffreService, private router: Router, private appService:AppService) { }
   ngOnInit(): void {

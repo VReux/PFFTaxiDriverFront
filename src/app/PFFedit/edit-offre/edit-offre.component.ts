@@ -33,6 +33,7 @@ this.editForm = this.formBuilder.group({
   idOffre:[],
   codePromo:['',Validators.required],
   descriptionOffre:['',Validators.required],
+  remiseOffre:['',Validators.required],
 })
 this.offreService.findOne(+currentOffre).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
 

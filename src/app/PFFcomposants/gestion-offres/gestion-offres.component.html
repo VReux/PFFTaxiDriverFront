@@ -13,10 +13,12 @@
                   <div class="text-center">
                     <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
                     <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                    <br>
+                    <span class="h2 font-weight-bold mb-0">{{o.remiseOffre}}%</span>
                   </div>
                 </div>
-                <div class="col-xl-2">
 
+                <div class="col-xl-2">
                   <button class="icon icon-shape bg-danger text-white rounded-circle shadowl" (click)="editOffre(o)">
                     <i class="ni ni-settings-gear-65"></i>
                   </button>
@@ -25,13 +27,12 @@
                     <i class="ni ni-fat-remove"></i>
                   </button>
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
       </div>
-
 
 
       <br>
@@ -66,6 +67,14 @@
                         [(ngModel)]="offre.descriptionOffre" name="codePromo" />
                     </div>
                   </div>
+
+                  <div class="row">
+                    <div class="form-group">
+                      <label class="form-control-label">Remise (en %)</label>
+                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="offre.remiseOffre"
+                        name="codePromo" />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="row">
@@ -88,5 +97,7 @@
   </div>
   <div [hidden]="!authenticated()">
     <div [hidden]="!authorities2()">
-    <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
+      <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
     </div>
+  </div>
+</div>

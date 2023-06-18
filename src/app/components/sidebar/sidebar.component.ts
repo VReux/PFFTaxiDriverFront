@@ -48,11 +48,13 @@ export const ROUTES1: RouteInfo[] = [
 
 //path RespAgence
 export const ROUTES2: RouteInfo[] = [
-  { path: '/gestionChauffeurTaxi', title: 'Gestion chauffeur + taxi',  icon:'ni-circle-08 text-orange', class: '' },
-  { path: '/gestionOffres', title: 'Gestion des offres',  icon:'ni-circle-08 text-orange', class: '' },
+  { path: '/gestionChauffeurTaxi', title: 'Gestion chauffeur',  icon:'fas fa-users text-orange', class: '' },
+  { path: '/gestionVehicules', title: 'Gestion des véhicules',  icon:'ni-delivery-fast text-orange', class: '' },
+  { path: '/gestionOffres', title: 'Gestion des offres',  icon:'ni-money-coins text-orange', class: '' },
   { path: '/validationReservation/:idReservation', title: 'Validation des reservations',  icon:'ni-circle-08 text-orange', class: '' },
   { path: '/gestionFactures', title: 'Les factures',  icon:'ni-circle-08 text-orange', class: '' },
   { path: '/gestionReclamations', title: 'Les réclamations',  icon:'ni-circle-08 text-orange', class: '' },
+  { path: '/statistiquesAgence', title: 'Statistiques',  icon:'ni-circle-08 text-orange', class: '' },
 ];
 
 //path Chauffeur
@@ -64,10 +66,11 @@ export const ROUTES3: RouteInfo[] = [
 
 //path Client
 export const ROUTES4: RouteInfo[] = [
-  { path: '/clientReservation', title: 'Reservation',  icon:'ni-circle-08 text-black', class: '' },
+  { path: '/clientReservation', title: 'Reserver un taxi',  icon:'ni-circle-08 text-black', class: '' },
   { path: '/clientAgenceEtChauff', title: 'Les agences + chauffeurs',  icon:'ni-circle-08 text-black', class: '' },
   { path: '/clientOffres', title: 'Les offres',  icon:'ni-circle-08 text-black', class: '' },
   { path: '/clientCourses', title: 'Mon historique de courses',  icon:'ni-circle-08 text-black', class: '' },
+  { path: '/facture', title: 'Mes factures',  icon:'ni-circle-08 text-pink', class: '' },
 ];
 
 @Component({
