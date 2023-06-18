@@ -49,6 +49,8 @@ import { AdminGestionComptesComponent } from 'src/app/PFFcomposants/admin-gestio
 import { AdminStatsComponent } from 'src/app/PFFcomposants/admin-stats/admin-stats.component';
 import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-recla.component';
 import { RedirectionComponent } from 'src/app/PFFcomposants/redirection/redirection.component';
+import { PFFprofilComponent } from 'src/app/PFFcomposants/pffprofil/pffprofil.component';
+import { PFFlogoutComponent } from 'src/app/PFFcomposants/pfflogout/pfflogout.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -90,6 +92,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'valCourse/:idCourse',     component: ValCourseComponent},
     { path: 'statistiquesAgence',   component: StatistiquesAgenceComponent},
     { path: 'redirection',   component: RedirectionComponent},
+    { path: 'profil',   component: PFFprofilComponent},
+    { path: 'logout',   component: PFFlogoutComponent},
 
     //path vue Admin
     { path: 'adminGestionComptes',   component:AdminGestionComptesComponent},

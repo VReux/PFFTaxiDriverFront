@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RedirectionComponent } from './redirection.component';
+import { PFFprofilComponent } from './pffprofil.component';
 
-describe('RedirectionComponent', () => {
-  let component: RedirectionComponent;
-  let fixture: ComponentFixture<RedirectionComponent>;
+describe('PFFprofilComponent', () => {
+  let component: PFFprofilComponent;
+  let fixture: ComponentFixture<PFFprofilComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RedirectionComponent ]
+      declarations: [ PFFprofilComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RedirectionComponent);
+    fixture = TestBed.createComponent(PFFprofilComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
