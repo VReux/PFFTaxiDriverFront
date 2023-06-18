@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/PFFservices/app.service';
 
 @Component({
   selector: 'app-client-reservation',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientReservationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService:AppService) { }
 
   ngOnInit(): void {
   }
 
+  authenticated(){
+    return this.appService.authenticated;
+  }
+
+  authorities4(){
+    if(this.appService.isClient ==true){
+      return false; 
+    } else return true;
+  }
 }

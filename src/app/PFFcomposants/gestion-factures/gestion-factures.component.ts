@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/PFFservices/app.service';
 
 @Component({
   selector: 'app-gestion-factures',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionFacturesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appService:AppService) { }
 
   ngOnInit(): void {
+  }
+
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  
+  authorities2(){
+    if(this.appService.isRespAgence ==true){
+      return false; 
+    } else return true;
   }
 
 }

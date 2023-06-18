@@ -41,6 +41,13 @@ import { GestionVehiculesComponent } from 'src/app/PFFcomposants/gestion-vehicul
 import { ValCourseComponent } from '../../PFFedit/val-course/val-course.component';
 import { ValidationResaComponent } from 'src/app/PFFcomposants/validation-resa/validation-resa.component';
 import { StatistiquesAgenceComponent } from 'src/app/PFFcomposants/statistiques-agence/statistiques-agence.component';
+import { ClientReservationComponent } from 'src/app/PFFcomposants/client-reservation/client-reservation.component';
+import { ClientAgenceEtChauffComponent } from 'src/app/PFFcomposants/client-agence-et-chauff/client-agence-et-chauff.component';
+import { ClientOffresComponent } from 'src/app/PFFcomposants/client-offres/client-offres.component';
+import { ClientCoursesComponent } from 'src/app/PFFcomposants/client-courses/client-courses.component';
+import { AdminGestionComptesComponent } from 'src/app/PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
+import { AdminStatsComponent } from 'src/app/PFFcomposants/admin-stats/admin-stats.component';
+import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-recla.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -73,10 +80,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reservation',                           component: ReservationComponent},
     { path: 'editReservation/:idReservation',   component: EditReservationComponent},
     { path: 'facture',                           component: FactureComponent},
-    { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent},
-    { path: 'chauffCourses', component:ChauffCoursesComponent},
-    { path: 'chauffValCourses', component:ChauffValCoursesComponent},
-    { path: 'chauffAvis', component:ChauffAvisComponent},
     { path: 'editValCourse/:idCourse',             component: EditValCourseComponent},
     { path: 'gestionOffres', component:GestionOffresComponent},
     { path: 'gestionReservations', component:GestionReservationsComponent},
@@ -84,7 +87,25 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gestionReclamations', component:GestionReclamationsComponent},
     { path: 'gestionVehicules', component:GestionVehiculesComponent},
     { path: 'valCourse/:idCourse',     component: ValCourseComponent},
-    { path: 'validationReservation/:idReservation',   component: ValidationResaComponent},
-    { path: 'statistiquesAgence',   component: StatistiquesAgenceComponent}
+    { path: 'statistiquesAgence',   component: StatistiquesAgenceComponent},
 
+    //path vue Admin
+    { path: 'adminGestionComptes',   component:AdminGestionComptesComponent},
+    { path: 'adminStats',   component:AdminStatsComponent},
+    { path: 'adminRecla',   component:AdminReclaComponent},
+    //path vue RespAgence
+    { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent},
+    { path: 'gestionOffres', component:GestionOffresComponent},
+    { path: 'validationReservation/:idReservation',   component: ValidationResaComponent},
+    { path: 'gestionFactures', component:GestionFacturesComponent},
+    { path: 'gestionReclamations', component:GestionReclamationsComponent},
+    //path vue Chauffeur
+    { path: 'chauffCourses', component:ChauffCoursesComponent},
+    { path: 'chauffValCourses', component:ChauffValCoursesComponent},
+    { path: 'chauffAvis', component:ChauffAvisComponent},
+    //path vue Client
+    { path: 'clientReservation',   component:ClientReservationComponent},
+    { path: 'clientAgenceEtChauff',   component:ClientAgenceEtChauffComponent},
+    { path: 'clientOffres',   component:ClientOffresComponent},
+    { path: 'clientCourses',   component:ClientCoursesComponent},
 ];

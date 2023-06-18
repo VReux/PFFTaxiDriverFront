@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/PFFmodel/course';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { CourseService } from 'src/app/PFFservices/course-service.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class ChauffAvisComponent implements OnInit {
   course:Course = new Course();
   element = false;
 
- constructor(private courseService:CourseService, private router:Router){ }
+ constructor(private courseService:CourseService, private router:Router, private appService:AppService){ }
 
  ngOnInit(): void {
  this.findAllCourses();
@@ -30,4 +31,13 @@ hideData() {
  findAllCourses(){
    this.courseService.findAll().subscribe(data => {this.courses = data});
  }
+ authenticated(){
+  return this.appService.authenticated;
+}
+
+authorities3(){
+  if(this.appService.isChauffeur ==true){
+    return false; 
+  } else return true;
+}
 }

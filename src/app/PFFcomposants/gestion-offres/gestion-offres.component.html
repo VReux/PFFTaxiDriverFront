@@ -80,3 +80,13 @@
       </div>
     </div>
   </div>
+  <div [hidden]="authorities2()">
+    <h1>Bonjour cher responsable d'agence, ceci est la page gestion-offres</h1>
+  </div>
+  <div [hidden]="authenticated()">
+    <h1>Connectez-vous en tant que responsable d'agence pour accéder à cette page</h1>
+  </div>
+  <div [hidden]="!authenticated()">
+    <div [hidden]="!authorities2()">
+    <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
+    </div>

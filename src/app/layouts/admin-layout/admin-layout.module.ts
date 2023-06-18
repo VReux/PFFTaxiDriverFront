@@ -52,6 +52,13 @@ import { GestionReclamationsComponent } from '../../PFFcomposants/gestion-reclam
 import { GestionVehiculesComponent } from 'src/app/PFFcomposants/gestion-vehicules/gestion-vehicules.component';
 import { ValidationResaComponent } from 'src/app/PFFcomposants/validation-resa/validation-resa.component';
 import { StatistiquesAgenceComponent } from 'src/app/PFFcomposants/statistiques-agence/statistiques-agence.component';
+import { ClientReservationComponent } from 'src/app/PFFcomposants/client-reservation/client-reservation.component';
+import { ClientAgenceEtChauffComponent } from 'src/app/PFFcomposants/client-agence-et-chauff/client-agence-et-chauff.component';
+import { ClientOffresComponent } from 'src/app/PFFcomposants/client-offres/client-offres.component';
+import { ClientCoursesComponent } from 'src/app/PFFcomposants/client-courses/client-courses.component';
+import { AdminGestionComptesComponent } from 'src/app/PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
+import { AdminStatsComponent } from 'src/app/PFFcomposants/admin-stats/admin-stats.component';
+import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-recla.component';
 
 
 @Injectable()
@@ -113,9 +120,16 @@ export class XhrInterceptor implements HttpInterceptor{
     GestionFacturesComponent,
     GestionReclamationsComponent,
     GestionVehiculesComponent,
-    ValCourseComponent
+    ValCourseComponent,
     ValidationResaComponent,
-    StatistiquesAgenceComponent
+    StatistiquesAgenceComponent,
+    ClientReservationComponent,
+    ClientAgenceEtChauffComponent,
+    ClientOffresComponent,
+    ClientCoursesComponent,
+    AdminGestionComptesComponent,
+    AdminStatsComponent,
+    AdminReclaComponent,
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
   

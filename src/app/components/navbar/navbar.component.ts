@@ -41,4 +41,16 @@ export class NavbarComponent implements OnInit {
   login(){
     this.router.navigateByUrl("/login");
   }
+
+  testAuthorities(){
+    if(this.appService.isAdmin ==true){
+      return "Admin"; 
+    } else if(this.appService.isRespAgence ==true){
+      return "RespAgence";
+    }else if (this.appService.isChauffeur ==true){
+      return "Chauffeur";
+    }else if (this.appService.isClient == true){
+      return "Client";
+    } else return "Inconnu";    
+}
 }

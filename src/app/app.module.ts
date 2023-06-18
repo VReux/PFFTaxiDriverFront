@@ -43,13 +43,7 @@ import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    ClientReservationComponent,
-    ClientAgenceEtChauffComponent,
-    ClientOffresComponent,
-    ClientCoursesComponent,
-    AdminGestionComptesComponent,
-    AdminStatsComponent,
-    AdminReclaComponent,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

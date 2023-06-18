@@ -42,18 +42,18 @@
                 <div class="col-md-6 pr-1">
                   <div class="form-group">
                     <label>Adresse de Depart</label>
-                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.rue" formControlName="adresseDepart.adresseDepart_rue">
-                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.codePostal" formControlName="adresseDepart.codePostal">
-                    <input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.ville" formControlName="adresseDepart.ville">
+                    <!--<input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.rue" formControlName="adresseDepart.adresseDepart_rue">-->
+                    <!--<input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.codePostal" formControlName="adresseDepart.codePostal">-->
+                    <!--<input type="text" class="form-control" [(ngModel)]="reservation.adresseDepart.ville" formControlName="adresseDepart.ville">-->
                   </div>
                 </div>
                 </div>
               <div class="col-md-6 pl-1">
                 <div class="form-group">
                   <label>Adresse d'arrivée</label>
-                  <input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.rue" formControlName="adresseArrivee.adresseDepart_rue">
-                  <input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.codePostal" formControlName="adresseArrivee.codePostal">
-                  <input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.ville" formControlName="adresseArrivee.ville">
+                  <!--<input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.rue" formControlName="adresseArrivee.adresseDepart_rue">-->
+                  <!--<input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.codePostal" formControlName="adresseArrivee.codePostal">-->
+                  <!--<input type="text" class="form-control" [(ngModel)]="reservation.adresseArrivee.ville" formControlName="adresseArrivee.ville">-->
                 </div>
               </div>
             </div>
@@ -68,4 +68,13 @@
     </div>
   </div>
 </div>
-
+<div [hidden]="authorities2()">
+  <h1>Bonjour cher responsable d'agence, ceci est la page validation-resa</h1>
+</div>
+<div [hidden]="authenticated()">
+  <h1>Connectez-vous en tant que responsable d'agence pour accéder à cette page</h1>
+</div>
+<div [hidden]="!authenticated()">
+  <div [hidden]="!authorities2()">
+  <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
+  </div>

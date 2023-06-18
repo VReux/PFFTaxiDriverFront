@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Reservation } from 'src/app/PFFmodel/reservation';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { ReservationService } from 'src/app/PFFservices/reservation-service.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ChauffCoursesComponent implements OnInit {
   heureDepart!:Date;
   elemRech = false;
 
-  constructor(private reservationService:ReservationService,private router:Router) { }
+  constructor(private reservationService:ReservationService,private router:Router, private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllReservation();
@@ -63,5 +64,13 @@ export class ChauffCoursesComponent implements OnInit {
       localStorage.setItem("editReservationId",reservation.idReservation.toString());
       this.router.navigate(['/editReservation',reservation.idReservation]);
     }
-    
+    authenticated(){
+      return this.appService.authenticated;
+    }
+  
+    authorities3(){
+      if(this.appService.isChauffeur ==true){
+        return false; 
+      } else return true;
+    }
 }
