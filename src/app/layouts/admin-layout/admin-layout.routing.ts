@@ -48,6 +48,7 @@ import { ClientCoursesComponent } from 'src/app/PFFcomposants/client-courses/cli
 import { AdminGestionComptesComponent } from 'src/app/PFFcomposants/admin-gestion-comptes/admin-gestion-comptes.component';
 import { AdminStatsComponent } from 'src/app/PFFcomposants/admin-stats/admin-stats.component';
 import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-recla.component';
+import { RedirectionComponent } from 'src/app/PFFcomposants/redirection/redirection.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -88,6 +89,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'gestionVehicules', component:GestionVehiculesComponent},
     { path: 'valCourse/:idCourse',     component: ValCourseComponent},
     { path: 'statistiquesAgence',   component: StatistiquesAgenceComponent},
+    { path: 'redirection',   component: RedirectionComponent},
 
     //path vue Admin
     { path: 'adminGestionComptes',   component:AdminGestionComptesComponent},
