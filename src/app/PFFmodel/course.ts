@@ -16,5 +16,5 @@ export class Course {
 	//reservation!:Reservation;
 	validation!:boolean;
   	distancekm: number;
-	  chauffeur!:Chauffeur;
+	chauffeur!:Chauffeur;
 }

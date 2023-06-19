@@ -35,6 +35,7 @@ export class EditReservationComponent implements OnInit {
     this.reservationService.findOne(+currentReservation).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
   }
   updateReservation(){
+
     var reservationString = JSON.stringify(this.editForm.value);
     this.reservationService.update(reservationString).subscribe(
       () =>{
