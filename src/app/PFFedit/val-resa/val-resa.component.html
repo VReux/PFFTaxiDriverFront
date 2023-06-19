@@ -1,0 +1,39 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+   <div class="row">
+       <div class="col-md-8">
+       <div class="card">
+               <div class="card-header">
+                   <h5 class="title">Valider une reservation</h5>
+               </div>
+               <div class="card-body">
+               <!-- ReactiveFormsModule : formGroup + formControlName-->
+                    <form [formGroup]="editForm" (ngSubmit)="saveCourse()">
+                        <!--tempsCourse!:number & prixReel!:number-->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Taxi</label>
+                                    <div>
+                                        <select name="taxi" class="form-control"
+                                            [(ngModel)]="course.chauffeur">
+                                            <option *ngFor="let c of chauffeurs" [ngValue]="c">
+                                                {{c.nom}} ({{c.prenom}})
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col-md-6 pl-1">
+                            <td colspan="2"><button>Ajouter</button></td>
+                        </div>
+                    </div>
+                    </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>

@@ -51,6 +51,8 @@ import { AdminReclaComponent } from 'src/app/PFFcomposants/admin-recla/admin-rec
 import { RedirectionComponent } from 'src/app/PFFcomposants/redirection/redirection.component';
 import { PFFprofilComponent } from 'src/app/PFFcomposants/pffprofil/pffprofil.component';
 import { PFFlogoutComponent } from 'src/app/PFFcomposants/pfflogout/pfflogout.component';
+import { ValResaComponent } from 'src/app/PFFedit/val-resa/val-resa.component';
+import { EditValResaComponent } from 'src/app/PFFedit/edit-val-resa/edit-val-resa.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -102,9 +104,11 @@ export const AdminLayoutRoutes: Routes = [
     //path vue RespAgence
     { path: 'gestionChauffeurTaxi',     component: GestionChauffeurTaxiComponent},
     { path: 'gestionOffres', component:GestionOffresComponent},
-    { path: 'validationReservation/:idReservation',   component: ValidationResaComponent},
+    { path: 'validationReservation',   component: ValidationResaComponent},
     { path: 'gestionFactures', component:GestionFacturesComponent},
     { path: 'gestionReclamations', component:GestionReclamationsComponent},
+    { path: 'valResa/:idReservation',     component: ValResaComponent},
+    { path: 'editValResa/:idReservation',   component: EditValResaComponent},
     //path vue Chauffeur
     { path: 'chauffCourses', component:ChauffCoursesComponent},
     { path: 'chauffValCourses', component:ChauffValCoursesComponent},
@@ -114,4 +118,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'clientAgenceEtChauff',   component:ClientAgenceEtChauffComponent},
     { path: 'clientOffres',   component:ClientOffresComponent},
     { path: 'clientCourses',   component:ClientCoursesComponent},
+
 ];

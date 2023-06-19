@@ -4,143 +4,145 @@
 </div>
 
 <div [hidden]="authorities2()">
-<div class="container-fluid mt--7">
-    <div class="row">
-        <div class="col-xl-11 order-xl-1">
-            <div class="card shadow">
-                <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter un
-                    chauffeur</button>
-                <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
-                    formulaire</button>
-                <!--formulaire d'ajout du chauffeur-->
-                <div *ngIf="element == true">
-                    <div class="card bg-secondary shadow">
-                        <div class="card-header bg-white border-0">
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h3 class="mb-0">Ajouter un Chauffeur</h3>
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-11 order-xl-1">
+                <div class="card shadow">
+                    <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter
+                        un
+                        chauffeur</button>
+                    <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
+                        formulaire</button>
+                    <!--formulaire d'ajout du chauffeur-->
+                    <div *ngIf="element == true">
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">Ajouter un Chauffeur</h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body" id="testid">
-                            <form (ngSubmit)="saveChauffeur()">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Nom</label>
-                                            <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.nom" name="nom" />
+                            <div class="card-body" id="testid">
+                                <form (ngSubmit)="saveChauffeur()">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Nom</label>
+                                                <input type="text" class="form-control form-control-alternative"
+                                                    [(ngModel)]="chauffeur.nom" name="nom" />
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Prénom</label>
-                                            <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.prenom" name="prenom" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Nom d'utilisateur</label>
-                                            <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.username" name="username" />
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Mot de passe</label>
-                                            <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.password" name="password" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">N° de Permis</label>
-                                            <input type="text" class="form-control form-control-alternative"
-                                                [(ngModel)]="chauffeur.numPermis" name="numPermis" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label">Taxi</label>
-                                            <div>
-                                                <select name="taxi" class="form-control" [(ngModel)]="chauffeur.taxi">
-                                                    <option *ngFor="let t of taxis" [ngValue]="t">
-                                                        {{t.immatriculation}} ({{t.modele}})
-                                                    </option>
-                                                </select>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Prénom</label>
+                                                <input type="text" class="form-control form-control-alternative"
+                                                    [(ngModel)]="chauffeur.prenom" name="prenom" />
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 pr-1">
-                                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Nom d'utilisateur</label>
+                                                <input type="text" class="form-control form-control-alternative"
+                                                    [(ngModel)]="chauffeur.username" name="username" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Mot de passe</label>
+                                                <input type="text" class="form-control form-control-alternative"
+                                                    [(ngModel)]="chauffeur.password" name="password" />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">N° de Permis</label>
+                                                <input type="text" class="form-control form-control-alternative"
+                                                    [(ngModel)]="chauffeur.numPermis" name="numPermis" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label">Taxi</label>
+                                                <div>
+                                                    <select name="taxi" class="form-control"
+                                                        [(ngModel)]="chauffeur.taxi">
+                                                        <option *ngFor="let t of taxis" [ngValue]="t">
+                                                            {{t.immatriculation}} ({{t.modele}})
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 pr-1">
+                                            <button class="btn btn-secondary btn-round ">Ajouter</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
+                    <!--fin formulaire d'ajout du chauffeur-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!--Liste chauffeurs-->
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Liste des chauffeurs</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prénom</th>
+                                    <th scope="col">Nom d'utilisateur</th>
+                                    <th scope="col">Numero de Permis</th>
+                                    <th scope="col">Taxi</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let c of chauffeurs">
+                                    <td>{{c.nom}}</td>
+                                    <td>{{c.prenom}}</td>
+                                    <td>{{c.username}}</td>
+                                    <td>{{c.numPermis}}</td>
+                                    <td>{{c.taxi.immatriculation}}</td>
+                                    <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                                            (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
+                                        <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                                            (click)="editChauffeur(c)">Modifier</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Fin Liste chauffeurs-->
+
                 </div>
-                <!--fin formulaire d'ajout du chauffeur-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <!--Liste chauffeurs-->
-                <div class="card-header border-0">
-                    <h3 class="mb-0">Liste des chauffeurs</h3>
-                </div>
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Prénom</th>
-                                <th scope="col">Nom d'utilisateur</th>
-                                <th scope="col">Numero de Permis</th>
-                                <th scope="col">Taxi</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let c of chauffeurs">
-                                <td>{{c.nom}}</td>
-                                <td>{{c.prenom}}</td>
-                                <td>{{c.username}}</td>
-                                <td>{{c.numPermis}}</td>
-                                <td>{{c.taxi.immatriculation}}</td>
-                                <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                                        (click)="deleteChauffeur(c.idUtilisateur)">Supprimer </button>
-                                    <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
-                                        (click)="editChauffeur(c)">Modifier</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!--Fin Liste chauffeurs-->
-
             </div>
         </div>
     </div>
-</div>
 
 </div>
 <div [hidden]="authenticated()">
@@ -148,5 +150,5 @@
 </div>
 <div [hidden]="!authenticated()">
     <div [hidden]="!authorities2()">
-    <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
+        <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
     </div>

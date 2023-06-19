@@ -52,14 +52,14 @@ export class FactureComponent implements OnInit {
     this.courseService.findAll().subscribe(data => { this.courses = data });
   }
   saveFacture() {
+    this.facture.tva = 20;
+    this.facture.prixReelHT = this.course.prixReel;
+    this.facture.prixReelTTC = Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva/100));
     this.factureService.save(this.facture).subscribe(
       () => {
         this.findAllFactures();
         this.facture = new Facture();
-        //this.router.navigate(["/chauffValCourses"]);
-        this.facture.tva = 0.2;
-        this.facture.prixReelHT = this.course.prixReel;
-        this.facture.prixReelTTC = Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva));
+        this.router.navigate(["/chauffValCourses"]);
       }
     )
   }

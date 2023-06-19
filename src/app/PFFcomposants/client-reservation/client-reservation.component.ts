@@ -36,7 +36,7 @@ export class ClientReservationComponent implements OnInit {
   ngOnInit(): void {
     this.findAllReservation();
     this.tempsCourse == this.distancekm * 100;
-    this.finAllOffre();
+
 
 
         // Etape 8 : (recherche)
@@ -89,6 +89,7 @@ onSubmit() {
     this.reservationService.findAll().subscribe(data => {this.reservations = data});
   }
   saveReservation(){
+    this.reservation.validation=false;
     this.reservationService.save(this.reservation).subscribe(
       () => {
         this.findAllReservation();
@@ -121,7 +122,8 @@ onSubmit() {
        this.reservation.distancekm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
        this.reservation.tempsCourse = Math.round(this.reservation.distancekm / 0.83); // choix de la vitesse moyenne : 50km/h
        this.reservation.prixEstime = Math.round((this.reservation.tempsCourse * 1.66) - (this.reservation.tempsCourse * 1.66 * this.remisePourc));  // choix du taux horaire : 100€/h
-     //  this.generatePDF(this.reservation); // génère le pdf
+
+       //  this.generatePDF(this.reservation); // génère le pdf
      })
  }
 

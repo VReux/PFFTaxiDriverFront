@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Reservation } from 'src/app/PFFmodel/reservation';
 import { AppService } from 'src/app/PFFservices/app.service';
-import { ChauffeurService } from 'src/app/PFFservices/chauffeur-service.service';
 import { ReservationService } from 'src/app/PFFservices/reservation-service.service';
 
 @Component({
-  selector: 'app-validation-resa',
-  templateUrl: './validation-resa.component.html',
-  styleUrls: ['./validation-resa.component.scss']
+  selector: 'app-edit-val-resa',
+  templateUrl: './edit-val-resa.component.html',
+  styleUrls: ['./edit-val-resa.component.scss']
 })
-export class ValidationResaComponent implements OnInit {
+export class EditValResaComponent implements OnInit {
+
   reservations!:any[]; 
 
 
@@ -39,7 +38,7 @@ export class ValidationResaComponent implements OnInit {
   validerReservation(reservation:Reservation){
     localStorage.removeItem("valResaId");
     localStorage.setItem("valResaId",reservation.idReservation.toString());
-    this.router.navigate(['/editValResa',reservation.idReservation]);
+    this.router.navigate(['/valResa',reservation.idReservation]);
   }
 
 
