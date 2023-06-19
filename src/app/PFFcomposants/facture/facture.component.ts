@@ -3,6 +3,7 @@ import { Facture } from 'src/app/PFFmodel/facture';
 import { FactureService } from 'src/app/PFFservices/facture-service.service';
 import * as pdfMake from '../../../../node_modules/pdfmake/build/pdfmake';
 import * as pdfFonts from '../../../../node_modules/pdfmake/build/vfs_fonts';
+import { AppService } from 'src/app/PFFservices/app.service';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -17,7 +18,7 @@ export class FactureComponent implements OnInit {
   facture: Facture = new Facture();
   date!: Date;
   router: any;
-  constructor(private factureService: FactureService) {
+  constructor(private factureService: FactureService, private appService:AppService) {
 
   }
 
@@ -157,5 +158,14 @@ export class FactureComponent implements OnInit {
       },
     };
     pdfMake.createPdf(documentDefinition).open();
+  }
+  authenticated(){
+    return this.appService.authenticated;
+  }
+
+  authorities4(){
+    if(this.appService.isClient ==true||this.appService.isAdmin==true){
+      return false; 
+    } else return true;
   }
 }

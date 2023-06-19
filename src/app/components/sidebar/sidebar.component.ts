@@ -42,8 +42,8 @@ export const ROUTES: RouteInfo[] = [
 //path Admin
 export const ROUTES1: RouteInfo[] = [
   { path: '/adminGestionComptes', title: 'Gestion des comptes',  icon:'ni-circle-08 text-blue', class: '' },
-  { path: '/adminStats', title: 'Les statistiques',  icon:'ni-circle-08 text-blue', class: '' },
-  { path: '/adminRecla', title: 'Les réclamations',  icon:'ni-circle-08 text-blue', class: '' },
+  //{ path: '/adminStats', title: 'Les statistiques',  icon:'ni-circle-08 text-blue', class: '' },
+  //{ path: '/adminRecla', title: 'Les réclamations',  icon:'ni-circle-08 text-blue', class: '' },
 ];
 
 //path RespAgence
@@ -54,7 +54,7 @@ export const ROUTES2: RouteInfo[] = [
   { path: '/validationReservation/:idReservation', title: 'Validation des reservations',  icon:'ni-circle-08 text-orange', class: '' },
   { path: '/gestionFactures', title: 'Les factures',  icon:'ni-circle-08 text-orange', class: '' },
   { path: '/gestionReclamations', title: 'Les réclamations',  icon:'ni-circle-08 text-orange', class: '' },
-  { path: '/statistiquesAgence', title: 'Statistiques',  icon:'ni-circle-08 text-orange', class: '' },
+  //{ path: '/statistiquesAgence', title: 'Statistiques',  icon:'ni-circle-08 text-orange', class: '' },
 ];
 
 //path Chauffeur
@@ -70,7 +70,7 @@ export const ROUTES4: RouteInfo[] = [
   { path: '/clientAgenceEtChauff', title: 'Les agences + chauffeurs',  icon:'ni-circle-08 text-black', class: '' },
   { path: '/clientOffres', title: 'Les offres',  icon:'ni-circle-08 text-black', class: '' },
   { path: '/clientCourses', title: 'Mon historique de courses',  icon:'ni-circle-08 text-black', class: '' },
-  { path: '/facture', title: 'Mes factures',  icon:'ni-circle-08 text-pink', class: '' },
+  { path: '/facture', title: 'Mes factures',  icon:'ni-circle-08 text-black', class: '' },
 ];
 
 @Component({

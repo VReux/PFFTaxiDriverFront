@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Taxi } from 'src/app/PFFmodel/taxi';
 import { AgenceService } from 'src/app/PFFservices/agence-service.service';
+import { AppService } from 'src/app/PFFservices/app.service';
 import { TaxiService } from 'src/app/PFFservices/taxi-service.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class GestionVehiculesComponent implements OnInit {
   agences!:any[];
 
   element = false;
-  constructor(private taxiService:TaxiService, private agenceService:AgenceService, private router:Router) { }
+  constructor(private taxiService:TaxiService, private agenceService:AgenceService, private router:Router, private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllTaxi();
@@ -56,5 +57,14 @@ export class GestionVehiculesComponent implements OnInit {
     localStorage.removeItem("editTaxiId");
     localStorage.setItem("editTaxiId",taxi.idTaxi.toString());
     this.router.navigate(['/editTaxi',taxi.idTaxi]);
+  }
+  authenticated(){
+    return this.appService.authenticated;
+  }
+  
+  authorities2(){
+    if(this.appService.isRespAgence ==true||this.appService.isAdmin==true){
+      return false; 
+    } else return true;
   }
 }
