@@ -1,6 +1,8 @@
 //import { Facture } from "./facture";
 //import { Reservation } from "./reservation";
 
+import { Chauffeur } from "./chauffeur";
+
 export class Course {
     idCourse!:number;
 	avisCourse!:string;
@@ -14,4 +16,5 @@ export class Course {
 	//reservation!:Reservation;
 	validation!:boolean;
   	distancekm: number;
+	  chauffeur!:Chauffeur;
 }
