@@ -25,7 +25,6 @@ export class FactureComponent implements OnInit {
 
    courses!:any[];
   course: Course = new Course();
-  router: any;
   constructor(private factureService: FactureService, private courseService:CourseService, private router:Router, private httpClient: HttpClient, private appService:AppService) {
 
 
