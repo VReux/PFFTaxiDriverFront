@@ -18,7 +18,7 @@ export class GestionFacturesComponent implements OnInit {
   }
   
   authorities2(){
-    if(this.appService.isRespAgence ==true){
+    if(this.appService.isRespAgence ==true||this.appService.isAdmin==true){
       return false; 
     } else return true;
   }

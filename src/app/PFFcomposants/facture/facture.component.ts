@@ -7,6 +7,8 @@ import { Course } from 'src/app/PFFmodel/course';
 import { CourseService } from 'src/app/PFFservices/course-service.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AppService } from 'src/app/PFFservices/app.service';
+
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -20,10 +22,12 @@ export class FactureComponent implements OnInit {
   factures!: any[]
   facture: Facture = new Facture();
   date!: Date;
-  courses!:any[];
+
+   courses!:any[];
   course: Course = new Course();
-  
-  constructor(private factureService: FactureService, private courseService:CourseService, private router:Router, private httpClient: HttpClient) {
+  router: any;
+  constructor(private factureService: FactureService, private courseService:CourseService, private router:Router, private httpClient: HttpClient, private appService:AppService) {
+
 
   }
 
@@ -162,5 +166,14 @@ export class FactureComponent implements OnInit {
       },
     };
     pdfMake.createPdf(documentDefinition).open();
+  }
+  authenticated(){
+    return this.appService.authenticated;
+  }
+
+  authorities4(){
+    if(this.appService.isClient ==true||this.appService.isAdmin==true){
+      return false; 
+    } else return true;
   }
 }

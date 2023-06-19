@@ -36,7 +36,7 @@ hideData() {
 }
 
 authorities3(){
-  if(this.appService.isChauffeur ==true){
+  if(this.appService.isChauffeur ==true||this.appService.isAdmin==true){
     return false; 
   } else return true;
 }
