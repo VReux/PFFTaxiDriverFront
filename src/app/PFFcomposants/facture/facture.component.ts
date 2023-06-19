@@ -3,7 +3,12 @@ import { Facture } from 'src/app/PFFmodel/facture';
 import { FactureService } from 'src/app/PFFservices/facture-service.service';
 import * as pdfMake from '../../../../node_modules/pdfmake/build/pdfmake';
 import * as pdfFonts from '../../../../node_modules/pdfmake/build/vfs_fonts';
+import { Course } from 'src/app/PFFmodel/course';
+import { CourseService } from 'src/app/PFFservices/course-service.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { AppService } from 'src/app/PFFservices/app.service';
+
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -17,33 +22,45 @@ export class FactureComponent implements OnInit {
   factures!: any[]
   facture: Facture = new Facture();
   date!: Date;
+
+   courses!:any[];
+  course: Course = new Course();
   router: any;
-  constructor(private factureService: FactureService, private appService:AppService) {
+  constructor(private factureService: FactureService, private courseService:CourseService, private router:Router, private httpClient: HttpClient, private appService:AppService) {
+
 
   }
 
  ngOnInit(): void {
     this.findAllFactures();
-  //this.date = '';
-   // this.findByDateFacture();
+    this.findAllCourses();
+    // this.date = '';
+    // this.findByDateFacture();
   }
-  findByDateFacture() {
-  /*this.factureService.findByDateFacture(this.date).subscribe(data => {
+  /*findByDateFacture() {
+  this.factureService.findByDateFacture(this.date).subscribe(data => {
       this.factures = data;
-    })*/
-  }
+    })
+  }*/
+
   onSubmit() {
-    this.findByDateFacture();
+    // this.findByDateFacture();
   }
   findAllFactures() {
     this.factureService.findAll().subscribe(data => { this.factures = data });
   }
+  findAllCourses() {
+    this.courseService.findAll().subscribe(data => { this.courses = data });
+  }
   saveFacture() {
     this.factureService.save(this.facture).subscribe(
       () => {
-        this.findByDateFacture();
         this.findAllFactures();
         this.facture = new Facture();
+        //this.router.navigate(["/chauffValCourses"]);
+        this.facture.tva = 0.2;
+        this.facture.prixReelHT = this.course.prixReel;
+        this.facture.prixReelTTC = Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva));
       }
     )
   }
@@ -70,7 +87,7 @@ export class FactureComponent implements OnInit {
         {
           columns: [
             {
-              text: 'Nom de la société',
+              text: 'TaxiDriver',
               width: '50%',
               fontSize: 16,
               bold: true,
@@ -85,59 +102,50 @@ export class FactureComponent implements OnInit {
               margin: [0, 20, 0, 20],
             },
           ],
-        },/*
-        {
-          text: 'Adresse de la société',
-          fontSize: 14,
-          margin: [0, 0, 0, 20],
-        },
-        {
-          text: `Date : ${facture.dateFacture}`,
-          fontSize: 14,
-          margin: [0, 0, 0, 20],
-        },
-
-        {
-          text: 'Intitulé : ',
-          fontSize: 14,
+        },{
+          text: `N° de la course : ${this.course.idCourse}`,
+          fontSize: 12,
           bold: true,
           margin: [0, 0, 0, 20],
         },
-        {
-          layout: 'lightHorizontalLines',
-          table: {
-            headerRows: 1,
-            widths: ['*', 'auto'],
-            body: [
-              [{ text: 'Dégnisation', bold: true }, { text: 'Prix total', bold: true }],
-              ['Prix HT :', facture.prixHT],
-            ],
-          },
-        },
-        {
-          absolutePosition: { x: 40, y: 650 },
-          text: 'Moyen de paiement',
-          noWrap: true,
-          fontSize: 11,
+        /*{
+          text: `Date et heure de la course : ${this.course.heureDepart}`,
+          fontSize: 12,
           bold: true,
-          margin: [0, 20, 0, 10]
-        },
-        {
-          absolutePosition: { x: 40, y: 665 },
-          text: 'Condition de paiement :',
-          noWrap: true,
-          fontSize: 11,
-          bold: true,
-          margin: [0, 20, 0, 10]
-        },
-        {
-          absolutePosition: { x: 40, y: 680 },
-          text: `Point de fidélité gagné: ${facture.pointFideliteGagne}`,
-          fontSize: 11,
-          bold: true,
-          margin: [0, 20, 0, 10]
+          margin: [0, 0, 0, 20],
         },*/
-
+        {
+          text: `Adresse de départ : ${this.course.depart}`,
+          fontSize: 12,
+          bold: true,
+          margin: [0, 0, 0, 20],
+        },
+        {
+          text: `Adresse d'arrivée : ${this.course.arrivee}`,
+          fontSize: 12,
+          bold: true,
+          margin: [0, 0, 0, 20],
+        },
+        {
+          text: `Prix HT : ${facture.prixReelHT} €`,
+          fontSize: 12,
+          bold: true,
+          margin: [0, 0, 0, 10],
+        },
+        {
+          text: `Prix TTC : ${facture.prixReelTTC} €`,
+          fontSize: 12,
+          bold: true,
+          margin: [0, 0, 0, 10],
+        },
+        {
+          text: `TVA: ${facture.tva}`,
+          noWrap: true,
+          fontSize: 11,
+          bold: true,
+          margin: [0, 0, 0, 10]
+        },
+        
       ],
       footer: {
         columns: [
