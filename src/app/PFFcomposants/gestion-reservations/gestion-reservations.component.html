@@ -3,39 +3,43 @@
     </div>
 </div>
 
-
 <div class="container-fluid mt--7">
     <div class="row">
         <div class="col-xl-11 order-xl-1">
             <div class="card shadow">
-                <div class="card-header border-0">
-                    <h3 class="mb-0">Liste des reservations</h3>
-                </div>
-                <div class="table-responsive">
-                    <table class="table align-items-center table-flush">
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Heure de départ</th>
-                                <th>Taux horaire</th>
-                                <th>Validation</th>
-                                <th>Adresse de départ</th>
-                                <th>Adresse d'arrivée</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let r of reservations">
-                                <td>{{r.heureDepart}}</td>
-                                <td>{{r.tauxHoraire}}</td>
-                                <td>{{r.validation ? 'Validée':'Non Validée'}}</td>
-                                <td>{{r.adresseDepart.rue}},{{r.adresseDepart.codePostal}},{{r.adresseDepart.ville}}
-                                </td>
-                                <td>{{r.adresseArrivee.rue}},{{r.adresseArrivee.codePostal}},{{r.adresseArrivee.ville}}
-                                </td>
-                                <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                                    (click)="validerResa(r)">Valider </button>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card bg-secondary shadow">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <h3 class="mb-0">Liste des reservations</h3>
+                            <div class="table-responsive">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Heure de départ</th>
+                                            <th>Taux horaire</th>
+                                            <th>Validation</th>
+                                            <th>Adresse de départ</th>
+                                            <th>Adresse d'arrivée</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let r of reservations">
+                                            <td>{{r.heureDepart}}</td>
+                                            <td>{{r.tauxHoraire}}</td>
+                                            <td>{{r.validation ? 'Validée':'Non Validée'}}</td>
+                                            <td>{{r.adresseDepart.rue}},{{r.adresseDepart.codePostal}},{{r.adresseDepart.ville}}
+                                            </td>
+                                            <td>{{r.adresseArrivee.rue}},{{r.adresseArrivee.codePostal}},{{r.adresseArrivee.ville}}
+                                            </td>
+                                            <td><button
+                                                    class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                                                    (click)="validerResa(r)">Valider </button>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

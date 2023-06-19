@@ -63,6 +63,8 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { RedirectionComponent } from 'src/app/PFFcomposants/redirection/redirection.component';
 import { PFFprofilComponent } from 'src/app/PFFcomposants/pffprofil/pffprofil.component';
 import { PFFlogoutComponent } from 'src/app/PFFcomposants/pfflogout/pfflogout.component';
+import { ValResaComponent } from 'src/app/PFFedit/val-resa/val-resa.component';
+import { EditValResaComponent } from 'src/app/PFFedit/edit-val-resa/edit-val-resa.component';
 
 
 @Injectable()
@@ -138,6 +140,8 @@ export class XhrInterceptor implements HttpInterceptor{
     RedirectionComponent,
     PFFprofilComponent,
     PFFlogoutComponent,
+    ValResaComponent,
+    EditValResaComponent,
   ],
   providers: [UtilisateurService,/*step2*/RoleService,AppService,{provide: HTTP_INTERCEPTORS,useClass: XhrInterceptor, multi: true}], // Les services
   

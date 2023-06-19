@@ -1,0 +1,93 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+  </div>
+  
+  <div [hidden]="authorities2()">
+    <div class="main-content">
+      <div class="container-fluid mt--7">
+        <div class="row">
+          <div class="col-xl-11 order-xl-1">
+            <div class="card shadow">
+              <!--Liste resa non validées-->
+              <div class="card-header border-0">
+                <h3 class="mb-0">Liste des reservations non validées</h3>
+              </div>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Adresse de départ</th>
+                      <th scope="col">Adresse d'arrivée</th>
+                      <th scope="col">Heure de départ</th>
+                      <th scope="col">Temps de la course</th>
+                      <th scope="col">Prix estimé</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let r of reservations">
+                    <tr *ngIf="r.validation == false">
+                      <td>{{r.depart}}</td>
+                      <td>{{r.arrivee}}</td>
+                      <td>{{r.heureDepart}}</td>
+                      <td>{{r.tempsCourse}}</td>
+                      <td>{{r.prixEstime}}</td>
+                      <td>
+                        <button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                          (click)="validerReservation(r)">Accepter</button>
+                        <button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                          (click)="deleteReservation(r.idReservation)">Refuser</button>
+  
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+  
+              </div>
+              <!--Fin Liste  non validées-->
+  
+              <!--Liste resa validées-->
+              <div class="card-header border-0">
+                <h3 class="mb-0">Liste des reservations validées</h3>
+              </div>
+              <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Adresse de départ</th>
+                      <th scope="col">Adresse d'arrivée</th>
+                      <th scope="col">Heure de départ</th>
+                      <th scope="col">Temps de la course</th>
+                      <th scope="col">Prix estimé</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let r of reservations">
+                    <tr *ngIf="r.validation == true">
+                      <td>{{r.depart}}</td>
+                      <td>{{r.arrivee}}</td>
+                      <td>{{r.heureDepart}}</td>
+                      <td>{{r.tempsCourse}}</td>
+                      <td>{{r.prixEstime}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--Fin Liste  validées-->
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  </div>
+  <div [hidden]="authenticated()">
+    <h1>Connectez-vous en tant que responsable d'agence pour accéder à cette page</h1>
+  </div>
+  <div [hidden]="!authenticated()">
+    <div [hidden]="!authorities2()">
+      <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
+    </div>
+  </div>

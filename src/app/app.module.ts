@@ -31,6 +31,8 @@ import { StatistiquesAgenceComponent } from './PFFcomposants/statistiques-agence
 import { RedirectionComponent } from './PFFcomposants/redirection/redirection.component';
 import { PFFprofilComponent } from './PFFcomposants/pffprofil/pffprofil.component';
 import { PFFlogoutComponent } from './PFFcomposants/pfflogout/pfflogout.component';
+import { ValResaComponent } from './PFFedit/val-resa/val-resa.component';
+import { EditValResaComponent } from './PFFedit/edit-val-resa/edit-val-resa.component';
 
 @NgModule({
   imports: [
@@ -45,7 +47,7 @@ import { PFFlogoutComponent } from './PFFcomposants/pfflogout/pfflogout.componen
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent,
+    AuthLayoutComponent
 
    
   ],
