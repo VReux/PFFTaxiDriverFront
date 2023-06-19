@@ -25,7 +25,7 @@ export class ValResaComponent implements OnInit {
     let currentReservation = localStorage.getItem("valResaId");
     if(!currentReservation){
       alert("Invalid Action...");
-      this.router.navigate(["/validationResa"]);
+      this.router.navigate(["/validationReservation"]);
       return;
     }
 

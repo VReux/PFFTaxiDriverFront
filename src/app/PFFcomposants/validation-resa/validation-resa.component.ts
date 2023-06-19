@@ -36,7 +36,10 @@ export class ValidationResaComponent implements OnInit {
   }
 
 
+
+
   validerReservation(reservation:Reservation){
+   // reservation.validation=true; => ne fonctionne pas
     localStorage.removeItem("valResaId");
     localStorage.setItem("valResaId",reservation.idReservation.toString());
     this.router.navigate(['/editValResa',reservation.idReservation]);
