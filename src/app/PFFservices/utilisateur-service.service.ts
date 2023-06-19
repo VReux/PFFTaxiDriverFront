@@ -15,6 +15,7 @@ export class UtilisateurService {
   public findAll():Observable<any>{
     return this.httpClient.get(this.BASE_URL); 
   }
+
   
   public save(utilisateur:Utilisateur):Observable<any>{
     return this.httpClient.post(this.BASE_URL,utilisateur);

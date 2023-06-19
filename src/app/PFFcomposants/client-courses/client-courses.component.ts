@@ -18,7 +18,7 @@ export class ClientCoursesComponent implements OnInit {
   }
 
   authorities4(){
-    if(this.appService.isClient ==true){
+    if(this.appService.isClient ==true||this.appService.isAdmin==true){
       return false; 
     } else return true;
   }

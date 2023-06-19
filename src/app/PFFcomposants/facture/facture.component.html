@@ -1,3 +1,6 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+
+<div [hidden]="authorities4()">
 <div>
     <h1>Ajouter une facture</h1>
     <form (ngSubmit)="saveFacture()">
@@ -72,3 +75,13 @@
         </tr>
     </table>
 </div>
+
+    <h1>Bonjour cher client, ceci est la page client-courses</h1>
+</div>
+<div [hidden]="authenticated()">
+    <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
+</div>
+<div [hidden]="!authenticated()">
+    <div [hidden]="!authorities4()">
+    <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
+    </div>

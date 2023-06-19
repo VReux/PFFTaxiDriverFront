@@ -16,6 +16,7 @@ export class ChauffeurService {
   public findAll():Observable<any>{
     return this.httpClient.get(this.BASE_URL); 
   }
+
   
   public save(chauffeur:Chauffeur):Observable<any>{
     return this.httpClient.post(this.BASE_URL,chauffeur);
