@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import * as pdfMake from '../../../../node_modules/pdfmake/build/pdfmake';
 import * as pdfFonts from '../../../../node_modules/pdfmake/build/vfs_fonts';
+import { OffreService } from 'src/app/PFFservices/offre-service.service';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -21,23 +22,59 @@ export class ClientReservationComponent implements OnInit {
   [x: string]: any;
   reservations!:any[];
   reservation:Reservation = new Reservation();
-  element = false;
   @ViewChild("placesRef") placesRef: GooglePlaceDirective;
+  codePromo!: string;
+  offres!:any[];
+  offre!:any;
+  recherchePromo =false;
+  remisePourc:number=0;
+  ReponseCodePromo!:string;
+  
 
-  constructor(private appService:AppService, private reservationService:ReservationService, private router:Router, private httpClient: HttpClient) { }
+  constructor(private appService:AppService, private reservationService:ReservationService, private offreService:OffreService, private router:Router, private httpClient: HttpClient) { }
  
   ngOnInit(): void {
     this.findAllReservation();
     this.tempsCourse == this.distancekm * 100;
+    this.finAllOffre();
+
+
+        // Etape 8 : (recherche)
+        this.codePromo = '';
+        this.findByCodePromo();
   }
  
- showData() {
-   return (this.element = true);
- }
- hideData() {
-   return (this.element = false);
- }
 
+
+ findAllOffres() {
+  this.offreService.findAll().subscribe(data => { this.offres = data });
+}
+
+showMessage(){
+  return (this.recherchePromo = true);
+}
+ // Etape 7 : (recherche)
+ findByCodePromo(){
+  this.offreService.findByCodePromo(this.codePromo).subscribe(data =>{
+    this.offre = data;
+    this.remisePourc = this.offre.remiseOffre/100;
+    console.log(this.remisePourc);
+    this.calculDistance()
+   /* if(!this.offre){
+      console.log('Le nom n\'existe pas');
+      this.ReponseCodePromo = "Le code promo n'existe pas!"
+    }
+    else{
+      console.log('tu as gagné!');
+      this.ReponseCodePromo = "Le promo existe!"
+    }*/
+  })
+}
+
+onSubmit() {
+  this.findByCodePromo();
+
+}
   authenticated(){
     return this.appService.authenticated;
   }
@@ -83,9 +120,31 @@ export class ClientReservationComponent implements OnInit {
      (response, status) => {
        this.reservation.distancekm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
        this.reservation.tempsCourse = Math.round(this.reservation.distancekm / 0.83); // choix de la vitesse moyenne : 50km/h
-       this.reservation.prixEstime = Math.round(this.reservation.tempsCourse * 1.66);  // choix du taux horaire : 100€/h
-       this.generatePDF(this.reservation); // génère le pdf
+       this.reservation.prixEstime = Math.round((this.reservation.tempsCourse * 1.66) - (this.reservation.tempsCourse * 1.66 * this.remisePourc));  // choix du taux horaire : 100€/h
+     //  this.generatePDF(this.reservation); // génère le pdf
      })
+ }
+
+
+ calculDistanceAvecPdf(){
+  var distanceMatrix = new google.maps.DistanceMatrixService();
+  distanceMatrix.getDistanceMatrix(
+    {
+      origins: [this.reservation.depart],
+      destinations: [this.reservation.arrivee],
+      travelMode: 'DRIVING',
+    },
+    (response, status) => {
+      this.reservation.distancekm = Math.round(response.rows[0].elements[0].distance.value * 0.001 * 100) / 100;
+      this.reservation.tempsCourse = Math.round(this.reservation.distancekm / 0.83); // choix de la vitesse moyenne : 50km/h
+      this.reservation.prixEstime = Math.round((this.reservation.tempsCourse * 1.66) - (this.reservation.tempsCourse * 1.66 * this.remisePourc));  // choix du taux horaire : 100€/h
+    this.generatePDF(this.reservation); // génère le pdf
+    })
+
+
+
+
+
  }
  formattedAddress: string;
    googlePlacesOptions = {
