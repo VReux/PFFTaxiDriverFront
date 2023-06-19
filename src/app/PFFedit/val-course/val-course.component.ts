@@ -56,28 +56,17 @@ export class ValCourseComponent implements OnInit {
   findAllFactures(){
     this.factureService.findAll().subscribe(data => {this.factures = data});
   }
-  /*saveFacture() {
-    this.factureService.save(this.facture).subscribe(
-      () => {
-        this.findAllFactures();
-        this.facture = new Facture();
-        this.router.navigate(["/chauffValCourses"]);
-        /*this.facture.tva == 0.2;
-        this.facture.prixReelHT == this.course.prixReel;
-        this.facture.prixReelTTC == Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva));
-      }
-    )
-  }*/
 
   saveFacture() {
+    this.facture.tva = 20;
+    this.facture.prixReelTTC = 55;
+    //this.facture.prixReelHT == this.course.prixReel;
     this.factureService.save(this.facture).subscribe(
   () => {
     this.findAllFactures();
+    // this.facture.prixReelTTC = this.facture.prixReelHT+20 //*(this.facture.prixReelHT + this.facture.tva/100);  //Math.round(
     this.facture = new Facture();
     this.router.navigate(["/chauffValCourses"]);
-    this.facture.tva = 20;
-    this.facture.prixReelHT == this.course.prixReel;
-    this.facture.prixReelTTC == Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva/100));
   })
   }
 

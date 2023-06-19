@@ -1,57 +1,50 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-    </div>
+  <div class="container-fluid">
   </div>
-  
-  <div [hidden]="authorities1()">
+</div>
+
+<div [hidden]="authorities1()">
   <div class="container-fluid mt--7">
     <div class="row">
-      <div class="col-xl-10 order-xl-1">
+      <div class="col-xl-6 order-xl-1">
         <div class="card shadow">
           <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter un
             utilisateur</button>
           <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
             formulaire</button>
-  
+
           <!-- test recherche-->
-          <div class="col-xl-10 order-xl-1">
-          <div class="card-header border-0">
-            <button class="btn btn-secondary btn-round " *ngIf="elemRech == false" (click)="showRech()">Rechercher un
-              utilisateur</button>
-            <button class="btn btn-secondary btn-round " *ngIf="elemRech == true" (click)="hideRech()">Cacher la
-              recherche</button>
-            <div *ngIf="elemRech == true">
-  
-              <form (ngSubmit)="onSubmit()">
-  
-  
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group row">
-                      <label class="form-control-label">Nom</label>
-  
-                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="nom" name="nom" />
-                      <button type="submit" class="btn btn-secondary btn-round ">Recherche</button>
+          <!--<div class="col-xl-10 order-xl-1">
+            <div class="card-header border-0">
+              <div class="d-flex justify-content-center">-->
+                <button class="btn btn-secondary btn-round " *ngIf="elemRech == false" (click)="showRech()">Rechercher un utilisateur</button>
+                <button class="btn btn-secondary btn-round " *ngIf="elemRech == true" (click)="hideRech()">Cacher la
+                  recherche</button>
+                <div *ngIf="elemRech == true">
+                  <form (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group row">
+                          <label class="form-control-label">Nom</label>
+                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="nom"
+                            name="nom" />
+                          <button type="submit" class="btn btn-secondary btn-round ">Recherche</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-  
+                  </form>
                 </div>
-              </form>
+              <!--</div>
             </div>
-          </div>
-          </div>
+          </div>-->
           <!-- fin test recherche-->
-  
-  
-  
-  
+
           <!--bouton d'ajout des differents utilisateurs / formulaires-->
           <div *ngIf="element == true">
-  
-  
             <div class="row">
               <div class="col-lg-4">
-                <button class="btn btn-secondary btn-round " *ngIf="elemChauff== false" (click)="showChauff()">Ajouter un
+                <button class="btn btn-secondary btn-round " *ngIf="elemChauff== false" (click)="showChauff()">Ajouter
+                  un
                   Chauffeur</button>
                 <button class="btn btn-secondary btn-round " *ngIf="elemChauff == true" (click)="hideChauff()">Cacher le
                   formulaire chauffeur</button>
@@ -69,7 +62,7 @@
                   formulaire client</button>
               </div>
             </div>
-  
+
             <!--Formulaire Client-->
             <div *ngIf="elemCli == true">
               <div class="card bg-secondary shadow">
@@ -98,7 +91,7 @@
                         </div>
                       </div>
                     </div>
-  
+
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
@@ -124,7 +117,7 @@
                         </div>
                       </div>
                     </div>
-  
+
                     <div class="row">
                       <div class="col-md-6 pr-1">
                         <button class="btn btn-secondary btn-round ">Ajouter</button>
@@ -135,8 +128,7 @@
               </div>
             </div>
             <!--Fin du Formulaire Client-->
-  
-  
+
             <!--Formulaire Chauffeur-->
             <div *ngIf="elemChauff == true">
               <div class="card bg-secondary shadow">
@@ -160,12 +152,12 @@
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label">Prénom</label>
-                          <input type="text" class="form-control form-control-alternative" [(ngModel)]="chauffeur.prenom"
-                            name="prenom" />
+                          <input type="text" class="form-control form-control-alternative"
+                            [(ngModel)]="chauffeur.prenom" name="prenom" />
                         </div>
                       </div>
                     </div>
-  
+
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
@@ -191,7 +183,7 @@
                         </div>
                       </div>
                     </div>
-  
+
                     <div class="row">
                       <div class="col-md-6 pr-1">
                         <button class="btn btn-secondary btn-round ">Ajouter</button>
@@ -202,7 +194,7 @@
               </div>
             </div>
             <!--Fin du Formulaire Chauffeur-->
-  
+
             <!--Formulaire Responsable-->
             <div *ngIf="elemResp == true">
               <div class="card bg-secondary shadow">
@@ -231,7 +223,7 @@
                         </div>
                       </div>
                     </div>
-  
+
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
@@ -258,18 +250,13 @@
               </div>
             </div>
             <!--Fin du Formulaire Responsable-->
-  
-  
           </div>
-  
         </div>
-  
+
+        <!--Liste des utilisateurs-->
         <div class="card-header border-0">
-  
           <h3 class="mb-0">Liste des utilisateurs</h3>
         </div>
-  
-  
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
@@ -277,7 +264,6 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Prénom</th>
                 <th scope="col">Nom d'utilisateur</th>
-                <th scope="col">Type</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -286,35 +272,102 @@
                 <td>{{u.nom}}</td>
                 <td>{{u.prenom}}</td>
                 <td>{{u.username}}</td>
-                <!--    <td>{{u.email}}</td>
-                <td>{{u.numPermis}}</td>-->
                 <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
                     (click)="deleteUtilisateur(u.idUtilisateur)">Supprimer </button>
                   <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
                     (click)="editUtilisateur(u)">Modifier</button>
-                  <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" (click)="testMethode(u)">Test
-                    de bouton</button>
+                  <!--<button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                    (click)="testMethode(u)">Test
+                    de bouton</button>-->
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-  
+
+      <!-- Formulaire ajout agence-->
+      <div class="col-xl-6 order-xl-1">
+        <div class="card shadow">
+          <button class="btn btn-secondary btn-round " *ngIf="elemAgence == false" (click)="showAgence()">Ajouter un
+            agence</button>
+          <button class="btn btn-secondary btn-round " *ngIf="elemAgence == true" (click)="hideAgence()">Cacher le
+            formulaire</button>
+        </div>
+        <div *ngIf="elemAgence == true">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Ajouter une agence</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card-body" id="testid">
+              <form (ngSubmit)="saveAgence()">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Nom</label>
+                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="agence.nomAgence"
+                        name="nomAgence" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label">Adresse</label>
+                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="agence.adresseAgence"
+                        name="adresseAgence" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 pr-1">
+                    <button class="btn btn-secondary btn-round ">Ajouter</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--Fin du Formulaire Client-->
+
+        <!--Liste des agences-->
+        <div class="card-header border-0">
+          <h3 class="mb-0">Liste des agences</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of agences">
+                <td>{{a.nomAgence}}</td>
+                <td>{{a.adresseAgence}}</td>
+                <td><button class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                    (click)="deleteAgence(a.idAgence)">Supprimer</button>
+                  <button class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral"
+                    (click)="editAgence(a)">Modifier</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-
-
-
-
-</div>
-
-    <h1>Bonjour cher admin, ceci est la page admin-gestion-comptes</h1>
+  </div>
+  <h1>Bonjour cher admin, ceci est la page admin-gestion-comptes</h1>
 </div>
 <div [hidden]="authenticated()">
-    <h1>Connectez-vous en tant que admin pour accéder à cette page</h1>
+  <h1>Connectez-vous en tant que admin pour accéder à cette page</h1>
 </div>
 <div [hidden]="!authenticated()">
-    <div [hidden]="!authorities1()">
+  <div [hidden]="!authorities1()">
     <h1>Vous êtes connecté, mais seuls les admins ont accès à cette page</h1>
-    </div>
+  </div>

@@ -1,14 +1,38 @@
-<div>
-    <h1>Modifier une agence</h1>
-        <form [formGroup]="editForm">
-            <table>
-                <tr>
-                    <td>Nom</td>
-                    <td><input type="text" [(ngModel)]="agence.nomAgence" formControlName="nomAgence"/></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button (click)="updateAgence()">Modifier</button></td>
-                </tr>
-            </table>
-        </form>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+   <div class="row">
+       <div class="col-md-8">
+       <div class="card">
+               <div class="card-header">
+                   <h5 class="title">Modifier une agence</h5>
+               </div>
+               <div class="card-body">
+               <!-- ReactiveFormsModule : formGroup + formControlName-->
+                    <form [formGroup]="editForm">
+                    <div class="row">
+                        <!--tempsCourse!:number & prixReel!:number-->
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Nom de l'agence</label>
+                                <input type="text" class="form-control" [(ngModel)]="agence.nomAgence" formControlName="nomAgence">
+                            </div>
+                        </div>
+                        <div class="col-md-6 pr-1">
+                            <div class="form-group">
+                                <label>Adresse de l'agence</label>
+                                <input type="text" class="form-control" [(ngModel)]="agence.adresseAgence" formControlName="adresseAgence">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 pl-1">
+                            <button class="btn btn-danger btn-round" (click)="updateAgence()">Modifier</button>
+                        </div>
+                    </div>
+                    </form>
+               </div>
+           </div>
+       </div>
+   </div>
 </div>
