@@ -1,10 +1,9 @@
-
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
 <div [hidden]="authorities4()">
     <!--mettre contenu à accèse limité ici-->
-    <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-        <div class="container-fluid">
-        </div>
-    </div>
     
 <div class="container-fluid mt--7">
     <div class="row">
@@ -133,19 +132,12 @@
     <h1>Bonjour cher client, ceci est la page client-reservation</h1>
     <!--mefin accès limité-->
 </div>
+</div>
 <div [hidden]="authenticated()">
-    <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-        <div class="container-fluid">
-        </div>
-    </div>
     <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
 </div>
 <div [hidden]="!authenticated()">
     <div [hidden]="!authorities4()">
-        <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-            <div class="container-fluid">
-            </div>
-        </div>
         <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
     </div>
 </div>
