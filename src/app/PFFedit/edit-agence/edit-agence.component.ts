@@ -18,12 +18,13 @@ export class EditAgenceComponent implements OnInit {
     let currentAgence = localStorage.getItem("editAgenceId");
     if(!currentAgence){ 
       alert("Invalid Action...");
-      this.router.navigate(["/agence"]);
+      this.router.navigate(["/adminGestionComptes"]);
       return;
     }
     this.editForm = this.formBuilder.group({
       idAgence:[],
-      nomAgence:['',Validators.required]
+      nomAgence:['',Validators.required],
+      adresseAgence:['',Validators.required]
     })
     this.agenceService.findOne(+currentAgence).subscribe(data =>{this.editForm.patchValue(data); console.log("data"+data);});
   }
@@ -32,7 +33,7 @@ export class EditAgenceComponent implements OnInit {
     var agenceString = JSON.stringify(this.editForm.value);
     this.agenceService.update(agenceString).subscribe(
       () =>{
-        this.router.navigate(["/agence"]);
+        this.router.navigate(["/adminGestionComptes"]);
       }
     )
   }

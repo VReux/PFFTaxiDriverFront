@@ -100,9 +100,13 @@ hideToValider() {
  }
 
   saveFacture() {
-  this.factureService.save(this.facture).subscribe(
+    this.facture.tva = 20;
+    this.facture.prixReelTTC = 55;
+    //this.facture.prixReelHT = this.course.prixReel;
+    this.factureService.save(this.facture).subscribe(
     () => {
       this.findAllFactures();
+      //this.facture.prixReelTTC = Math.round(this.facture.prixReelHT*(this.facture.prixReelHT + this.facture.tva/100));
       this.facture = new Facture();
       this.router.navigate(["/chauffValCourses"]);
     }
