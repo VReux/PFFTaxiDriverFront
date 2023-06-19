@@ -3,9 +3,58 @@
 <div class="container-fluid mt--7">
     <div class="row">
         <div class="col-xl-6 order-xl-1">
-            <div class="card shadow border-0">
-                <div id="map-canvas" class="map-canvas" data-lat="48.866667" data-lng="2.333333"
-                    style="height: 600px;"></div>
+            <div class="card shadow">
+                <div class="card-header">
+                    <h3>Nos agences</h3>
+                </div>          
+                <div class="card shadow border-0">
+                    <div id="map-canvas" class="map-canvas" data-lat="48.866667" data-lng="2.333333"
+                        style="height: 600px;"></div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Adresse</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let a of agences">
+                                <td>{{a.nomAgence}}</td>
+                                <td>{{a.adresseAgence}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>     
+
+            </div>
+        </div>
+        <div class="col-xl-6 order-xl-1">
+            <div class="card shadow">
+                <div class="card-header">
+                    <h3>Nos chauffeurs</h3>
+                </div>    
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Prénom</th>
+                                <th scope="col">Nom d'utilisateur</th>
+                                <th scope="col">Numero de Permis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let c of chauffeurs">
+                                <td>{{c.nom}}</td>
+                                <td>{{c.prenom}}</td>
+                                <td>{{c.username}}</td>
+                                <td>{{c.numPermis}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>     
             </div>
         </div>
     </div>

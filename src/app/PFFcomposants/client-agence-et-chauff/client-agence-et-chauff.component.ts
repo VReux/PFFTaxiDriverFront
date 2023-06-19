@@ -4,6 +4,8 @@ import { Agence } from 'src/app/PFFmodel/agence';
 import { AgenceService } from 'src/app/PFFservices/agence-service.service';
 import { AppService } from 'src/app/PFFservices/app.service';
 import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
+import { ChauffeurService } from 'src/app/PFFservices/chauffeur-service.service';
+import { Chauffeur } from 'src/app/PFFmodel/chauffeur';
 
 declare const google: any;
 
@@ -16,24 +18,29 @@ export class ClientAgenceEtChauffComponent implements OnInit {
 
   agences!:any[]; 
   agence:Agence=new Agence();
+  chauffeurs!:any[]; 
+  chauffeur:Chauffeur=new Chauffeur();
 
-  constructor(private appService:AppService, private router:Router, private agenceService:AgenceService) { }
+  constructor(private appService:AppService, private router:Router, private agenceService:AgenceService, private chauffeurService:ChauffeurService) { }
 
   ngOnInit(): void {
     this.findAllAgences();
+    this.findAllChauffeurs();
 
-    var addresses = [
-      "paris"
-      // Ajoutez d'autres adresses ici
-    ];
-    
+    this.agenceService.findAll().subscribe(data => {
+      this.agences = data;
+      this.displayMarkers();
+    });
+  }
+
+  displayMarkers() {
     var mapElement = document.getElementById('map-canvas');
     var lat = parseFloat(mapElement.getAttribute('data-lat'));
     var lng = parseFloat(mapElement.getAttribute('data-lng'));
-    
+  
     var myLatlng = new google.maps.LatLng(lat, lng);
     var mapOptions = {
-      zoom: 12,
+      zoom: 10,
       scrollwheel: false,
       center: myLatlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -41,11 +48,13 @@ export class ClientAgenceEtChauffComponent implements OnInit {
         // Styles de la carte
       ]
     };
-    
+  
     var map = new google.maps.Map(mapElement, mapOptions);
-    
+  
     // Boucle sur les adresses
-    addresses.forEach(function(address) {
+    this.agences.forEach((agence: Agence) => {
+      var address = agence.adresseAgence;
+      var nom = agence.nomAgence;
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({ address: address }, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
@@ -53,58 +62,21 @@ export class ClientAgenceEtChauffComponent implements OnInit {
           var marker = new google.maps.Marker({
             position: location,
             map: map,
-            title: address
+            title: nom
           });
         } else {
           console.log('Geocode was not successful for the following reason: ' + status);
         }
       });
     });
-    
-    /*let map = document.getElementById('map-canvas');
-    let lat = map.getAttribute('data-lat');
-    let lng = map.getAttribute('data-lng');
-
-    var myLatlng = new google.maps.LatLng(lat, lng);
-    var mapOptions = {
-        zoom: 12,
-        scrollwheel: false,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        styles: [
-          {"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},
-          {"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},
-          {"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},
-          {"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},
-          {"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},
-          {"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
-          {"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},
-          {"featureType":"water","elementType":"all","stylers":[{"color":'#5e72e4'},{"visibility":"on"}]}]
-    }
-
-    map = new google.maps.Map(map, mapOptions);
-
-    var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        title: 'Hello World!'
-    });
-
-    var contentString = '<div class="info-window-content"><h2>Argon Dashboard</h2>' +
-        '<p>A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</p></div>';
-
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.open(map, marker);
-    });*/
   }
 
   findAllAgences(){  
     this.agenceService.findAll().subscribe(data => {this.agences = data});
+  }
+
+  findAllChauffeurs(){  
+    this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
   }
 
   authenticated(){
@@ -117,4 +89,5 @@ export class ClientAgenceEtChauffComponent implements OnInit {
     } else return true;
   }
 }
+
 

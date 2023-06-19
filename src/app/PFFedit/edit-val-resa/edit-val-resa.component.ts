@@ -71,33 +71,18 @@ export class EditValResaComponent implements OnInit {
   }
 
   saveCourse(){
-
     this.courseService.save(this.course).subscribe(
       () => {
+        this.findAllCourses();
+        this.course = new Course();
         this.router.navigate(["/validationReservation"]);
       }
     )
-
-
-
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  EditValidationReservation(){
+  /*EditValidationReservation(){
     
-  }
+  }*/
   /*authenticated(){
     return this.appService.authenticated;
   }

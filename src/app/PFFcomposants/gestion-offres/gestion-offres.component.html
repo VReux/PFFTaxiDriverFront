@@ -4,103 +4,107 @@
 </div>
 
 <div [hidden]="authorities2()">
-  <div class="container-fluid">
-    <div class="header-body">
-      <!-- Card stats -->
-      <div class="row">
+  <div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col-xl-11 order-xl-1">
+        <div class="card shadow">
+          <div class="card-header">
+            <h3>Les offres</h3>
+          </div>
+          <div class="header-body">
+            <!-- Card stats -->
+            <div class="row">
+              <div class="col-xl-4 col-lg-8" *ngFor="let o of offres">
+                <div class="card card-stats mb-4 mb-xl-0">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-xl-9">
+                        <div class="text-center">
+                          <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
+                          <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
+                          <br>
+                          <span class="h2 font-weight-bold mb-0">{{o.remiseOffre}}%</span>
+                        </div>
+                      </div>
 
+                      <div class="col-xl-2">
+                        <button class="icon icon-shape bg-danger text-white rounded-circle shadowl"
+                          (click)="editOffre(o)">
+                          <i class="ni ni-settings-gear-65"></i>
+                        </button>
+                        <button class="icon icon-shape bg-danger text-white rounded-circle shadowl"
+                          (click)="deleteOffre(o.idOffre)">
+                          <i class="ni ni-fat-remove"></i>
+                        </button>
+                      </div>
 
-        <div class="col-xl-4 col-lg-8" *ngFor="let o of offres">
-          <div class="card card-stats mb-4 mb-xl-0">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-xl-9">
-                  <div class="text-center">
-                    <h5 class="card-title text-uppercase text-muted mb-0">{{o.codePromo}}</h5>
-                    <span class="h2 font-weight-bold mb-0">{{o.descriptionOffre}}</span>
-                    <br>
-                    <span class="h2 font-weight-bold mb-0">{{o.remiseOffre}}%</span>
+                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <br>
+            <div class="col-xl-8 col-lg-12">
+              <div class="card">
 
-                <div class="col-xl-2">
-                  <button class="icon icon-shape bg-danger text-white rounded-circle shadowl" (click)="editOffre(o)">
-                    <i class="ni ni-settings-gear-65"></i>
-                  </button>
-                  <button class="icon icon-shape bg-danger text-white rounded-circle shadowl"
-                    (click)="deleteOffre(o.idOffre)">
-                    <i class="ni ni-fat-remove"></i>
-                  </button>
-                </div>
+                <form (ngSubmit)="saveOffre()">
 
+                  <div class="card-header">
+                    <h5 class="title">Enregistrer une nouvelle offre</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-3 pr-1">
+                      </div>
+                      <div class="col-md-8 pr-1">
+                        <div class="row">
+                          <div class="form-group">
+                            <div class="form-group">
+                              <label class="form-control-label">Code Promo</label>
+                              <input type="text" class="form-control form-control-alternative"
+                                [(ngModel)]="offre.codePromo" name="codePromo" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group">
+                            <label class="form-control-label">Description</label>
+                            <input type="text" class="form-control form-control-alternative"
+                              [(ngModel)]="offre.descriptionOffre" name="codePromo" />
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group">
+                            <label class="form-control-label">Remise (en %)</label>
+                            <input type="text" class="form-control form-control-alternative"
+                              [(ngModel)]="offre.remiseOffre" name="codePromo" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 pl-1">
+                        <button class="btn btn-secondary btn-round ">Ajouter</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
-      <br>
-
-      <div class="col-xl-8 col-lg-12">
-        <div class="card">
-
-          <form (ngSubmit)="saveOffre()">
-
-            <div class="card-header">
-              <h5 class="title">Enregistrer une nouvelle offre</h5>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-3 pr-1">
-                </div>
-                <div class="col-md-8 pr-1">
-                  <div class="row">
-                    <div class="form-group">
-                      <div class="form-group">
-                        <label class="form-control-label">Code Promo</label>
-                        <input type="text" class="form-control form-control-alternative" [(ngModel)]="offre.codePromo"
-                          name="codePromo" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="form-group">
-                      <label class="form-control-label">Description</label>
-                      <input type="text" class="form-control form-control-alternative"
-                        [(ngModel)]="offre.descriptionOffre" name="codePromo" />
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="form-group">
-                      <label class="form-control-label">Remise (en %)</label>
-                      <input type="text" class="form-control form-control-alternative" [(ngModel)]="offre.remiseOffre"
-                        name="codePromo" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 pl-1">
-                  <button class="btn btn-secondary btn-round ">Ajouter</button>
-                </div>
-              </div>
-            </div>
-          </form>
-
-        </div>
-      </div>
     </div>
   </div>
- 
+</div>
+
+<div [hidden]="authenticated()">
+  <h1>Connectez-vous en tant que responsable d'agence pour accéder à cette page</h1>
+</div>
+<div [hidden]="!authenticated()">
+  <div [hidden]="!authorities2()">
+    <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
   </div>
-  <div [hidden]="authenticated()">
-    <h1>Connectez-vous en tant que responsable d'agence pour accéder à cette page</h1>
-  </div>
-  <div [hidden]="!authenticated()">
-    <div [hidden]="!authorities2()">
-      <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
-    </div>
-  </div>
+</div>
