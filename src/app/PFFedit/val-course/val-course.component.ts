@@ -18,6 +18,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class ValCourseComponent implements OnInit {
 
   editForm!:FormGroup;
+  courses!:any[];
   course:Course=new Course();
   factures!:any[];
   facture:Facture = new Facture();
@@ -55,15 +56,31 @@ export class ValCourseComponent implements OnInit {
   findAllFactures(){
     this.factureService.findAll().subscribe(data => {this.factures = data});
   }
-  saveFacture() {
+  /*saveFacture() {
     this.factureService.save(this.facture).subscribe(
       () => {
         this.findAllFactures();
         this.facture = new Facture();
         this.router.navigate(["/chauffValCourses"]);
+        /*this.facture.tva == 0.2;
+        this.facture.prixReelHT == this.course.prixReel;
+        this.facture.prixReelTTC == Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva));
       }
     )
+  }*/
+
+  saveFacture() {
+    this.factureService.save(this.facture).subscribe(
+  () => {
+    this.findAllFactures();
+    this.facture = new Facture();
+    this.router.navigate(["/chauffValCourses"]);
+    this.facture.tva = 20;
+    this.facture.prixReelHT == this.course.prixReel;
+    this.facture.prixReelTTC == Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva/100));
+  })
   }
+
   generatePDF(facture: Facture) {
     const documentDefinition = {
       header: {

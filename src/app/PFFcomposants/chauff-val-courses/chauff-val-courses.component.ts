@@ -90,7 +90,7 @@ hideToValider() {
     localStorage.removeItem("valCourseId");
     localStorage.setItem("valCourseId",course.idCourse.toString());
     this.router.navigate(['/valCourse',course.idCourse]);
-    this.course.validation==true;
+    // this.course.validation==true;
   }
 
   editValCourse(course:Course){
@@ -98,14 +98,17 @@ hideToValider() {
    localStorage.setItem("editValCourseId",course.idCourse.toString());
    this.router.navigate(['/editValCourse',course.idCourse]);
  }
- saveFacture() {
+
+  saveFacture() {
   this.factureService.save(this.facture).subscribe(
     () => {
       this.findAllFactures();
       this.facture = new Facture();
+      this.router.navigate(["/chauffValCourses"]);
     }
   )
 }
+
 authenticated(){
   return this.appService.authenticated;
 }
