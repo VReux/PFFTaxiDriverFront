@@ -7,11 +7,12 @@
     <div class="row">
         <div class="col-xl-12 order-xl-1">
             <div class="card shadow">
-                <button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter une reclamation</button>
+                <!--<button class="btn btn-secondary btn-round " *ngIf="element == false" (click)="showData()">Ajouter une
+                    reclamation</button>
                 <button class="btn btn-secondary btn-round " *ngIf="element == true" (click)="hideData()">Cacher le
-                    formulaire</button>
+                    formulaire</button>-->
 
-                <div *ngIf="element == true">
+                <div>
                     <div class="card bg-secondary shadow">
                         <div class="card-header bg-white border-0">
                             <div class="row align-items-center">
@@ -21,16 +22,30 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form (ngSubmit)="saveReclamation()"> 
+                            <form (ngSubmit)="saveReclamation()">
                                 <div class="row">
                                     <div class="col-md-6 pr-1">
                                         <div class="form-group">
                                             <label>Texte</label>
-                                            <input type="text" class="form-control" [(ngModel)]="reclamation.texte" name="texte">
+                                            <input type="text" class="form-control" [(ngModel)]="reclamation.texte"
+                                                name="texte">
                                         </div>
                                     </div>
-                                    <div class="col-md-6 pl-1" style="padding-top: 32px;">
-                                        <button class="btn btn-danger btn-round">Ajouter</button>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label">Client</label>
+                                            <div>
+                                                <select name="client" class="form-control"
+                                                    [(ngModel)]="reclamation.client">
+                                                    <option *ngFor="let c of clients" [ngValue]="c">
+                                                        {{c.email}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 pl-1" style="padding-top: 32px;">
+                                            <button class="btn btn-danger btn-round">Ajouter</button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -38,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
@@ -47,9 +62,9 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                <thead class=" text-primary">
+                                    <thead class=" text-primary">
                                         <th>
-                                           Texte
+                                            Texte
                                         </th>
                                         <th>
                                             Action
@@ -59,8 +74,10 @@
                                         <tr *ngFor="let r of reclamations">
                                             <td>{{r.texte}}</td>
                                             <td>
-                                                <button (click)="deleteReclamation(r.idReclamation)" class="btn btn-danger btn-round">Delete</button>
-                                                <button (click)="editReclamation(r)" class="btn btn-secondary btn-round">Editer</button>
+                                                <button (click)="deleteReclamation(r.idReclamation)"
+                                                    class="btn btn-danger btn-round">Delete</button>
+                                                <button (click)="editReclamation(r)"
+                                                    class="btn btn-secondary btn-round">Editer</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -69,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
