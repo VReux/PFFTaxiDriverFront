@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Chauffeur } from 'src/app/PFFmodel/chauffeur';
+import { Course } from 'src/app/PFFmodel/course';
 import { Reservation } from 'src/app/PFFmodel/reservation';
 import { AppService } from 'src/app/PFFservices/app.service';
+import { ChauffeurService } from 'src/app/PFFservices/chauffeur-service.service';
+import { CourseService } from 'src/app/PFFservices/course-service.service';
 import { ReservationService } from 'src/app/PFFservices/reservation-service.service';
 
 @Component({
@@ -11,28 +15,29 @@ import { ReservationService } from 'src/app/PFFservices/reservation-service.serv
 })
 export class ChauffCoursesComponent implements OnInit {
 
-  reservations!:any[]; 
-  reservation:Reservation=new Reservation();
+  courses!:any[]; 
+  course:Course=new Course();
   heureDepart!:Date;
   elemRech = false;
-
-  constructor(private reservationService:ReservationService,private router:Router, private appService:AppService) { }
+  //chauffeur:Chauffeur=new Chauffeur();
+  chauffeurs!:any[];
+  
+  constructor(private courseService:CourseService, private router:Router, private appService:AppService, private chauffeurService:ChauffeurService) { }
 
   ngOnInit(): void {
-    this.findAllReservation();
-    //this.heureDepart=any;
-    this.findByHeureDepart();
+    this.findAllCourses();
+    this.findAllChauffeurs();
   }
-  findAllReservation(){
-    this.reservationService.findAll().subscribe(data =>{this.reservations = data});
+  findAllCourses(){
+    this.courseService.findAll().subscribe(data =>{this.courses = data});
   }
 
-  findByHeureDepart(){
-    this.reservationService.findByHeureDepart(this.heureDepart).subscribe(data=>{this.reservations = data});
+  findAllChauffeurs(){
+    this.chauffeurService.findAll().subscribe(data =>{this.chauffeurs = data});
   }
 
   onSubmit(){
-    this.findByHeureDepart();
+
   }
  
   showRech() {
@@ -42,28 +47,28 @@ export class ChauffCoursesComponent implements OnInit {
     return (this.elemRech = false);
   }
 
-  saveReservation(){
-    this.reservationService.save(this.reservation).subscribe(
+  saveCourse(){
+    this.courseService.save(this.course).subscribe(
       () => {
           
-         this.findAllReservation();
+         this.findAllCourses();
          
-         this.reservation = new Reservation();
+         this.course = new Course();
      
       }
     )}
-    deleteReservation(id:number){
-      this.reservationService.delete(id).subscribe(
+    deleteCourse(id:number){
+      this.courseService.delete(id).subscribe(
         () => {
-          this.findAllReservation();
+          this.findAllCourses();
         }
       )
     }
-    editReservation(reservation:Reservation){
+    /*editCourse(course:Course){
       localStorage.removeItem("editReservationId");
       localStorage.setItem("editReservationId",reservation.idReservation.toString());
       this.router.navigate(['/editReservation',reservation.idReservation]);
-    }
+    }*/
     authenticated(){
       return this.appService.authenticated;
     }
