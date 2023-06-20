@@ -13,6 +13,7 @@ import { ReservationService } from 'src/app/PFFservices/reservation-service.serv
 })
 export class ValidationResaComponent implements OnInit {
   reservations!:any[]; 
+  reservation:Reservation=new Reservation();
 
 
   constructor(private reservationService:ReservationService,private router:Router, private appService:AppService) { }
@@ -35,8 +36,18 @@ export class ValidationResaComponent implements OnInit {
     )
   }
 
+//test
+saveReservation(eservation:Reservation){
+  this.reservationService.save(eservation).subscribe(
+    () => {
+      this.findAllReservation();
+    }
+  )}
+
+
   validerReservation(reservation:Reservation){
-   // reservation.validation=true; => ne fonctionne pas
+   reservation.validation=true;
+   this.saveReservation(reservation);
     localStorage.removeItem("valResaId");
     localStorage.setItem("valResaId",reservation.idReservation.toString());
     this.router.navigate(['/editValResa',reservation.idReservation]);
