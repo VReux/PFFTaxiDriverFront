@@ -66,6 +66,7 @@ export const ROUTES3: RouteInfo[] = [
 
 //path Client
 export const ROUTES4: RouteInfo[] = [
+  //{ path: '/reclamation', title: 'Reclamation',  icon:'ni ni-bell-55 text-orange', class: '' },
   { path: '/clientReservation', title: 'Reserver un taxi',  icon:'ni-send text-black', class: '' },
   { path: '/clientAgenceEtChauff', title: 'Les agences + chauffeurs',  icon:'ni-compass-04 text-black', class: '' },
   { path: '/clientOffres', title: 'Les offres',  icon:'ni-tag text-black', class: '' },
