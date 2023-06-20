@@ -4,48 +4,54 @@
 </div>
 
 <div [hidden]="authorities3()">
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title"> Liste des avis</h4>
-            </div>            
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table">
-                    <thead class=" text-primary">
-                            <th>
-                                Course n°
-                            </th>
-                            <th>
-                                Avis sur la course
-                            </th>
-                            <th>
-                                Note sur la course
-                            </th>
-                            <th>
-                                Note sur le chauffeur
-                            </th>
-                        </thead>
-                    <tbody>
-                        <tr *ngFor="let c of courses">
-                            <td>{{c.idCourse}}</td>
-                            <td>{{c.avisCourse}}</td>
-                            <td>{{c.noteCourse}}</td>
-                            <td>{{c.noteChauffeur}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-12 order-xl-1">
+                <div class="card shadow">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="card-header">
+                                <h3> Liste de mes avis</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Course n°
+                                            </th>
+                                            <th>
+                                                Avis sur la course
+                                            </th>
+                                            <th>
+                                                Note sur la course
+                                            </th>
+                                            <th>
+                                                Note sur le chauffeur
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let c of courses">
+                                                <td>{{c.idCourse}}</td>
+                                                <td>{{c.avisCourse}}</td>
+                                                <td>{{c.noteCourse}}</td>
+                                                <td>{{c.noteChauffeur}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
 <div [hidden]="authenticated()">
     <h1>Connectez-vous en tant que chauffeur pour accéder à cette page</h1>
 </div>
 <div [hidden]="!authenticated()">
     <div [hidden]="!authorities3()">
-    <h1>Vous êtes connecté, mais seuls les chauffeurs ont accès à cette page</h1>
+        <h1>Vous êtes connecté, mais seuls les chauffeurs ont accès à cette page</h1>
     </div>

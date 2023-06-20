@@ -1,11 +1,71 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+    </div>
+</div>
 
 <div [hidden]="authorities2()">
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-12 order-xl-1">
+                <div class="card shadow">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="card-header">
+                                <h3> Liste des factures</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Reference facture
+                                            </th>
+                                            <th>
+                                                Temps de la course
+                                            </th>
+                                            <th>
+                                                Prix HT
+                                            </th>
+                                            <th>
+                                                TVA
+                                            </th>
+                                            <th>
+                                                Prix TTC
+                                            </th>
+                                            <th>
+                                                Action
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let f of factures">
+                                                <td>{{f.idFacture}}</td>
+                                                <td>{{f.tempsCourse}}</td>
+                                                <td>{{f.prixReelHT}}</td>
+                                                <td>{{f.tva}}</td>
+                                                <td>{{f.prixReelTTC}}</td>
+                                                <td>
+                                                    <button class="btn btn-outline-danger"
+                                                        (click)="deleteFacture(f.idFacture)">Facture déjà
+                                                        réglée</button>
+                                                    <button class="btn btn-outline-primary"
+                                                        (click)="generatePDF(f)">PDF</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div [hidden]="authenticated()">
     <h1>Connectez-vous en tant que responsable d'agence pour accéder à cette page</h1>
 </div>
 <div [hidden]="!authenticated()">
     <div [hidden]="!authorities2()">
-    <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
+        <h1>Vous êtes connecté, mais seuls les responsables d'agence ont accès à cette page</h1>
     </div>

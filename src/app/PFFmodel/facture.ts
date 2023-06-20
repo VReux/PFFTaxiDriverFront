@@ -7,5 +7,6 @@ export class Facture {
     prixReelTTC!:number;
     tva!:number;
     date!:Date;
-    courses!:Course[];
+    course!:Course;
+    //courses!:Course[];
 }

@@ -35,9 +35,6 @@ export class ValidationResaComponent implements OnInit {
     )
   }
 
-
-
-
   validerReservation(reservation:Reservation){
    // reservation.validation=true; => ne fonctionne pas
     localStorage.removeItem("valResaId");

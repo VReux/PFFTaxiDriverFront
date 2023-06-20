@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AppService } from 'src/app/PFFservices/app.service';
 
-
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -22,28 +21,19 @@ export class FactureComponent implements OnInit {
   factures!: any[]
   facture: Facture = new Facture();
   date!: Date;
-
-   courses!:any[];
+  courses!: any[];
   course: Course = new Course();
-  constructor(private factureService: FactureService, private courseService:CourseService, private router:Router, private httpClient: HttpClient, private appService:AppService) {
 
-
+  constructor(private factureService: FactureService, private courseService: CourseService, private router: Router, private httpClient: HttpClient, private appService: AppService) {
   }
 
- ngOnInit(): void {
+  ngOnInit(): void {
     this.findAllFactures();
     this.findAllCourses();
-    // this.date = '';
-    // this.findByDateFacture();
   }
-  /*findByDateFacture() {
-  this.factureService.findByDateFacture(this.date).subscribe(data => {
-      this.factures = data;
-    })
-  }*/
 
   onSubmit() {
-    // this.findByDateFacture();
+
   }
   findAllFactures() {
     this.factureService.findAll().subscribe(data => { this.factures = data });
@@ -52,9 +42,6 @@ export class FactureComponent implements OnInit {
     this.courseService.findAll().subscribe(data => { this.courses = data });
   }
   saveFacture() {
-    this.facture.tva = 20;
-    this.facture.prixReelHT = this.course.prixReel;
-    this.facture.prixReelTTC = Math.round(this.facture.prixReelHT * (this.facture.prixReelHT + this.facture.tva/100));
     this.factureService.save(this.facture).subscribe(
       () => {
         this.findAllFactures();
@@ -70,11 +57,12 @@ export class FactureComponent implements OnInit {
       }
     )
   }
-  editReclamation(facture:Facture){
+  /*editReclamation(facture: Facture) {
     localStorage.removeItem("editFactureId");
-    localStorage.setItem("editFactureId",facture.idFacture.toString());
-    this.router.navigate(['/editFacture',facture.idFacture]);
-  }
+    localStorage.setItem("editFactureId", facture.idFacture.toString());
+    this.router.navigate(['/editFacture', facture.idFacture]);
+  }*/
+  
   generatePDF(facture: Facture) {
     const documentDefinition = {
       header: {
@@ -101,18 +89,12 @@ export class FactureComponent implements OnInit {
               margin: [0, 20, 0, 20],
             },
           ],
-        },{
+        }, {
           text: `N° de la course : ${this.course.idCourse}`,
           fontSize: 12,
           bold: true,
           margin: [0, 0, 0, 20],
         },
-        /*{
-          text: `Date et heure de la course : ${this.course.heureDepart}`,
-          fontSize: 12,
-          bold: true,
-          margin: [0, 0, 0, 20],
-        },*/
         {
           text: `Adresse de départ : ${this.course.depart}`,
           fontSize: 12,
@@ -144,7 +126,7 @@ export class FactureComponent implements OnInit {
           bold: true,
           margin: [0, 0, 0, 10]
         },
-        
+
       ],
       footer: {
         columns: [
@@ -166,13 +148,13 @@ export class FactureComponent implements OnInit {
     };
     pdfMake.createPdf(documentDefinition).open();
   }
-  authenticated(){
+  authenticated() {
     return this.appService.authenticated;
   }
 
-  authorities4(){
-    if(this.appService.isClient ==true||this.appService.isAdmin==true){
-      return false; 
+  authorities4() {
+    if (this.appService.isClient == true || this.appService.isAdmin == true) {
+      return false;
     } else return true;
   }
 }
