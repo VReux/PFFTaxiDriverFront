@@ -1,10 +1,74 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
-<div [hidden]="authorities4()">
-</div>
-<div [hidden]="authenticated()">
-    <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
-</div>
-<div [hidden]="!authenticated()">
-    <div [hidden]="!authorities4()">
-    <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
     </div>
+</div>
+
+<div [hidden]="authorities4()">
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-12 order-xl-1">
+                <div class="card shadow">
+                    <!-- recherche-->
+                    <div class="col-xl-12 order-xl-1">
+                        <div class="card-header border-0">
+                            <div class="card-header">
+                                <h3>Historique de mes courses</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Adresse de départ
+                                            </th>
+                                            <th>
+                                                Adresse d'arrivée
+                                            </th>
+                                            <th>
+                                                Avis sur la course
+                                            </th>
+                                            <th>
+                                                Note sur la course (/10)
+                                            </th>
+                                            <th>
+                                                Note sur le chauffeur (/10)
+                                            </th>
+                                            <th>
+                                                Action
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let c of courses">
+                                                <td>{{c.depart}}</td>
+                                                <td>{{c.arrivee}}</td>
+                                                <td>{{c.avisCourse}}</td>
+                                                <td>{{c.noteCourse}}</td>
+                                                <td>{{c.noteChauffeur}}</td>
+                                                <td>
+                                                    <button (click)="deleteCourse(c.idCourse)"
+                                                        class="btn btn-secondary btn-round">Ne pas commenter la course</button>
+                                                    <button (click)="editCourse(c)"
+                                                        class="btn btn-danger btn-round">Donner mon avis</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+                <div [hidden]="authenticated()">
+                    <h1>Connectez-vous en tant que client pour accéder à cette page</h1>
+                </div>
+                <div [hidden]="!authenticated()">
+                    <div [hidden]="!authorities4()">
+                        <h1>Vous êtes connecté, mais seuls les clients ont accès à cette page</h1>
+                    </div>

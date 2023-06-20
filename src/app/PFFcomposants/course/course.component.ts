@@ -22,7 +22,7 @@ export class CourseComponent implements OnInit {
  constructor(private courseService:CourseService, private router:Router, private httpClient: HttpClient){ }
 
  ngOnInit(): void {
- this.findAllCourses();
+  this.findAllCourses();
  }
 
 showData() {
