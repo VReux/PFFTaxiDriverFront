@@ -43,6 +43,8 @@ export class EditValResaComponent implements OnInit {
 	    tempsCourse:['',Validators.required],
       distancekm:['',Validators.required],
       chauffeur:['',Validators.required],
+      prixEstime:[],
+
     })
 
     this.reservationService.findOne(+currentReservation).subscribe(data =>{this.editForm.patchValue(data)});
